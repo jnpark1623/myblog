@@ -4,7 +4,7 @@ const siteMetadata = {
   headerTitle: 'jn2 devlog',
   description: '크롬 북마크를 날린 뒤로 억울해서 만든 개인 블로그입니다. 더 멋진 내일을 위해 ᕕ( ᐛ )ᕗ',
   language: 'ko-kr',
-  theme: 'system', // system, dark or light
+  theme: 'dark', // system, dark or light
   siteUrl: 'https://mnpark.info',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
   siteLogo: '/static/images/sun.png',

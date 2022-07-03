@@ -2,7 +2,7 @@
 name: 박재남 (92.12)
 avatar: /static/images/avatar.jpg
 occupation: S/W Engineer
-company: Penta Security inc.
+company: 굿닥
 email: jn2@mnpark.info
 linkedin: https://www.linkedin.com
 facebook: https://www.facebook.com/JaeNams
@@ -12,7 +12,8 @@ canonicalUrl: https://tailwind-nextjs-starter-blog.vercel.app/blog/new-features-
 안녕하세요, 박재남입니다.
 
 2012년 병역특례 산업 기능요원으로 3년간 디지털 사이니지, kiosk의 미디어 컨텐츠를 주로 개발했습니다.
-2015년부터 현재까지 보안 회사에서 데이터 암호화 플랫폼 관리 솔루션을 개발하고 있습니다.
+2015년부터 2022년까지 보안 회사에서 데이터 암호화 플랫폼 관리 솔루션을 개발했고, 최근 뜻이 맞는 헬스케어 서비스 회사에서 개발하게 되었습니다.
+
 CS개발을 주로 해왔으며, 현재는 웹개발과 인프라스트럭처에 관련한 일을 하고 있습니다.
 
 가능성과 미래에 기대기보다 이미 행동하는 사람이 되는 것을 추구하고,
@@ -24,7 +25,7 @@ CS개발을 주로 해왔으며, 현재는 웹개발과 인프라스트럭처에
 
 ## Skills
 
-- node.js, React, java, C#/WPF, C/C++, javascript
+- node.js, React, java, C#/WPF, C/C++, javascript, Nest, typescript
 - SQL, Docker, Jenkins, git/gerrit, gitlab
 
 ## Interest
@@ -34,7 +35,8 @@ CS개발을 주로 해왔으며, 현재는 웹개발과 인프라스트럭처에
 
 ## History
 
-- 2015/10 : Pentasecurity Systems 입사 (재직중)
+- 2022/06 : 굿닥 입사
+- 2015/10 : Pentasecurity Systems 입사 
 - 2012/10 : Media Solutions 병역특례 입대
 
 ## Awards

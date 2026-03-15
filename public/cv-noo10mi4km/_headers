@@ -1,0 +1,16 @@
+# HTTP headers for static hosting (Netlify and Cloudflare Pages both honour this file)
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-XSS-Protection: 1; mode=block
+
+/assets/*
+  Cache-Control: public, max-age=604800, immutable
+
+/resumes/*
+  Cache-Control: public, max-age=86400
+
+/tailored-resumes/*
+  Cache-Control: public, max-age=86400

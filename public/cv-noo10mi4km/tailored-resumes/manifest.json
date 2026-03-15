@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-03-14T15:51:39.457Z",
+  "drafts": [
+    {
+      "jobId": 399,
+      "slug": "2026-03-kakaopaysec-backend-review-draft",
+      "title": "카카오페이증권 — 금융 대외연계시스템 백엔드 개발자(시니어)",
+      "narrativeTitle": "금융 연계 시스템과 안정적 백엔드 실행력에 맞춘 버전",
+      "targetFocus": "금융 데이터 연계, 안정적 재전달, 백엔드 리더십, 대외 시스템 연결 복잡도",
+      "fileName": "kakaopaysec-backend-review-draft.html",
+      "relativePath": "tailored-resumes/kakaopaysec-backend-review-draft.html",
+      "canonicalUrl": "https://www.wanted.co.kr/wd/345859",
+      "companyName": "카카오페이증권(kakaopay증권)",
+      "jobTitle": "금융 대외연계시스템 백엔드 개발자(시니어)",
+      "sourceName": "Wanted Backend / Developer Search",
+      "applicationState": "resume_needed",
+      "postedAt": null,
+      "closingAt": null,
+      "totalScore": 44
+    },
+    {
+      "jobId": 65,
+      "slug": "2026-03-kakaobank-payment-strategy-review-draft",
+      "title": "카카오뱅크 — 사업 전략 및 카드상품 기획 담당자 - 지급결제",
+      "narrativeTitle": "지급결제·카드 전략과 제품 실행 소유권에 맞춘 버전",
+      "targetFocus": "지급결제/카드 기획, 제품 전략, 사업 임팩트, 금융 도메인 이해, cross-functional ownership",
+      "fileName": "kakaobank-payment-strategy-review-draft.html",
+      "relativePath": "tailored-resumes/kakaobank-payment-strategy-review-draft.html",
+      "canonicalUrl": "https://kakaobank.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=244834",
+      "companyName": "카카오뱅크",
+      "jobTitle": "사업 전략 및 카드상품 기획 담당자 - 지급결제",
+      "sourceName": "KakaoBank Official Careers",
+      "applicationState": "resume_needed",
+      "postedAt": "2026-02-19 00:00:00",
+      "closingAt": "2026-03-15 23:59:59",
+      "totalScore": 37
+    },
+    {
+      "jobId": 544,
+      "slug": "2026-03-wooribank-ai-service-planning-review-draft",
+      "title": "우리은행 — AI서비스기획 (AI데이터사업부) 전문직",
+      "narrativeTitle": "AI 서비스 기획과 금융 데이터 제품화에 맞춘 버전",
+      "targetFocus": "AI service planning, financial data products, product ownership, cross-functional execution",
+      "fileName": "wooribank-ai-service-planning-review-draft.html",
+      "relativePath": "tailored-resumes/wooribank-ai-service-planning-review-draft.html",
+      "canonicalUrl": "https://recruit.incruit.com/wooribank/job/2603040035",
+      "companyName": "우리은행",
+      "jobTitle": "우리은행 AI서비스기획 (AI데이터사업부) 전문직 채용공고",
+      "sourceName": "Woori Financial Group Careers",
+      "applicationState": "shortlisted",
+      "postedAt": "2026-03-04",
+      "closingAt": null,
+      "totalScore": 37
+    },
+    {
+      "jobId": 245,
+      "slug": "2026-03-toss-nodejs-backend-review-draft",
+      "title": "Toss — Node.js Developer",
+      "narrativeTitle": "금융 플랫폼 백엔드 실행력에 맞춘 버전",
+      "targetFocus": "backend/platform, financial systems reliability, Node.js-adjacent backend ownership, growth into product scope",
+      "fileName": "toss-nodejs-backend-review-draft.html",
+      "relativePath": "tailored-resumes/toss-nodejs-backend-review-draft.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=4421106003",
+      "companyName": "뱅크 · 플레이스 · 증권",
+      "jobTitle": "Node.js Developer",
+      "sourceName": "Toss Careers",
+      "applicationState": "shortlisted",
+      "postedAt": null,
+      "closingAt": null,
+      "totalScore": 46
+    }
+  ]
+}

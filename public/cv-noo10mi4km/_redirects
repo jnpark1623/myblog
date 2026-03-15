@@ -1,0 +1,8 @@
+# Redirects for static hosting (Netlify and Cloudflare Pages both honour this file)
+
+# Convenience shorthand — /resume and /r both go to the master base resume
+/resume   /resumes/master-base-resume.html   302
+/r        /resumes/master-base-resume.html   302
+
+# Fallback 404 — show the index so the viewer is still reachable
+/*        /index.html                         404

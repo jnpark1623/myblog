@@ -3,7 +3,7 @@ import { extractDocumentParts, readResumeFile, readResumeStyles } from '@/lib/re
 
 export async function getStaticProps() {
   const html = readResumeFile('index.html')
-  const { bodyHtml, title } = extractDocumentParts(html, 'Resume Index')
+  const { bodyHtml, title } = extractDocumentParts(html, 'Resume Index', 'index.html')
 
   return {
     props: {

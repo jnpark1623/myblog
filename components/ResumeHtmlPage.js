@@ -7,9 +7,10 @@ export default function ResumeHtmlPage({ bodyHtml, title, styles }) {
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="robots" content="noindex, nofollow, noarchive" />
+        <meta name="color-scheme" content="light" />
         <style dangerouslySetInnerHTML={{ __html: styles }} />
       </Head>
-      <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+      <div className="resume-viewer-root" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
     </>
   )
 }

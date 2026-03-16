@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const html = readResumeFile(`resumes/${params.slug}`)
-  const { bodyHtml, title } = extractDocumentParts(html, params.slug)
+  const { bodyHtml, title } = extractDocumentParts(html, params.slug, `resumes/${params.slug}`)
 
   return {
     props: {

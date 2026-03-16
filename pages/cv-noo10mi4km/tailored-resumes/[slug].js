@@ -19,7 +19,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const html = readResumeFile(`tailored-resumes/${params.slug}`)
-  const { bodyHtml, title } = extractDocumentParts(html, params.slug)
+  const { bodyHtml, title } = extractDocumentParts(
+    html,
+    params.slug,
+    `tailored-resumes/${params.slug}`
+  )
 
   return {
     props: {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-15T10:08:31.223Z",
+  "generatedAt": "2026-03-17T23:51:04.785Z",
   "documents": [
     {
       "slug": "master-base-resume",
@@ -12,44 +12,44 @@
       "deliveryHtmlPath": "outputs/delivery/html/master-base-resume.html"
     },
     {
-      "slug": "kakaopaysec-backend-integration-resume",
-      "title": "카카오페이증권 — 금융 대외연계시스템 백엔드 개발자(시니어)",
-      "narrativeTitle": "백엔드·대외연계 중심 버전",
-      "positioning": "카카오페이증권용: 금융 데이터 연계, 안정적 재전달, 대외 시스템 연결 신뢰성을 앞세운 백엔드 버전.",
-      "markdownPath": "outputs/delivery/kakaopaysec-backend-integration-resume.md",
-      "textPath": "outputs/delivery/kakaopaysec-backend-integration-resume.txt",
-      "htmlPath": "outputs/resumes/kakaopaysec-backend-integration-resume.html",
-      "deliveryHtmlPath": "outputs/delivery/html/kakaopaysec-backend-integration-resume.html"
-    },
-    {
-      "slug": "kakaobank-payment-card-strategy-resume",
-      "title": "카카오뱅크 — 사업 전략 및 카드상품 기획 담당자 - 지급결제",
-      "narrativeTitle": "지급결제·카드 전략 중심 버전",
-      "positioning": "카카오뱅크용: 금융 제품 전략·사업 임팩트·협업 실행력을 앞세운 지급결제/카드 전략 버전.",
-      "markdownPath": "outputs/delivery/kakaobank-payment-card-strategy-resume.md",
-      "textPath": "outputs/delivery/kakaobank-payment-card-strategy-resume.txt",
-      "htmlPath": "outputs/resumes/kakaobank-payment-card-strategy-resume.html",
-      "deliveryHtmlPath": "outputs/delivery/html/kakaobank-payment-card-strategy-resume.html"
-    },
-    {
-      "slug": "wooribank-ai-service-planning-resume",
-      "title": "우리은행 — AI서비스기획 (AI데이터사업부) 전문직",
-      "narrativeTitle": "AI 서비스 기획 중심 버전",
-      "positioning": "우리은행용: 금융 데이터 기반 AI 서비스 기획, 제품화, 협업 조직 실행 리딩을 강조한 버전.",
-      "markdownPath": "outputs/delivery/wooribank-ai-service-planning-resume.md",
-      "textPath": "outputs/delivery/wooribank-ai-service-planning-resume.txt",
-      "htmlPath": "outputs/resumes/wooribank-ai-service-planning-resume.html",
-      "deliveryHtmlPath": "outputs/delivery/html/wooribank-ai-service-planning-resume.html"
-    },
-    {
-      "slug": "toss-backend-platform-resume",
-      "title": "토스 — Node.js Developer",
-      "narrativeTitle": "금융 플랫폼 백엔드 중심 버전",
+      "slug": "job-245-draft-node-js-developer-resume",
+      "title": "뱅크 · 플레이스 · 증권 — Node.js Developer",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
       "positioning": "토스용: 대규모 금융 플랫폼 백엔드 운영 안정성과 제품 확장 실행력을 강조한 버전.",
-      "markdownPath": "outputs/delivery/toss-backend-platform-resume.md",
-      "textPath": "outputs/delivery/toss-backend-platform-resume.txt",
-      "htmlPath": "outputs/resumes/toss-backend-platform-resume.html",
-      "deliveryHtmlPath": "outputs/delivery/html/toss-backend-platform-resume.html"
+      "markdownPath": "outputs/delivery/job-245-draft-node-js-developer-resume.md",
+      "textPath": "outputs/delivery/job-245-draft-node-js-developer-resume.txt",
+      "htmlPath": "outputs/resumes/job-245-draft-node-js-developer-resume.html",
+      "deliveryHtmlPath": "outputs/delivery/html/job-245-draft-node-js-developer-resume.html"
+    },
+    {
+      "slug": "job-399-kakaopay-draft-resume",
+      "title": "카카오페이증권(kakaopay증권) — 금융 대외연계시스템 백엔드 개발자(시니어)",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
+      "positioning": "카카오페이증권용: 금융 데이터 연계, 안정적 재전달, 대외 시스템 연결 신뢰성을 앞세운 백엔드 버전.",
+      "markdownPath": "outputs/delivery/job-399-kakaopay-draft-resume.md",
+      "textPath": "outputs/delivery/job-399-kakaopay-draft-resume.txt",
+      "htmlPath": "outputs/resumes/job-399-kakaopay-draft-resume.html",
+      "deliveryHtmlPath": "outputs/delivery/html/job-399-kakaopay-draft-resume.html"
+    },
+    {
+      "slug": "job-65-kakaobank-payment-card-strategy-resume",
+      "title": "카카오뱅크 — 사업 전략 및 카드상품 기획 담당자 - 지급결제",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "positioning": "카카오뱅크용: 금융 제품 전략·사업 임팩트·협업 실행력을 앞세운 지급결제/카드 전략 버전.",
+      "markdownPath": "outputs/delivery/job-65-kakaobank-payment-card-strategy-resume.md",
+      "textPath": "outputs/delivery/job-65-kakaobank-payment-card-strategy-resume.txt",
+      "htmlPath": "outputs/resumes/job-65-kakaobank-payment-card-strategy-resume.html",
+      "deliveryHtmlPath": "outputs/delivery/html/job-65-kakaobank-payment-card-strategy-resume.html"
+    },
+    {
+      "slug": "job-544-wooribank-ai-service-planning-resume",
+      "title": "우리은행 — 우리은행 AI서비스기획 (AI데이터사업부) 전문직 채용공고",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "positioning": "우리은행용: 금융 데이터 기반 AI 서비스 기획, 제품화, 협업 조직 실행 리딩을 강조한 버전.",
+      "markdownPath": "outputs/delivery/job-544-wooribank-ai-service-planning-resume.md",
+      "textPath": "outputs/delivery/job-544-wooribank-ai-service-planning-resume.txt",
+      "htmlPath": "outputs/resumes/job-544-wooribank-ai-service-planning-resume.html",
+      "deliveryHtmlPath": "outputs/delivery/html/job-544-wooribank-ai-service-planning-resume.html"
     }
   ]
 }

@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="color-scheme" content="light only" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>우리은행 JD 매칭 노트 — AI서비스기획 (AI데이터사업부)</title>
+  <style>:root,
+.resume-viewer-root {
+  --bg: #eef3f8;
+  --paper: #ffffff;
+  --ink: #182437;
+  --muted: #5f6f86;
+  --line: #d6deea;
+  --accent: #1747d1;
+  --accent-soft: #edf3ff;
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+html,
+.resume-viewer-root {
+  font-size: 16px;
+}
+
+.resume-viewer-root,
+.resume-viewer-root * {
+  box-sizing: border-box;
+}
+
+body,
+.resume-viewer-root {
+  margin: 0;
+  color: var(--ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #f7f9fc 0%, var(--bg) 100%);
+}
+
+.resume-viewer-root {
+  min-height: 100vh;
+  color-scheme: light;
+  isolation: isolate;
+}
+
+.resume-viewer-root,
+.resume-viewer-root p,
+.resume-viewer-root li,
+.resume-viewer-root dt,
+.resume-viewer-root dd,
+.resume-viewer-root span,
+.resume-viewer-root strong,
+.resume-viewer-root em,
+.resume-viewer-root h1,
+.resume-viewer-root h2,
+.resume-viewer-root h3,
+.resume-viewer-root h4,
+.resume-viewer-root h5,
+.resume-viewer-root h6 {
+  color: inherit;
+}
+
+.resume-viewer-root a,
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.resume-viewer-root a:hover,
+a:hover {
+  text-decoration: underline;
+}
+
+.resume-viewer-root .wrapper,
+.wrapper {
+  width: min(1080px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+
+.resume-viewer-root .page,
+.page {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.resume-viewer-root .resume-header,
+.resume-header {
+  padding: 32px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 24px;
+}
+
+.resume-viewer-root .kicker,
+.kicker {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.resume-viewer-root .resume-header h1,
+.resume-header h1 {
+  margin: 14px 0 6px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.resume-viewer-root .resume-header h2,
+.resume-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.resume-viewer-root .resume-header p,
+.resume-header p {
+  margin: 14px 0 0;
+  line-height: 1.65;
+}
+
+.resume-viewer-root .contact-card,
+.resume-viewer-root .panel,
+.contact-card,
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfcff;
+  padding: 18px;
+}
+
+.resume-viewer-root .contact-list,
+.resume-viewer-root .meta-list,
+.resume-viewer-root .bullet-list,
+.contact-list,
+.meta-list,
+.bullet-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.resume-viewer-root .contact-list li,
+.resume-viewer-root .meta-list li,
+.resume-viewer-root .bullet-list li,
+.contact-list li,
+.meta-list li,
+.bullet-list li {
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+.resume-viewer-root .resume-body,
+.resume-body {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  gap: 0;
+}
+
+.resume-viewer-root .main-column,
+.resume-viewer-root .side-column,
+.main-column,
+.side-column {
+  padding: 28px 32px 36px;
+}
+
+.resume-viewer-root .side-column,
+.side-column {
+  border-left: 1px solid var(--line);
+  background: #fcfdff;
+}
+
+.resume-viewer-root .section,
+.section {
+  margin-bottom: 28px;
+}
+
+.resume-viewer-root .section:last-child,
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.resume-viewer-root .section h3,
+.section h3 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #31415d;
+}
+
+.resume-viewer-root .section p,
+.section p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.resume-viewer-root .job-block,
+.job-block {
+  margin-bottom: 22px;
+}
+
+.resume-viewer-root .job-block:last-child,
+.job-block:last-child {
+  margin-bottom: 0;
+}
+
+.resume-viewer-root .job-block h4,
+.job-block h4 {
+  margin: 0 0 6px;
+  font-size: 1.08rem;
+}
+
+.resume-viewer-root .job-block .role-line,
+.job-block .role-line {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+.resume-viewer-root .label,
+.label {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.resume-viewer-root .pill-row,
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resume-viewer-root .pill,
+.pill {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #f3f6fb;
+  color: #36455f;
+  font-size: 0.92rem;
+}
+
+.resume-viewer-root .index-wrap,
+.index-wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.resume-viewer-root .index-header,
+.index-header {
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.resume-viewer-root .index-header h1,
+.index-header h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+}
+
+.resume-viewer-root .index-grid,
+.index-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.resume-viewer-root .index-card,
+.index-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.resume-viewer-root .index-card h2,
+.index-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+}
+
+.resume-viewer-root .index-card p,
+.index-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.resume-viewer-root .index-meta,
+.index-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.resume-viewer-root .footer-note,
+.footer-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .resume-viewer-root .resume-header,
+  .resume-viewer-root .resume-body,
+  .resume-header,
+  .resume-body {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-viewer-root .side-column,
+  .side-column {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .resume-viewer-root .wrapper,
+  .wrapper {
+    width: min(100vw - 24px, 980px);
+  }
+
+  .resume-viewer-root .resume-header,
+  .resume-viewer-root .main-column,
+  .resume-viewer-root .side-column,
+  .resume-viewer-root .index-header,
+  .resume-viewer-root .index-card,
+  .resume-header,
+  .main-column,
+  .side-column,
+  .index-header,
+  .index-card {
+    padding: 22px;
+  }
+}
+
+@media print {
+  body,
+  .resume-viewer-root {
+    background: #fff;
+  }
+
+  .resume-viewer-root .wrapper,
+  .wrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .resume-viewer-root .page,
+  .resume-viewer-root .index-card,
+  .resume-viewer-root .index-header,
+  .page,
+  .index-card,
+  .index-header {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+</style>
+</head>
+<body>
+  <main class="wrapper">
+    <article class="page">
+      <header class="resume-header">
+        <div>
+          <span class="kicker">JD Matching Note</span>
+          <h1>우리은행 JD 매칭 노트</h1>
+          <h2>AI서비스기획 (AI데이터사업부) 전문직 — JD 항목별 근거 연결</h2>
+          <p>공고 원문 접근성이 불안정해 repo 메모에 남아 있는 JD 요약을 기준으로 정리했습니다. 아래는 책임/필수/우대 항목을 현재 이력서와 보강자료의 정확한 근거에 연결한 버전이며, 약한 지점은 약하다고 표시했습니다.</p>
+        </div>
+        <aside class="contact-card">
+          <ul class="contact-list">
+            <li><span class="label">최종 이력서</span><br/><a href="../resumes/job-544-wooribank-ai-service-planning-resume.html">열기</a></li>
+            <li><span class="label">보강자료 A</span><br/><a href="./wooribank-financial-data-integration-case.html">금융 데이터 연동 / Koscom</a></li>
+            <li><span class="label">보강자료 B</span><br/><a href="./wooribank-banking-collaboration-case.html">은행 협업 / AI 투자 서비스 지원</a></li>
+            <li><span class="label">리뷰 초안</span><br/><a href="./wooribank-ai-service-planning-review-draft.html">열기</a></li>
+          </ul>
+        </aside>
+      </header>
+
+      <section class="resume-body">
+        <div class="main-column">
+          <section class="section">
+            <h3>요약 판단</h3>
+            <ul class="bullet-list">
+              <li><strong>강하게 맞는 축</strong>: 금융 데이터 연동, 데이터 스펙 해석, 은행권 협업 맥락, AI/데이터 제품화, cross-functional 리딩</li>
+              <li><strong>중간 정도로 맞는 축</strong>: AI 기반 신규 서비스 추진, 대화형 서비스 기획 감각</li>
+              <li><strong>약하거나 불명확한 축</strong>: Bot Builder 직접 구현, 음성봇 운영, ML/DL 모델 직접 설계·개발, 혁신금융서비스 제도 기반 상용화, AI 석·박사</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h3>핵심 책임 매칭</h3>
+            <div class="panel">
+              <ul class="meta-list">
+                <li>
+                  <span class="label">AI 기술 전문성을 기반으로 한 하이브리드 대화형 서비스 기획 및 신규 사업 추진</span><br/>
+                  <strong>근거:</strong> 최종 이력서의 “DeepSearch AI와 금융 데이터 엔진 Finorma에서 리드와 PO 역할을 함께 수행”, “데이터 자산, 서비스 방향, 실행 조직을 한 흐름으로 조율” 서술. 리뷰 초안의 “AI 제품화 및 실행 조직 리딩”.<br/>
+                  <strong>판단:</strong> <strong>부분 충족</strong>. AI 서비스 기획/추진 경험은 보이지만, 하이브리드 대화형 서비스 자체를 길게 증명하는 사례는 제한적입니다.
+                </li>
+                <li>
+                  <span class="label">AI 상담 서비스 상위/상세 설계(UX Flow 포함)</span><br/>
+                  <strong>근거:</strong> 직접적인 UX Flow 산출물 또는 상담 시나리오 설계 근거는 현재 문서에 없음. 다만 데이터 요구사항 해석, 서비스 활용 설계, 제품 우선순위 조율 경험은 존재.<br/>
+                  <strong>판단:</strong> <strong>약함</strong>. 설계 감각은 추론 가능하지만, 상담 UX 설계 증빙은 부족합니다.
+                </li>
+                <li>
+                  <span class="label">Bot Builder 기반 대화형 시나리오 기획·설계·구현</span><br/>
+                  <strong>근거:</strong> 현재 패키지 안에 Bot Builder 또는 시나리오 구현 직접 경험 증빙 없음.<br/>
+                  <strong>판단:</strong> <strong>미충족/불명확</strong>. 억지로 주장하면 위험합니다.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>필수 요건 매칭</h3>
+            <div class="panel">
+              <ul class="meta-list">
+                <li>
+                  <span class="label">관련 경력 6년 이상</span><br/>
+                  <strong>근거:</strong> Pentasecurity Systems (2015/10—2022/05), Goodoc (2022/06), DeepSearch 현재 경력으로 6년 이상 명확.<br/>
+                  <strong>판단:</strong> <strong>충족</strong>.
+                </li>
+                <li>
+                  <span class="label">AI 기반 신규 사업/서비스 기획 및 추진 또는 프로젝트 수행 경험</span><br/>
+                  <strong>근거:</strong> 최종 이력서의 DeepSearch AI / Finorma 리드·PO 경험, 리뷰 초안의 “AI 서비스 기획과 금융 데이터 제품화에 맞춘 버전”.<br/>
+                  <strong>판단:</strong> <strong>충족</strong>. 다만 “신규 사업” 표현은 내부적으로 과장 없이 제품화/추진 경험 중심으로 설명하는 편이 안전합니다.
+                </li>
+                <li>
+                  <span class="label">AI(ML/DL) 모델 기반 서비스 설계/개발 및 운영 경험</span><br/>
+                  <strong>근거:</strong> AI 제품화와 운영 연결 경험은 있으나, ML/DL 모델을 직접 설계·개발했다는 증빙은 현재 패키지에 없음.<br/>
+                  <strong>판단:</strong> <strong>부분 충족</strong>. 서비스 측면은 가능, 모델 구현 측면은 약합니다.
+                </li>
+                <li>
+                  <span class="label">챗봇·음성봇·Agent 등 대화형 AI 서비스 기획 또는 프로젝트 리딩 경험</span><br/>
+                  <strong>근거:</strong> 보강자료 B의 “KakaoBank AI 투자 챗봇 협업에 깊게 관여”, 리뷰 초안의 은행권 협업/AI 제품화 묶음 설명.<br/>
+                  <strong>판단:</strong> <strong>부분 충족</strong>. 챗봇 협업 경험은 근거가 있으나, 본인 주도 기획/리딩 범위는 면접에서 정확히 선을 그어야 합니다.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>우대 요건 매칭</h3>
+            <div class="panel">
+              <ul class="meta-list">
+                <li>
+                  <span class="label">AI 관련 분야 석·박사</span><br/>
+                  <strong>근거:</strong> 현재 패키지에 해당 사항 없음.<br/>
+                  <strong>판단:</strong> <strong>미충족</strong>.
+                </li>
+                <li>
+                  <span class="label">금융 컨설팅 또는 은행/카드/보험 등 금융 분야 프로젝트 경험</span><br/>
+                  <strong>근거:</strong> 보강자료 A의 Koscom 포함 외부 금융 데이터 연동, 보강자료 B의 KakaoBank/Shinhan Bank/K Bank/Hana Bank 협업 및 데이터 공급/기획 지원.<br/>
+                  <strong>판단:</strong> <strong>충족</strong>. 다만 직접 구축이 아닌 협업·공급·기획 지원 범위는 분명히 유지해야 합니다.
+                </li>
+                <li>
+                  <span class="label">혁신금융서비스 제도를 통한 금융 AI 서비스 상용화 경험</span><br/>
+                  <strong>근거:</strong> 현재 패키지에 해당 제도 기반 상용화 증빙 없음.<br/>
+                  <strong>판단:</strong> <strong>미충족</strong>.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>면접/서류에서 밀어야 할 메시지</h3>
+            <ul class="bullet-list">
+              <li>“모델 연구자”보다 <strong>금융 데이터 기반 AI 서비스를 현실적으로 제품화하는 사람</strong>이라는 포지셔닝이 맞습니다.</li>
+              <li><strong>Koscom 포함 데이터 연동 + 데이터 스펙 해석 + 은행권 협업 맥락</strong>은 이 포지션에서 가장 설득력 있는 실전 근거입니다.</li>
+              <li>챗봇/대화형 AI 쪽은 <strong>협업 깊이와 프로젝트 조율 경험</strong>까지만 사실대로 말하고, Bot Builder 직접 구현처럼 보이게 확장하지 않는 편이 안전합니다.</li>
+            </ul>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="section">
+            <h3>약점 메모</h3>
+            <div class="panel">
+              <ul class="meta-list">
+                <li><span class="label">직접 증빙 부족</span><br/>Bot Builder, 음성봇, 상담 UX Flow, ML/DL 모델 직접 개발</li>
+                <li><span class="label">해결 방식</span><br/>없는 경험을 채우지 말고, 금융 데이터·AI 제품화·실행 조율 강점을 전면에 둠</li>
+              </ul>
+            </div>
+          </section>
+          <section class="section">
+            <h3>출처</h3>
+            <div class="panel">
+              <p>JD 요약 출처: <code>headhunter-agent/reports/resume-retargeting-notes-2026-03-15.md</code>의 우리은행 섹션.</p>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

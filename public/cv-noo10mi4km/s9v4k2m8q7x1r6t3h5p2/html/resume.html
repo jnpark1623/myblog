@@ -1,486 +1,120 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta name="color-scheme" content="light only" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>우리은행 — AI서비스기획 (AI데이터사업부) 전문직</title>
-  <style>:root,
-.resume-viewer-root {
-  --bg: #eef3f8;
-  --paper: #ffffff;
-  --ink: #182437;
-  --muted: #5f6f86;
-  --line: #d6deea;
-  --accent: #1747d1;
-  --accent-soft: #edf3ff;
-  --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-}
-
-html,
-.resume-viewer-root {
-  font-size: 16px;
-}
-
-.resume-viewer-root,
-.resume-viewer-root * {
-  box-sizing: border-box;
-}
-
-body,
-.resume-viewer-root {
-  margin: 0;
-  color: var(--ink);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(180deg, #f7f9fc 0%, var(--bg) 100%);
-}
-
-.resume-viewer-root {
-  min-height: 100vh;
-  color-scheme: light;
-  isolation: isolate;
-}
-
-.resume-viewer-root,
-.resume-viewer-root p,
-.resume-viewer-root li,
-.resume-viewer-root dt,
-.resume-viewer-root dd,
-.resume-viewer-root span,
-.resume-viewer-root strong,
-.resume-viewer-root em,
-.resume-viewer-root h1,
-.resume-viewer-root h2,
-.resume-viewer-root h3,
-.resume-viewer-root h4,
-.resume-viewer-root h5,
-.resume-viewer-root h6 {
-  color: inherit;
-}
-
-.resume-viewer-root a,
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.resume-viewer-root a:hover,
-a:hover {
-  text-decoration: underline;
-}
-
-.resume-viewer-root .wrapper,
-.wrapper {
-  width: min(1080px, calc(100vw - 32px));
-  margin: 0 auto;
-  padding: 28px 0 56px;
-}
-
-.resume-viewer-root .page,
-.page {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.resume-viewer-root .resume-header,
-.resume-header {
-  padding: 32px;
-  border-bottom: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 1.8fr 1fr;
-  gap: 24px;
-}
-
-.resume-viewer-root .kicker,
-.kicker {
-  display: inline-flex;
-  width: fit-content;
-  padding: 7px 12px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 0.92rem;
-}
-
-.resume-viewer-root .resume-header h1,
-.resume-header h1 {
-  margin: 14px 0 6px;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.08;
-}
-
-.resume-viewer-root .resume-header h2,
-.resume-header h2 {
-  margin: 0;
-  font-size: 1.05rem;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.resume-viewer-root .resume-header p,
-.resume-header p {
-  margin: 14px 0 0;
-  line-height: 1.65;
-}
-
-.resume-viewer-root .contact-card,
-.resume-viewer-root .panel,
-.contact-card,
-.panel {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: #fbfcff;
-  padding: 18px;
-}
-
-.resume-viewer-root .contact-list,
-.resume-viewer-root .meta-list,
-.resume-viewer-root .bullet-list,
-.contact-list,
-.meta-list,
-.bullet-list {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.resume-viewer-root .contact-list li,
-.resume-viewer-root .meta-list li,
-.resume-viewer-root .bullet-list li,
-.contact-list li,
-.meta-list li,
-.bullet-list li {
-  margin-bottom: 10px;
-  line-height: 1.55;
-}
-
-.resume-viewer-root .resume-body,
-.resume-body {
-  display: grid;
-  grid-template-columns: 1.5fr 0.9fr;
-  gap: 0;
-}
-
-.resume-viewer-root .main-column,
-.resume-viewer-root .side-column,
-.main-column,
-.side-column {
-  padding: 28px 32px 36px;
-}
-
-.resume-viewer-root .side-column,
-.side-column {
-  border-left: 1px solid var(--line);
-  background: #fcfdff;
-}
-
-.resume-viewer-root .section,
-.section {
-  margin-bottom: 28px;
-}
-
-.resume-viewer-root .section:last-child,
-.section:last-child {
-  margin-bottom: 0;
-}
-
-.resume-viewer-root .section h3,
-.section h3 {
-  margin: 0 0 14px;
-  font-size: 1rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #31415d;
-}
-
-.resume-viewer-root .section p,
-.section p {
-  margin: 0;
-  line-height: 1.7;
-}
-
-.resume-viewer-root .job-block,
-.job-block {
-  margin-bottom: 22px;
-}
-
-.resume-viewer-root .job-block:last-child,
-.job-block:last-child {
-  margin-bottom: 0;
-}
-
-.resume-viewer-root .job-block h4,
-.job-block h4 {
-  margin: 0 0 6px;
-  font-size: 1.08rem;
-}
-
-.resume-viewer-root .job-block .role-line,
-.job-block .role-line {
-  margin-bottom: 10px;
-  color: var(--muted);
-}
-
-.resume-viewer-root .label,
-.label {
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.resume-viewer-root .pill-row,
-.pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.resume-viewer-root .pill,
-.pill {
-  display: inline-flex;
-  padding: 7px 11px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: #f3f6fb;
-  color: #36455f;
-  font-size: 0.92rem;
-}
-
-.resume-viewer-root .index-wrap,
-.index-wrap {
-  display: grid;
-  gap: 18px;
-}
-
-.resume-viewer-root .index-header,
-.index-header {
-  padding: 28px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-}
-
-.resume-viewer-root .index-header h1,
-.index-header h1 {
-  margin: 12px 0 8px;
-  font-size: clamp(1.9rem, 4vw, 2.8rem);
-}
-
-.resume-viewer-root .index-grid,
-.index-grid {
-  display: grid;
-  gap: 16px;
-}
-
-.resume-viewer-root .index-card,
-.index-card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-  padding: 22px;
-}
-
-.resume-viewer-root .index-card h2,
-.index-card h2 {
-  margin: 0 0 8px;
-  font-size: 1.18rem;
-}
-
-.resume-viewer-root .index-card p,
-.index-card p {
-  margin: 0;
-  line-height: 1.6;
-}
-
-.resume-viewer-root .index-meta,
-.index-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 14px 0;
-}
-
-.resume-viewer-root .footer-note,
-.footer-note {
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-@media (max-width: 900px) {
-  .resume-viewer-root .resume-header,
-  .resume-viewer-root .resume-body,
-  .resume-header,
-  .resume-body {
-    grid-template-columns: 1fr;
-  }
-
-  .resume-viewer-root .side-column,
-  .side-column {
-    border-left: 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .resume-viewer-root .wrapper,
-  .wrapper {
-    width: min(100vw - 24px, 980px);
-  }
-
-  .resume-viewer-root .resume-header,
-  .resume-viewer-root .main-column,
-  .resume-viewer-root .side-column,
-  .resume-viewer-root .index-header,
-  .resume-viewer-root .index-card,
-  .resume-header,
-  .main-column,
-  .side-column,
-  .index-header,
-  .index-card {
-    padding: 22px;
-  }
-}
-
-@media print {
-  body,
-  .resume-viewer-root {
-    background: #fff;
-  }
-
-  .resume-viewer-root .wrapper,
-  .wrapper {
-    width: 100%;
-    padding: 0;
-  }
-
-  .resume-viewer-root .page,
-  .resume-viewer-root .index-card,
-  .resume-viewer-root .index-header,
-  .page,
-  .index-card,
-  .index-header {
-    box-shadow: none;
-    border-radius: 0;
-  }
-}
-</style>
+  <meta name="color-scheme" content="light only" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>우리은행 지원 이력서</title>
+  <style>
+    :root { --ink:#111111; --muted:#555555; --line:#d8d8d8; --paper:#ffffff; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:#ffffff;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",sans-serif;
+      line-height:1.7;
+    }
+    .page {
+      width:min(210mm, 100%);
+      margin:0 auto;
+      padding:16mm;
+      background:var(--paper);
+    }
+    h1,h2,h3,p,ul { margin:0; }
+    .header { text-align:center; padding-bottom:10mm; border-bottom:1px solid var(--line); }
+    .header h1 { font-size:30px; line-height:1.2; }
+    .header .role { font-size:18px; margin-top:6px; }
+    .meta { margin-top:10px; color:var(--muted); font-size:15px; }
+    .section { padding-top:8mm; }
+    .section h2 {
+      font-size:18px; line-height:1.3; padding-bottom:2.5mm; margin-bottom:4mm;
+      border-bottom:1px solid var(--line);
+    }
+    p, li { font-size:16px; }
+    ul { padding-left:20px; }
+    li + li { margin-top:6px; }
+    .job + .job { margin-top:6mm; }
+    .job-title { font-size:17px; font-weight:700; }
+    .job-meta { color:var(--muted); margin-top:2px; font-size:15px; }
+    .job-desc { margin-top:4px; }
+    .foot { padding-top:8mm; color:var(--muted); font-size:13px; text-align:center; }
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { width:auto; margin:0; padding:14mm 15mm; }
+      a { color:inherit; text-decoration:none; }
+    }
+  </style>
 </head>
 <body>
-  <main class="wrapper">
-    <article class="page">
-      <header class="resume-header">
-        <div>
-          <span class="kicker">최종 제출용 이력서</span>
-          <h1>박재남</h1>
-          <h2>금융 데이터 연동 기반을 서비스 기획과 AI 제품화로 연결해 온 백엔드·프로덕트 리더</h2>
-          <p>Koscom 시세 수신을 포함한 외부 금융·레퍼런스 데이터 연동, 금융기관 대상 데이터 스펙 검토, 은행권 협업 프로젝트 지원 경험을 바탕으로 데이터 기반 서비스를 실제 제품과 실행 조직으로 연결해 왔습니다. 우리은행 AI데이터사업부 역할에는 연구형 소개보다, 금융 데이터 활용 설계와 서비스 실행 조율 경험이 더 직접적으로 맞는다고 판단해 그 흐름 중심으로 정리했습니다.</p>
-        </div>
-        <aside class="contact-card">
-          <ul class="contact-list">
-            <li><span class="label">이메일</span><br/>jn2@mnpark.info</li>
-            <li><span class="label">지역</span><br/>Seoul, KR</li>
-            <li><span class="label">웹사이트</span><br/><a href="https://mnpark.info">https://mnpark.info</a></li>
-            <li><span class="label">LinkedIn</span><br/><a href="https://www.linkedin.com/in/jnpark1623">https://www.linkedin.com/in/jnpark1623</a></li>
-          </ul>
-        </aside>
-      </header>
+  <main class="page">
+    <header class="header">
+      <h1>박재남</h1>
+      <p class="role">우리은행 AI서비스기획 (AI데이터사업부) 지원</p>
+      <p class="meta">이메일 jn2@mnpark.info · 지역 Seoul, KR · 웹사이트 https://mnpark.info · LinkedIn linkedin.com/in/jnpark1623</p>
+    </header>
 
-      <section class="resume-body">
-        <div class="main-column">
-          <section class="section">
-            <h3>핵심 적합도</h3>
-            <ul class="bullet-list">
-              <li>외부 금융 데이터 벤더 연동과 안정적 재전달 체계를 직접 운영하며, AI 서비스가 기대하는 데이터 기반을 실무에서 다뤘습니다.</li>
-              <li>금융기관·공공금융 조직 대상 제품을 다루며 데이터 스펙을 반복적으로 검토했고, 기획 단계에서 요구사항 해석과 활용 설계를 지원했습니다.</li>
-              <li>KakaoBank AI 투자 챗봇 협업, Shinhan Bank 데이터 공급, K Bank 투자 서비스 개편 및 Hana Bank OneQ Pro MTS의 데이터 활용 기획 협업 지원 경험을 사실 범위 안에서 보유하고 있습니다.</li>
-              <li>DeepSearch AI와 금융 데이터 엔진 Finorma에서 리드와 PO 역할을 함께 수행하며 데이터 자산, 서비스 방향, 실행 조직을 한 흐름으로 조율했습니다.</li>
-            </ul>
-          </section>
+    <section class="section">
+      <h2>지원 요약</h2>
+      <p>외부 금융 데이터 연동과 데이터 스펙 검토 경험을 바탕으로, 금융 데이터가 실제 서비스 요구사항과 실행 계획으로 이어지도록 정리해 온 백엔드·프로덕트 리더입니다. DeepSearch에서 Koscom 시세 수신을 포함한 금융·레퍼런스 데이터 벤더 연동과 안정적 재전달 체계를 다뤘고, 금융기관·공공금융 조직 대상 데이터 스펙 검토와 요구사항 해석을 반복 수행했습니다. 또한 DeepSearch AI와 금융 데이터 엔진 Finorma에서 리드와 PO 역할을 함께 맡아 제품 방향, 우선순위, 협업 구조를 조율했습니다.</p>
+    </section>
 
-          <section class="section">
-            <h3>핵심 성과</h3>
-            <ul class="bullet-list">
-              <li><strong>DeepSearch에서 Koscom 시세 수신을 포함한 외부 금융·레퍼런스 데이터 벤더 연동과 재전달 체계를 직접 맡았습니다.</strong><br/><span class="label">의미</span> 은행권 AI 서비스가 전제하는 데이터 기반의 수신·정합성·전달 구조를 실무에서 다룬 경험입니다. <a href="../tailored-resumes/wooribank-financial-data-integration-case.html">관련 사례 보기</a></li>
-              <li><strong>금융기관·공공금융 조직 대상 데이터 스펙 검토를 반복적으로 수행해 기획과 실행 사이의 해석 비용을 줄였습니다.</strong><br/><span class="label">의미</span> 데이터 활용 설계, 요구사항 정리, 협업 커뮤니케이션에 직접 연결되는 경험입니다. <a href="../tailored-resumes/wooribank-financial-data-integration-case.html">관련 사례 보기</a></li>
-              <li><strong>KakaoBank AI 투자 챗봇 협업, Shinhan Bank 데이터 공급, K Bank 투자 서비스 개편 및 Hana Bank OneQ Pro MTS 데이터 활용 기획 협업을 지원했습니다.</strong><br/><span class="label">의미</span> 직접 구현 주장 없이, 은행권 협업과 데이터 활용 관점의 지원 범위를 사실대로 제시할 수 있습니다. <a href="../tailored-resumes/wooribank-banking-collaboration-case.html">관련 사례 보기</a></li>
-              <li><strong>DeepSearch AI와 금융 데이터 엔진 Finorma에서 리드와 PO 역할을 함께 수행했습니다.</strong><br/><span class="label">의미</span> 데이터 기반 제품을 서비스 기획, 우선순위 조정, 실행 조직 운영까지 연결한 경험입니다.</li>
-              <li><strong>약 12명의 협업 조직을 리드하며 엔지니어링, 퀀트, 디자인, AI 서비스 기획, 영업을 연결했습니다.</strong><br/><span class="label">의미</span> AI 서비스 기획이 실제 실행과 운영으로 이어지도록 만드는 조직 조율 경험입니다.</li>
-            </ul>
-          </section>
+    <section class="section">
+      <h2>핵심 역량</h2>
+      <ul>
+        <li>Koscom 시세 수신을 포함한 외부 금융 데이터 벤더 연동과 데이터 재전달 체계를 직접 다뤘습니다.</li>
+        <li>금융기관·공공금융 조직 대상 데이터 스펙 검토와 요구사항 해석 경험을 보유하고 있습니다.</li>
+        <li>KakaoBank 협업, Shinhan Bank 데이터 공급, K Bank 및 Hana Bank 데이터 활용 기획 협업 지원 경험을 보유하고 있습니다.</li>
+        <li>DeepSearch AI와 금융 데이터 엔진 Finorma에서 리드와 PO 역할을 수행하며 제품화와 실행 우선순위를 조율했습니다.</li>
+        <li>엔지니어링, 퀀트, 디자인, AI 서비스 기획, 영업을 잇는 크로스펑셔널 협업 구조를 운영했습니다.</li>
+      </ul>
+    </section>
 
-          <section class="section">
-            <h3>경력</h3>
-            <article class="job-block">
-              <h4>DeepSearch</h4>
-              <div class="role-line">Backend Engineer → Team Lead / PO</div>
-              <p>백엔드 엔지니어로 합류해 외부 금융·레퍼런스 데이터 벤더 연동과 안정적 재전달 체계를 맡았고, Koscom 시세 수신을 포함한 데이터 파이프라인을 다뤘습니다. 이후 금융기관·공공금융 조직 대상 데이터 스펙을 자주 검토하며 DeepSearch AI와 금융 데이터 엔진 Finorma 조직에서 리드와 PO 역할을 함께 수행했고, 데이터 자산을 AI 생성형 콘텐츠 제품과 은행권 협업 프로젝트로 확장했습니다.</p>
-            </article>
+    <section class="section">
+      <h2>경력</h2>
+      <div class="job">
+        <p class="job-title">DeepSearch</p>
+        <p class="job-meta">Backend Engineer → Team Lead / PO</p>
+        <p class="job-desc">외부 금융·레퍼런스 데이터 벤더 연동과 안정적 재전달 체계를 맡았고, Koscom 시세 수신을 포함한 데이터 파이프라인을 다뤘습니다. 금융기관·공공금융 조직 대상 데이터 스펙 검토를 반복 수행했으며, DeepSearch AI와 금융 데이터 엔진 Finorma에서 리드와 PO 역할을 함께 수행해 제품 방향과 협업 구조를 조율했습니다.</p>
+      </div>
+      <div class="job">
+        <p class="job-title">Goodoc</p>
+        <p class="job-meta">Backend Engineer / Growth Organization · 2022/06</p>
+        <p class="job-desc">병원 예약·접수 서비스와 B2B2C 접수 서버를 다루며 마이그레이션과 운영 개선을 수행했습니다. 제품 운영 관점과 실행 조직 협업 방식을 확장한 경험입니다.</p>
+      </div>
+      <div class="job">
+        <p class="job-title">Pentasecurity Systems</p>
+        <p class="job-meta">Software Engineer · 2015/10 — 2022/05</p>
+        <p class="job-desc">데이터 암호화 플랫폼 운영·관리 솔루션을 개발했습니다. 안정성, 신뢰성, 부서 간 협업이 중요한 환경에서 장기간 제품 개발 경험을 쌓았습니다.</p>
+      </div>
+      <div class="job">
+        <p class="job-title">Media Solutions</p>
+        <p class="job-meta">Software Engineer (industrial service alternative) · 2012/10 — 2015/10</p>
+        <p class="job-desc">산업기능요원으로 근무하며 디지털 사이니지와 키오스크용 미디어 콘텐츠를 개발했습니다. 약 3년간 서비스형 소프트웨어 개발의 기본기와 현장 대응 경험을 쌓았습니다.</p>
+      </div>
+    </section>
 
-            <article class="job-block">
-              <h4>Goodoc</h4>
-              <div class="role-line">Backend Engineer / Growth Organization · 2022/06</div>
-              <p>약 600만 회원 규모 병원 예약·접수 서비스와 B2B2C 접수 서버를 다루며 v3→v4 마이그레이션을 수행했고, 이후 Goodoc Labs 성장 조직으로 역할을 확장했습니다.</p>
-            </article>
+    <section class="section">
+      <h2>우리은행 관련 경험 포인트</h2>
+      <ul>
+        <li>금융 데이터 기반 이해: 외부 데이터 소스의 제약, 정합성, 전달 구조를 고려해 서비스 관점으로 연결했습니다.</li>
+        <li>데이터 스펙 기반 협업: 요구사항을 단순 전달받지 않고 데이터 구조와 활용 가능 범위를 해석해 정리했습니다.</li>
+        <li>은행권 접점 경험: KakaoBank, Shinhan Bank, K Bank, Hana Bank 관련 협업·공급·기획 지원 범위를 사실대로 설명할 수 있습니다.</li>
+        <li>AI·데이터 제품화: 데이터 기반 기능을 실험 수준이 아니라 제품·운영·조직 실행 관점으로 연결했습니다.</li>
+      </ul>
+    </section>
 
-            <article class="job-block">
-              <h4>Pentasecurity Systems</h4>
-              <div class="role-line">Software Engineer · 2015/10 — 2022/05</div>
-              <p>데이터 암호화 플랫폼 운영·관리 솔루션을 개발하며 안정성, 신뢰성, 부서 간 협업이 중요한 환경에서 장기간 제품 개발 경험을 쌓았습니다.</p>
-            </article>
-          </section>
+    <section class="section">
+      <h2>업무 방식</h2>
+      <ul>
+        <li>기술 설명 자체보다 데이터가 서비스 요구사항과 우선순위로 번역되는 구조를 정리하는 역할에 강점이 있습니다.</li>
+        <li>직접 구현한 영역과 협업·기획 지원 범위를 구분해 설명하며, 방어 가능한 서술을 우선합니다.</li>
+        <li>실행 조직 관점에서 엔지니어링, 기획, 사업 사이의 해석 비용을 줄이는 데 익숙합니다.</li>
+      </ul>
+    </section>
 
-          <section class="section">
-            <h3>업무 방식</h3>
-            <ul class="bullet-list">
-              <li>기술 설명을 길게 늘어놓기보다, 데이터가 어떻게 서비스 요구사항으로 번역되고 실행 우선순위로 이어지는지 정리하는 역할에 강점이 있습니다.</li>
-              <li>직접 구현 책임이 있었던 영역과 협업·컨설팅·데이터 공급 범위를 구분해 설명하는 방식을 유지합니다.</li>
-              <li>AI 기능을 단발성 실험으로 두지 않고, 데이터 기반·운영 가능성·조직 실행까지 포함한 서비스로 정리하는 데 익숙합니다.</li>
-            </ul>
-          </section>
-        </div>
-
-        <aside class="side-column">
-          <section class="section">
-            <h3>지원 정보</h3>
-            <div class="panel">
-              <ul class="meta-list">
-                <li><span class="label">지원 포지션</span><br/>우리은행 / AI서비스기획 (AI데이터사업부) 전문직</li>
-                <li><span class="label">공고 링크</span><br/><a href="https://recruit.incruit.com/wooribank/job/2603040035">https://recruit.incruit.com/wooribank/job/2603040035</a></li>
-                <li><span class="label">포지셔닝</span><br/>금융 데이터 활용 설계, 은행 협업, AI 제품화, 실행 조직 리딩</li>
-              </ul>
-            </div>
-          </section>
-
-          <section class="section">
-            <h3>보강 자료</h3>
-            <div class="panel">
-              <ul class="meta-list">
-                <li><span class="label">사례 A</span><br/><a href="../tailored-resumes/wooribank-financial-data-integration-case.html">금융 데이터 벤더 연동 / Koscom / 데이터 스펙 기반 서비스 기획</a></li>
-                <li><span class="label">사례 B</span><br/><a href="../tailored-resumes/wooribank-banking-collaboration-case.html">은행 협업 / AI 투자 서비스 관련 지원 사례</a></li>
-                <li><span class="label">리뷰 초안</span><br/><a href="../tailored-resumes/wooribank-ai-service-planning-review-draft.html">우리은행 맞춤 리뷰 드래프트</a></li>
-                <li><span class="label">JD 매칭 노트</span><br/><a href="../tailored-resumes/wooribank-jd-match-note.html">책임/요건별 근거 연결 보기</a></li>
-              </ul>
-            </div>
-          </section>
-
-          <section class="section">
-            <h3>핵심 키워드</h3>
-            <div class="pill-row">
-              <span class="pill">financial data integration</span>
-              <span class="pill">Koscom</span>
-              <span class="pill">data spec review</span>
-              <span class="pill">bank collaboration</span>
-              <span class="pill">AI service planning</span>
-              <span class="pill">product ownership</span>
-              <span class="pill">cross-functional execution</span>
-            </div>
-          </section>
-        </aside>
-      </section>
-    </article>
+    <p class="foot">모바일 PDF 가독성을 우선해 단색, 큰 본문, 단순 섹션 구조로 정리한 제출용 버전</p>
   </main>
 </body>
 </html>

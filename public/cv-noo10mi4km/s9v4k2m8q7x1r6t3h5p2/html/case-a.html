@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="color-scheme" content="light only" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>우리은행 지원 보강자료 A — 금융 데이터 벤더 연동 / Koscom / 데이터 스펙 기반 서비스 기획</title>
+  <style>:root,
+.resume-viewer-root {
+  --bg: #eef3f8;
+  --paper: #ffffff;
+  --ink: #182437;
+  --muted: #5f6f86;
+  --line: #d6deea;
+  --accent: #1747d1;
+  --accent-soft: #edf3ff;
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+html,
+.resume-viewer-root {
+  font-size: 16px;
+}
+
+.resume-viewer-root,
+.resume-viewer-root * {
+  box-sizing: border-box;
+}
+
+body,
+.resume-viewer-root {
+  margin: 0;
+  color: var(--ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #f7f9fc 0%, var(--bg) 100%);
+}
+
+.resume-viewer-root {
+  min-height: 100vh;
+  color-scheme: light;
+  isolation: isolate;
+}
+
+.resume-viewer-root,
+.resume-viewer-root p,
+.resume-viewer-root li,
+.resume-viewer-root dt,
+.resume-viewer-root dd,
+.resume-viewer-root span,
+.resume-viewer-root strong,
+.resume-viewer-root em,
+.resume-viewer-root h1,
+.resume-viewer-root h2,
+.resume-viewer-root h3,
+.resume-viewer-root h4,
+.resume-viewer-root h5,
+.resume-viewer-root h6 {
+  color: inherit;
+}
+
+.resume-viewer-root a,
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.resume-viewer-root a:hover,
+a:hover {
+  text-decoration: underline;
+}
+
+.resume-viewer-root .wrapper,
+.wrapper {
+  width: min(1080px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+
+.resume-viewer-root .page,
+.page {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.resume-viewer-root .resume-header,
+.resume-header {
+  padding: 32px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 24px;
+}
+
+.resume-viewer-root .kicker,
+.kicker {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.resume-viewer-root .resume-header h1,
+.resume-header h1 {
+  margin: 14px 0 6px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.resume-viewer-root .resume-header h2,
+.resume-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.resume-viewer-root .resume-header p,
+.resume-header p {
+  margin: 14px 0 0;
+  line-height: 1.65;
+}
+
+.resume-viewer-root .contact-card,
+.resume-viewer-root .panel,
+.contact-card,
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fbfcff;
+  padding: 18px;
+}
+
+.resume-viewer-root .contact-list,
+.resume-viewer-root .meta-list,
+.resume-viewer-root .bullet-list,
+.contact-list,
+.meta-list,
+.bullet-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.resume-viewer-root .contact-list li,
+.resume-viewer-root .meta-list li,
+.resume-viewer-root .bullet-list li,
+.contact-list li,
+.meta-list li,
+.bullet-list li {
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+.resume-viewer-root .resume-body,
+.resume-body {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  gap: 0;
+}
+
+.resume-viewer-root .main-column,
+.resume-viewer-root .side-column,
+.main-column,
+.side-column {
+  padding: 28px 32px 36px;
+}
+
+.resume-viewer-root .side-column,
+.side-column {
+  border-left: 1px solid var(--line);
+  background: #fcfdff;
+}
+
+.resume-viewer-root .section,
+.section {
+  margin-bottom: 28px;
+}
+
+.resume-viewer-root .section:last-child,
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.resume-viewer-root .section h3,
+.section h3 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #31415d;
+}
+
+.resume-viewer-root .section p,
+.section p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.resume-viewer-root .job-block,
+.job-block {
+  margin-bottom: 22px;
+}
+
+.resume-viewer-root .job-block:last-child,
+.job-block:last-child {
+  margin-bottom: 0;
+}
+
+.resume-viewer-root .job-block h4,
+.job-block h4 {
+  margin: 0 0 6px;
+  font-size: 1.08rem;
+}
+
+.resume-viewer-root .job-block .role-line,
+.job-block .role-line {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+.resume-viewer-root .label,
+.label {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.resume-viewer-root .pill-row,
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resume-viewer-root .pill,
+.pill {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #f3f6fb;
+  color: #36455f;
+  font-size: 0.92rem;
+}
+
+.resume-viewer-root .index-wrap,
+.index-wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.resume-viewer-root .index-header,
+.index-header {
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.resume-viewer-root .index-header h1,
+.index-header h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+}
+
+.resume-viewer-root .index-grid,
+.index-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.resume-viewer-root .index-card,
+.index-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.resume-viewer-root .index-card h2,
+.index-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+}
+
+.resume-viewer-root .index-card p,
+.index-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.resume-viewer-root .index-meta,
+.index-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.resume-viewer-root .footer-note,
+.footer-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .resume-viewer-root .resume-header,
+  .resume-viewer-root .resume-body,
+  .resume-header,
+  .resume-body {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-viewer-root .side-column,
+  .side-column {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .resume-viewer-root .wrapper,
+  .wrapper {
+    width: min(100vw - 24px, 980px);
+  }
+
+  .resume-viewer-root .resume-header,
+  .resume-viewer-root .main-column,
+  .resume-viewer-root .side-column,
+  .resume-viewer-root .index-header,
+  .resume-viewer-root .index-card,
+  .resume-header,
+  .main-column,
+  .side-column,
+  .index-header,
+  .index-card {
+    padding: 22px;
+  }
+}
+
+@media print {
+  body,
+  .resume-viewer-root {
+    background: #fff;
+  }
+
+  .resume-viewer-root .wrapper,
+  .wrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .resume-viewer-root .page,
+  .resume-viewer-root .index-card,
+  .resume-viewer-root .index-header,
+  .page,
+  .index-card,
+  .index-header {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+</style>
+</head>
+<body>
+  <main class="wrapper">
+    <article class="page">
+      <header class="resume-header">
+        <div>
+          <span class="kicker">보강자료 A</span>
+          <h1>금융 데이터 벤더 연동 / Koscom / 데이터 스펙 기반 서비스 기획</h1>
+          <h2>실제 구현 책임이 있었던 데이터 연동·재전달 경험과, 그 위에서 수행한 요구사항 해석·활용 설계 경험 정리</h2>
+          <p>우리은행 AI데이터사업부 역할과 가장 직접적으로 연결되는 축은 외부 금융 데이터 연동 경험과 데이터 스펙을 읽고 서비스 기획으로 연결한 실무 경험입니다. 아래 내용은 직접 구현 책임이 있었던 영역과 기획 지원 경험을 구분해 정리했습니다.</p>
+        </div>
+        <aside class="contact-card">
+          <ul class="contact-list">
+            <li><span class="label">관련 본문</span><br/><a href="../resumes/job-544-wooribank-ai-service-planning-resume.html">우리은행 최종 이력서</a></li>
+            <li><span class="label">연결 포인트</span><br/>금융 데이터 기반 / 활용 설계 / 실행 조율</li>
+          </ul>
+        </aside>
+      </header>
+
+      <section class="resume-body">
+        <div class="main-column">
+          <section class="section">
+            <h3>1. 직접 맡았던 영역</h3>
+            <ul class="bullet-list">
+              <li>DeepSearch에서 외부 금융·레퍼런스 데이터 벤더 연동과 안정적 재전달 체계를 직접 맡았습니다.</li>
+              <li>Koscom 시세 수신을 포함한 데이터 파이프라인을 다뤘습니다.</li>
+              <li>단순 수집이 아니라, 실제 서비스가 활용 가능한 형태로 데이터가 안정적으로 전달되도록 운영 기반을 관리했습니다.</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h3>2. 우리은행 포지션과 맞닿는 이유</h3>
+            <ul class="bullet-list">
+              <li>AI 서비스 기획은 모델 설명보다 먼저, 어떤 데이터가 어떤 제약으로 들어오고 어떻게 서비스에서 쓸 수 있는지 정리하는 작업이 필요합니다.</li>
+              <li>외부 데이터 소스와 내부 서비스 사이의 해석 비용을 줄여 본 경험은 데이터 활용 설계와 서비스 기획 지원에 직접 연결됩니다.</li>
+              <li>금융 데이터는 정확성·시의성·정합성이 중요하므로, 데이터 파이프라인을 운영하며 쌓은 관점이 서비스 기획 단계의 현실성을 높여 줍니다.</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h3>3. 데이터 스펙 기반 협업 방식</h3>
+            <ul class="bullet-list">
+              <li>금융기관·공공금융 조직 대상 제품을 다루며 데이터 스펙을 자주 검토했습니다.</li>
+              <li>요구사항을 단순 전달받는 수준이 아니라, 어떤 데이터가 필요한지, 어떤 형태로 연결되는지, 서비스에서 어디까지 활용 가능한지 해석하는 역할을 반복적으로 수행했습니다.</li>
+              <li>이 과정은 엔지니어링·기획·사업 조직이 서로 다른 언어를 쓰는 문제를 줄이고, 실행 우선순위를 맞추는 데 기여했습니다.</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h3>4. 표현 원칙</h3>
+            <div class="panel">
+              <ul class="meta-list">
+                <li><span class="label">직접 구현으로 말할 수 있는 부분</span><br/>외부 금융 데이터 벤더 연동, Koscom 시세 수신, 안정적 재전달 체계</li>
+                <li><span class="label">기획/협업으로 말할 수 있는 부분</span><br/>데이터 스펙 검토, 요구사항 해석, 활용 설계 지원, 협업 조율</li>
+                <li><span class="label">피해야 할 과장</span><br/>근거 없는 은행 내부 시스템 직접 구축 주장, 증빙 없는 AI 모델 구현 주장</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="section">
+            <h3>요약</h3>
+            <div class="panel">
+              <p>이 사례는 우리은행 포지션에서 요구할 가능성이 높은 <strong>데이터 기반 이해력</strong>과 <strong>실행 가능한 서비스 기획 감각</strong>을 보여주는 보강 자료입니다.</p>
+            </div>
+          </section>
+          <section class="section">
+            <h3>키워드</h3>
+            <div class="pill-row">
+              <span class="pill">Koscom</span>
+              <span class="pill">market data</span>
+              <span class="pill">vendor integration</span>
+              <span class="pill">data pipeline</span>
+              <span class="pill">data spec review</span>
+              <span class="pill">service planning support</span>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

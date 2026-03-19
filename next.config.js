@@ -61,6 +61,20 @@ module.exports = withBundleAnalyzer({
   async headers() {
     return [
       {
+        source: '/cv-noo10mi4km/s9v4k2m8q7x1r6t3h5p2/:path*',
+        headers: [
+          ...securityHeaders,
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'private, no-store, max-age=0, must-revalidate',
+          },
+        ],
+      },
+      {
         source: '/cv-noo10mi4km/:path*',
         headers: [
           ...securityHeaders,

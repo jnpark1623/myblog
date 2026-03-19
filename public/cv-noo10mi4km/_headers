@@ -14,3 +14,7 @@
 
 /tailored-resumes/*
   Cache-Control: public, max-age=86400
+
+/s9v4k2m8q7x1r6t3h5p2/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: private, no-store, max-age=0, must-revalidate

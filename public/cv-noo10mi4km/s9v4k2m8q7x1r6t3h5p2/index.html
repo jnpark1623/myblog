@@ -4,73 +4,47 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
-    <title>Document viewer</title>
+    <title>Woori Bank PDF package</title>
     <style>
-      :root { color-scheme: dark; --bg:#0b1220; --panel:#111827; --border:#22304a; --text:#e5e7eb; --muted:#9ca3af; --accent:#7dd3fc; }
+      :root { color-scheme: light; --bg:#f7f7f5; --panel:#fff; --line:#d7dadd; --ink:#16181d; --muted:#5c6470; --accent:#0f4c81; }
       * { box-sizing: border-box; }
-      body { margin:0; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:linear-gradient(180deg,#020617 0%, var(--bg) 100%); color:var(--text); }
-      main { max-width:780px; margin:0 auto; padding:24px 16px 44px; }
-      .eyebrow { color:var(--accent); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; margin:0 0 8px; }
-      h1 { margin:0 0 12px; font-size:clamp(1.8rem,5vw,2.5rem); line-height:1.15; }
-      p { line-height:1.6; }
-      .intro,.note { color:var(--muted); }
-      .list { display:grid; gap:14px; margin-top:22px; }
-      .card { display:block; padding:18px; background:rgba(17,24,39,.92); border:1px solid var(--border); border-radius:16px; color:inherit; text-decoration:none; }
-      .card:hover,.card:active { border-color:var(--accent); }
-      .label { display:inline-block; font-size:.78rem; color:var(--accent); margin-bottom:8px; text-transform:uppercase; letter-spacing:.06em; }
-      .title { display:block; font-size:1.08rem; font-weight:700; margin-bottom:6px; }
-      .desc { display:block; color:var(--muted); }
-      code { background:rgba(148,163,184,.14); padding:.12rem .35rem; border-radius:8px; }
+      body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
+      main { max-width: 760px; margin: 0 auto; padding: 32px 18px 56px; }
+      .eyebrow { margin:0 0 8px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+      h1 { margin:0 0 10px; font-size:32px; }
+      .intro, .note { color:var(--muted); line-height:1.65; }
+      .list { display:grid; gap:14px; margin-top:24px; }
+      .card { display:block; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px; text-decoration:none; color:inherit; }
+      .card:hover { border-color:var(--accent); }
+      .label { display:block; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+      .title { display:block; font-size:18px; font-weight:700; margin-bottom:6px; }
+      .desc { display:block; color:var(--muted); line-height:1.55; }
+      code { background:#eef2f7; padding:.1rem .35rem; border-radius:6px; }
     </style>
   </head>
   <body>
     <main>
-      <p class="eyebrow">Unlisted viewer</p>
-      <h1>Woori Bank resume package</h1>
-      <p class="intro">휴대폰에서 바로 열기 쉽게 PDF 링크와 HTML 대체 링크를 함께 둔 비공개형(실제 인증 아님) 뷰어 페이지입니다.</p>
+      <p class="eyebrow">Unlisted PDF package</p>
+      <h1>Woori Bank submission set</h1>
+      <p class="intro">제출용 기준으로 다시 정리한 표준형 PDF 패키지입니다. 메인 이력서 1부와 보강용 사례 2부만 남겨, 웹 패키지 느낌보다 일반 지원 문서 느낌에 가깝게 구성했습니다.</p>
       <div class="list">
-        <a class="card" href="./pdf/resume.pdf">
-          <span class="label">Main PDF</span>
-          <span class="title">우리은행 지원 이력서 PDF</span>
-          <span class="desc">브라우저 / 모바일 PDF 뷰어에서 바로 열기</span>
+        <a class="card" href="./pdf/wooribank-resume-standard.pdf">
+          <span class="label">Main resume PDF</span>
+          <span class="title">우리은행 지원 이력서</span>
+          <span class="desc">A4 제출용 표준 이력서 형식, 핵심 경력과 적합도 중심 요약</span>
         </a>
-        <a class="card" href="./html/resume.html">
-          <span class="label">HTML fallback</span>
-          <span class="title">메인 이력서 HTML 보기</span>
-          <span class="desc">PDF가 불편할 때 바로 읽을 수 있는 대체 페이지</span>
+        <a class="card" href="./pdf/wooribank-case-a-financial-data.pdf">
+          <span class="label">Case study PDF A</span>
+          <span class="title">금융 데이터 연동 / 데이터 스펙 / 기획 사례</span>
+          <span class="desc">Koscom 포함 금융 데이터 연동, 스펙 검토, 요구사항 해석 관점 정리</span>
         </a>
-        <a class="card" href="./pdf/case-a.pdf">
-          <span class="label">Support PDF A</span>
-          <span class="title">금융 데이터 연동 사례 PDF</span>
-          <span class="desc">Koscom / 데이터 벤더 / 스펙 기반 서비스 기획 사례</span>
-        </a>
-        <a class="card" href="./html/case-a.html">
-          <span class="label">Support HTML A</span>
-          <span class="title">금융 데이터 연동 사례 HTML</span>
-          <span class="desc">모바일 브라우저용 대체 보기</span>
-        </a>
-        <a class="card" href="./pdf/case-b.pdf">
-          <span class="label">Support PDF B</span>
-          <span class="title">은행 협업 사례 PDF</span>
-          <span class="desc">은행권 협업과 AI 투자 서비스 지원 경험 정리</span>
-        </a>
-        <a class="card" href="./html/case-b.html">
-          <span class="label">Support HTML B</span>
-          <span class="title">은행 협업 사례 HTML</span>
-          <span class="desc">모바일 브라우저용 대체 보기</span>
-        </a>
-        <a class="card" href="./pdf/note.pdf">
-          <span class="label">JD note PDF</span>
-          <span class="title">JD 매칭 노트 PDF</span>
-          <span class="desc">책임/요건별 근거 연결 메모</span>
-        </a>
-        <a class="card" href="./html/note.html">
-          <span class="label">JD note HTML</span>
-          <span class="title">JD 매칭 노트 HTML</span>
-          <span class="desc">모바일 브라우저용 대체 보기</span>
+        <a class="card" href="./pdf/wooribank-case-b-banking-collaboration.pdf">
+          <span class="label">Case study PDF B</span>
+          <span class="title">은행 협업 / AI 투자 서비스 관련 사례</span>
+          <span class="desc">KakaoBank, Shinhan Bank, K Bank, Hana Bank 관련 협업·공급·기획 지원 범위 정리</span>
         </a>
       </div>
-      <p class="note">이 경로는 <code>unlisted</code> 수준의 숨김 링크일 뿐이고, 실제 인증/보안 보호는 아닙니다. 검색 엔진 노출은 <code>noindex, nofollow, noarchive</code> 정책으로 최대한 줄였습니다.</p>
+      <p class="note">이 경로는 <code>unlisted</code> 수준의 숨김 링크입니다. 실제 인증 경로는 아니며, 검색 노출은 <code>noindex, nofollow, noarchive</code> 정책으로만 최대한 줄였습니다.</p>
     </main>
   </body>
 </html>

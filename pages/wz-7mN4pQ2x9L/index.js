@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import fs from 'fs'
 import Head from 'next/head'
 import path from 'path'
 import Database from 'better-sqlite3'
@@ -8,6 +9,7 @@ const HIDDEN_SEGMENT = 'wz-7mN4pQ2x9L'
 const DB_PATH =
   process.env.WINE_WATCH_DB_PATH ||
   path.resolve(process.cwd(), '..', 'wine-watch', 'data', 'wine-watch.db')
+const JSON_EXPORT_PATH = path.resolve(process.cwd(), 'data', 'wine-watch-hidden-view.json')
 
 function hasColumn(db, tableName, columnName) {
   const columns = db.prepare(`PRAGMA table_info(${tableName})`).all()
@@ -79,8 +81,36 @@ function queryCurrentWatchItems() {
   }
 }
 
+function readExportedItems() {
+  if (!fs.existsSync(JSON_EXPORT_PATH)) return null
+
+  const parsed = JSON.parse(fs.readFileSync(JSON_EXPORT_PATH, 'utf8'))
+  const items = Array.isArray(parsed.items) ? parsed.items : []
+
+  return {
+    items: items.map((item) => ({
+      ...item,
+      fallbackImageUrl: buildFallbackImageDataUri(item.source || 'unknown'),
+    })),
+    capturedAt: parsed.generatedAt || items[0]?.snapshotCapturedAt || null,
+    sourceLabel: JSON_EXPORT_PATH,
+  }
+}
+
 export async function getServerSideProps() {
   try {
+    const exported = readExportedItems()
+    if (exported) {
+      return {
+        props: {
+          items: exported.items,
+          capturedAt: exported.capturedAt,
+          dbPath: exported.sourceLabel,
+          readError: null,
+        },
+      }
+    }
+
     const items = queryCurrentWatchItems()
     const capturedAt = items[0]?.snapshotCapturedAt || null
 
@@ -97,7 +127,7 @@ export async function getServerSideProps() {
       props: {
         items: [],
         capturedAt: null,
-        dbPath: DB_PATH,
+        dbPath: JSON_EXPORT_PATH,
         readError: error.message,
       },
     }

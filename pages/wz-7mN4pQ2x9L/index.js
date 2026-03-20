@@ -138,18 +138,20 @@ function WatchImage({ item, compact }) {
   const [src, setSrc] = useState(item.imageUrl || item.fallbackImageUrl)
 
   return (
-    <img
-      src={src}
-      alt={`${item.name} preview`}
-      loading="lazy"
-      referrerPolicy="no-referrer"
-      style={compact ? styles.thumbSmall : styles.thumb}
-      onError={() => {
-        if (src !== item.fallbackImageUrl) {
-          setSrc(item.fallbackImageUrl)
-        }
-      }}
-    />
+    <div style={compact ? styles.thumbSmallFrame : styles.thumbFrame}>
+      <img
+        src={src}
+        alt={`${item.name} preview`}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        style={compact ? styles.thumbSmall : styles.thumb}
+        onError={() => {
+          if (src !== item.fallbackImageUrl) {
+            setSrc(item.fallbackImageUrl)
+          }
+        }}
+      />
+    </div>
   )
 }
 
@@ -250,7 +252,7 @@ HiddenWineWatchPage.disableLayout = true
 const styles = {
   page: {
     minHeight: '100vh',
-    padding: '24px 14px 42px',
+    padding: '20px 12px 36px',
     background: 'linear-gradient(160deg, #0b1324 0%, #15132a 55%, #0f172a 100%)',
     color: '#e5e7eb',
     fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif",
@@ -323,8 +325,8 @@ const styles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-    gap: '12px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(165px, 1fr))',
+    gap: '10px',
   },
   list: {
     display: 'grid',
@@ -337,9 +339,10 @@ const styles = {
   card: {
     border: '1px solid #2a3b52',
     borderRadius: '14px',
-    background: 'rgba(12, 21, 37, 0.78)',
+    background: 'rgba(12, 21, 37, 0.88)',
     overflow: 'hidden',
     height: '100%',
+    boxShadow: '0 16px 34px rgba(2, 6, 23, 0.24)',
   },
   listRow: {
     border: '1px solid #2a3b52',
@@ -349,36 +352,61 @@ const styles = {
     gridTemplateColumns: '96px minmax(0, 1fr)',
     overflow: 'hidden',
   },
+  thumbFrame: {
+    width: '100%',
+    aspectRatio: '4 / 5',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '10px',
+    background: 'linear-gradient(180deg, rgba(30, 41, 59, 0.94) 0%, rgba(15, 23, 42, 0.98) 100%)',
+    borderBottom: '1px solid rgba(148, 163, 184, 0.14)',
+  },
+  thumbSmallFrame: {
+    width: '100%',
+    height: '100%',
+    minHeight: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '8px',
+    background: 'linear-gradient(180deg, rgba(30, 41, 59, 0.94) 0%, rgba(15, 23, 42, 0.98) 100%)',
+    borderRight: '1px solid rgba(148, 163, 184, 0.14)',
+  },
   thumb: {
     width: '100%',
-    aspectRatio: '16 / 9',
-    objectFit: 'cover',
+    height: '100%',
+    objectFit: 'contain',
+    objectPosition: 'center',
     display: 'block',
-    background: '#0f172a',
+    background: 'transparent',
   },
   thumbSmall: {
     width: '100%',
     height: '100%',
-    objectFit: 'cover',
+    objectFit: 'contain',
+    objectPosition: 'center',
     display: 'block',
-    background: '#0f172a',
+    background: 'transparent',
   },
   content: {
-    padding: '12px',
+    padding: '10px 10px 11px',
   },
   name: {
     margin: 0,
     fontWeight: 700,
-    lineHeight: 1.35,
-    marginBottom: '7px',
+    lineHeight: 1.32,
+    marginBottom: '6px',
+    fontSize: '0.95rem',
   },
   detailRow: {
     display: 'flex',
-    justifyContent: 'space-between',
-    gap: '8px',
-    marginBottom: '9px',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: '4px',
+    marginBottom: '8px',
     color: '#cbd5e1',
-    fontSize: '0.92rem',
+    fontSize: '0.84rem',
   },
   platform: {
     color: '#93c5fd',
@@ -387,11 +415,12 @@ const styles = {
   price: {
     whiteSpace: 'nowrap',
     fontWeight: 700,
+    color: '#f8fafc',
   },
   link: {
     color: '#7dd3fc',
     textDecoration: 'underline',
     textUnderlineOffset: '2px',
-    fontSize: '0.9rem',
+    fontSize: '0.82rem',
   },
 }

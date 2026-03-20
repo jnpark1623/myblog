@@ -85,6 +85,16 @@ module.exports = withBundleAnalyzer({
         ],
       },
       {
+        source: '/wz-7mN4pQ2x9L/:path*',
+        headers: [
+          ...securityHeaders,
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive',
+          },
+        ],
+      },
+      {
         source: '/(.*)',
         headers: securityHeaders,
       },

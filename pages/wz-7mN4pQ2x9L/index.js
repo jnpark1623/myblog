@@ -88,8 +88,12 @@ function readExportedItems() {
   const items = Array.isArray(parsed.items) ? parsed.items : []
 
   return {
-    items: items.map((item) => ({
+    items: items.map((item, index) => ({
       ...item,
+      id: item.id || `${item.source || 'unknown'}:${item.externalId || index}`,
+      position: Number(item.position || index + 1),
+      firstSeenAt: item.firstSeenAt || null,
+      lastSeenAt: item.lastSeenAt || null,
       fallbackImageUrl: buildFallbackImageDataUri(item.source || 'unknown'),
     })),
     capturedAt: parsed.generatedAt || items[0]?.snapshotCapturedAt || null,
@@ -155,6 +159,13 @@ function WatchImage({ item, compact }) {
   )
 }
 
+function getTimeValue(value) {
+  if (!value) return Number.NEGATIVE_INFINITY
+  const normalized = typeof value === 'string' ? value.replace(' ', 'T') : value
+  const timestamp = new Date(normalized).getTime()
+  return Number.isNaN(timestamp) ? Number.NEGATIVE_INFINITY : timestamp
+}
+
 export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readError }) {
   const [isCompact, setIsCompact] = useState(false)
 
@@ -166,16 +177,27 @@ export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readErr
   }, [items])
 
   const displayItems = useMemo(() => {
-    const sourceOrder = Object.keys(groupedCount).sort()
-    const sourceIndex = new Map(sourceOrder.map((source, index) => [source, index]))
-
     return [...items].sort((a, b) => {
+      const firstSeenDelta = getTimeValue(b.firstSeenAt) - getTimeValue(a.firstSeenAt)
+      if (firstSeenDelta !== 0) return firstSeenDelta
+
+      const snapshotDelta = getTimeValue(b.snapshotCapturedAt) - getTimeValue(a.snapshotCapturedAt)
+      if (snapshotDelta !== 0) return snapshotDelta
+
       const positionDelta = (a.position || 0) - (b.position || 0)
       if (positionDelta !== 0) return positionDelta
 
-      return (sourceIndex.get(a.source) ?? 999) - (sourceIndex.get(b.source) ?? 999)
+      return (a.source || '').localeCompare(b.source || '')
     })
-  }, [groupedCount, items])
+  }, [items])
+
+  const orderingLabel = useMemo(() => {
+    if (items.some((item) => item.firstSeenAt)) {
+      return 'Order: latest collected first (first seen time)'
+    }
+
+    return 'Order: snapshot position fallback'
+  }, [items])
 
   return (
     <>
@@ -196,6 +218,7 @@ export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readErr
               <span>Path: /{HIDDEN_SEGMENT}</span>
               <span>Items: {items.length}</span>
               <span>Captured: {capturedAt || 'unknown'}</span>
+              <span style={styles.orderTag}>{orderingLabel}</span>
             </div>
             <div style={styles.metaRow}>
               {Object.entries(groupedCount).map(([source, count]) => (
@@ -305,6 +328,13 @@ const styles = {
     padding: '2px 10px',
     border: '1px solid #2f3f56',
     borderRadius: '999px',
+  },
+  orderTag: {
+    padding: '2px 10px',
+    border: '1px solid #32506f',
+    borderRadius: '999px',
+    color: '#bfdbfe',
+    background: 'rgba(30, 41, 59, 0.45)',
   },
   toggle: {
     marginTop: '6px',

@@ -165,6 +165,18 @@ export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readErr
     }, {})
   }, [items])
 
+  const displayItems = useMemo(() => {
+    const sourceOrder = Object.keys(groupedCount).sort()
+    const sourceIndex = new Map(sourceOrder.map((source, index) => [source, index]))
+
+    return [...items].sort((a, b) => {
+      const positionDelta = (a.position || 0) - (b.position || 0)
+      if (positionDelta !== 0) return positionDelta
+
+      return (sourceIndex.get(a.source) ?? 999) - (sourceIndex.get(b.source) ?? 999)
+    })
+  }, [groupedCount, items])
+
   return (
     <>
       <Head>
@@ -218,7 +230,7 @@ export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readErr
 
           {!readError && items.length > 0 ? (
             <section style={isCompact ? styles.list : styles.grid}>
-              {items.map((item) => (
+              {displayItems.map((item) => (
                 <a
                   key={item.id}
                   href={item.url}

@@ -1,45 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import fs from 'fs'
 import Head from 'next/head'
-import path from 'path'
-import Database from 'better-sqlite3'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 const HIDDEN_SEGMENT = 'wz-7mN4pQ2x9L'
-const DB_PATH =
-  process.env.WINE_WATCH_DB_PATH ||
-  path.resolve(process.cwd(), '..', 'wine-watch', 'data', 'wine-watch.db')
-const JSON_EXPORT_PATH = path.resolve(process.cwd(), 'data', 'wine-watch-hidden-view.json')
-
-function hasColumn(db, tableName, columnName) {
-  const columns = db.prepare(`PRAGMA table_info(${tableName})`).all()
-  return columns.some((column) => column.name === columnName)
-}
-
-function buildSnapshotQuery(db) {
-  const imageColumn = hasColumn(db, 'source_snapshot_items', 'image_url')
-    ? 'i.image_url'
-    : 'NULL AS image_url'
-
-  return `
-SELECT
-  i.source,
-  i.position,
-  i.external_id,
-  i.title,
-  i.url,
-  i.price,
-  ${imageColumn},
-  s.captured_at AS snapshot_captured_at,
-  e.first_seen_at,
-  e.last_seen_at
-FROM source_snapshot_items AS i
-JOIN source_snapshots AS s ON s.source = i.source
-LEFT JOIN seen_exposures AS e
-  ON e.source = i.source AND e.external_id = i.external_id
-ORDER BY i.source, i.position
-`
-}
 
 function sourcePalette(source) {
   if (source === 'xwine.club') return { bg: '#1e3a8a', fg: '#eff6ff', label: 'XW' }
@@ -54,92 +17,42 @@ function buildFallbackImageDataUri(source) {
   return `data:image/svg+xml,${encodeURIComponent(svg)}`
 }
 
-function queryCurrentWatchItems() {
-  const db = new Database(DB_PATH, { readonly: true })
-
-  try {
-    const rows = db.prepare(buildSnapshotQuery(db)).all()
-    return rows.map((row, index) => {
-      const source = row.source || 'unknown'
-      return {
-        id: `${source}:${row.external_id || index}`,
-        source,
-        position: Number(row.position || index + 1),
-        externalId: row.external_id || '',
-        name: row.title || 'Untitled item',
-        url: row.url || '',
-        price: row.price || 'Price unavailable',
-        imageUrl: row.image_url || null,
-        fallbackImageUrl: buildFallbackImageDataUri(source),
-        snapshotCapturedAt: row.snapshot_captured_at || null,
-        firstSeenAt: row.first_seen_at || null,
-        lastSeenAt: row.last_seen_at || null,
-      }
-    })
-  } finally {
-    db.close()
-  }
+function normalizeItems(items) {
+  return (Array.isArray(items) ? items : []).map((item, index) => ({
+    ...item,
+    id: item.id || `${item.source || 'unknown'}:${item.externalId || index}`,
+    position: Number(item.position || index + 1),
+    firstSeenAt: item.firstSeenAt || null,
+    lastSeenAt: item.lastSeenAt || null,
+    fallbackImageUrl: item.fallbackImageUrl || buildFallbackImageDataUri(item.source || 'unknown'),
+  }))
 }
 
-function readExportedItems() {
-  if (!fs.existsSync(JSON_EXPORT_PATH)) return null
-
-  const parsed = JSON.parse(fs.readFileSync(JSON_EXPORT_PATH, 'utf8'))
-  const items = Array.isArray(parsed.items) ? parsed.items : []
-
-  return {
-    items: items.map((item, index) => ({
-      ...item,
-      id: item.id || `${item.source || 'unknown'}:${item.externalId || index}`,
-      position: Number(item.position || index + 1),
-      firstSeenAt: item.firstSeenAt || null,
-      lastSeenAt: item.lastSeenAt || null,
-      fallbackImageUrl: buildFallbackImageDataUri(item.source || 'unknown'),
-    })),
-    capturedAt: parsed.generatedAt || items[0]?.snapshotCapturedAt || null,
-    sourceLabel: JSON_EXPORT_PATH,
-  }
+function getTimeValue(value) {
+  if (!value) return Number.NEGATIVE_INFINITY
+  const normalized = typeof value === 'string' ? value.replace(' ', 'T') : value
+  const timestamp = new Date(normalized).getTime()
+  return Number.isNaN(timestamp) ? Number.NEGATIVE_INFINITY : timestamp
 }
 
-export async function getServerSideProps() {
-  try {
-    const exported = readExportedItems()
-    if (exported) {
-      return {
-        props: {
-          items: exported.items,
-          capturedAt: exported.capturedAt,
-          dbPath: exported.sourceLabel,
-          readError: null,
-        },
-      }
-    }
+function resolveApiUrl(initialApiUrl) {
+  if (initialApiUrl) return initialApiUrl
+  if (typeof window === 'undefined') return null
 
-    const items = queryCurrentWatchItems()
-    const capturedAt = items[0]?.snapshotCapturedAt || null
-
-    return {
-      props: {
-        items,
-        capturedAt,
-        dbPath: DB_PATH,
-        readError: null,
-      },
-    }
-  } catch (error) {
-    return {
-      props: {
-        items: [],
-        capturedAt: null,
-        dbPath: JSON_EXPORT_PATH,
-        readError: error.message,
-      },
-    }
+  const { protocol, hostname } = window.location
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return `${protocol}//127.0.0.1:4387/api/wine-watch`
   }
+
+  return null
 }
 
 function WatchImage({ item, compact }) {
   const [src, setSrc] = useState(item.imageUrl || item.fallbackImageUrl)
+
+  useEffect(() => {
+    setSrc(item.imageUrl || item.fallbackImageUrl)
+  }, [item.fallbackImageUrl, item.imageUrl])
 
   return (
     <div style={compact ? styles.thumbSmallFrame : styles.thumbFrame}>
@@ -159,15 +72,70 @@ function WatchImage({ item, compact }) {
   )
 }
 
-function getTimeValue(value) {
-  if (!value) return Number.NEGATIVE_INFINITY
-  const normalized = typeof value === 'string' ? value.replace(' ', 'T') : value
-  const timestamp = new Date(normalized).getTime()
-  return Number.isNaN(timestamp) ? Number.NEGATIVE_INFINITY : timestamp
+export async function getServerSideProps() {
+  return {
+    props: {
+      apiUrl: process.env.NEXT_PUBLIC_WINE_WATCH_API_URL || null,
+    },
+  }
 }
 
-export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readError }) {
+export default function HiddenWineWatchPage({ apiUrl }) {
   const [isCompact, setIsCompact] = useState(false)
+  const [items, setItems] = useState([])
+  const [capturedAt, setCapturedAt] = useState(null)
+  const [sourceLabel, setSourceLabel] = useState(apiUrl || 'API not configured')
+  const [readError, setReadError] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const targetUrl = resolveApiUrl(apiUrl)
+    setSourceLabel(targetUrl || 'No API URL configured')
+
+    if (!targetUrl) {
+      setReadError(
+        'Set NEXT_PUBLIC_WINE_WATCH_API_URL to a reachable JSON endpoint, or open this page on the same machine as the wine-watch API.'
+      )
+      setIsLoading(false)
+      return
+    }
+
+    let cancelled = false
+
+    async function load() {
+      setIsLoading(true)
+
+      try {
+        const response = await fetch(targetUrl, { cache: 'no-store' })
+        const payload = await response.json()
+
+        if (!response.ok || payload.ok === false) {
+          throw new Error(payload.error || `Request failed: ${response.status}`)
+        }
+
+        if (!cancelled) {
+          setItems(normalizeItems(payload.items))
+          setCapturedAt(payload.capturedAt || payload.generatedAt || null)
+          setReadError(null)
+        }
+      } catch (error) {
+        if (!cancelled) {
+          setItems([])
+          setCapturedAt(null)
+          setReadError(error.message)
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false)
+        }
+      }
+    }
+
+    load()
+    return () => {
+      cancelled = true
+    }
+  }, [apiUrl])
 
   const groupedCount = useMemo(() => {
     return items.reduce((acc, item) => {
@@ -212,7 +180,7 @@ export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readErr
             <p style={styles.eyebrow}>Hidden watcher view</p>
             <h1 style={styles.title}>Current watched items</h1>
             <p style={styles.description}>
-              Live snapshot from <code>{dbPath}</code>
+              Live snapshot from <code>{sourceLabel}</code>
             </p>
             <div style={styles.metaRow}>
               <span>Path: /{HIDDEN_SEGMENT}</span>
@@ -237,18 +205,18 @@ export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readErr
             </button>
           </header>
 
+          {isLoading ? <section style={styles.emptyBox}>Loading latest snapshot…</section> : null}
+
           {readError ? (
             <section style={styles.errorBox}>
-              Failed to read watcher DB.
+              Failed to read watcher API.
               <br />
               <code>{readError}</code>
             </section>
           ) : null}
 
-          {!readError && items.length === 0 ? (
-            <section style={styles.emptyBox}>
-              No watched items found in source_snapshot_items.
-            </section>
+          {!isLoading && !readError && items.length === 0 ? (
+            <section style={styles.emptyBox}>No watched items found in the API response.</section>
           ) : null}
 
           {!readError && items.length > 0 ? (

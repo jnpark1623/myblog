@@ -1,12 +1,25 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from 'next/head'
-import { execFileSync } from 'child_process'
 import path from 'path'
+import Database from 'better-sqlite3'
 import { useMemo, useState } from 'react'
 
 const HIDDEN_SEGMENT = 'wz-7mN4pQ2x9L'
-const DB_PATH = path.resolve(process.cwd(), '..', 'wine-watch', 'data', 'wine-watch.db')
+const DB_PATH =
+  process.env.WINE_WATCH_DB_PATH ||
+  path.resolve(process.cwd(), '..', 'wine-watch', 'data', 'wine-watch.db')
 
-const SNAPSHOT_QUERY = `
+function hasColumn(db, tableName, columnName) {
+  const columns = db.prepare(`PRAGMA table_info(${tableName})`).all()
+  return columns.some((column) => column.name === columnName)
+}
+
+function buildSnapshotQuery(db) {
+  const imageColumn = hasColumn(db, 'source_snapshot_items', 'image_url')
+    ? 'i.image_url'
+    : 'NULL AS image_url'
+
+  return `
 SELECT
   i.source,
   i.position,
@@ -14,6 +27,7 @@ SELECT
   i.title,
   i.url,
   i.price,
+  ${imageColumn},
   s.captured_at AS snapshot_captured_at,
   e.first_seen_at,
   e.last_seen_at
@@ -23,6 +37,7 @@ LEFT JOIN seen_exposures AS e
   ON e.source = i.source AND e.external_id = i.external_id
 ORDER BY i.source, i.position
 `
+}
 
 function sourcePalette(source) {
   if (source === 'xwine.club') return { bg: '#1e3a8a', fg: '#eff6ff', label: 'XW' }
@@ -37,39 +52,31 @@ function buildFallbackImageDataUri(source) {
   return `data:image/svg+xml,${encodeURIComponent(svg)}`
 }
 
-function parseRowsFromSqliteJson(output) {
-  const trimmed = output.trim()
-  if (!trimmed) return []
-  const parsed = JSON.parse(trimmed)
-  return Array.isArray(parsed) ? parsed : []
-}
-
 function queryCurrentWatchItems() {
-  const output = execFileSync(
-    'sqlite3',
-    ['-readonly', DB_PATH, '-cmd', '.mode json', SNAPSHOT_QUERY],
-    {
-      encoding: 'utf8',
-    }
-  )
+  const db = new Database(DB_PATH, { readonly: true })
 
-  const rows = parseRowsFromSqliteJson(output)
-  return rows.map((row, index) => {
-    const source = row.source || 'unknown'
-    return {
-      id: `${source}:${row.external_id || index}`,
-      source,
-      position: Number(row.position || index + 1),
-      externalId: row.external_id || '',
-      name: row.title || 'Untitled item',
-      url: row.url || '',
-      price: row.price || 'Price unavailable',
-      imageUrl: buildFallbackImageDataUri(source),
-      snapshotCapturedAt: row.snapshot_captured_at || null,
-      firstSeenAt: row.first_seen_at || null,
-      lastSeenAt: row.last_seen_at || null,
-    }
-  })
+  try {
+    const rows = db.prepare(buildSnapshotQuery(db)).all()
+    return rows.map((row, index) => {
+      const source = row.source || 'unknown'
+      return {
+        id: `${source}:${row.external_id || index}`,
+        source,
+        position: Number(row.position || index + 1),
+        externalId: row.external_id || '',
+        name: row.title || 'Untitled item',
+        url: row.url || '',
+        price: row.price || 'Price unavailable',
+        imageUrl: row.image_url || null,
+        fallbackImageUrl: buildFallbackImageDataUri(source),
+        snapshotCapturedAt: row.snapshot_captured_at || null,
+        firstSeenAt: row.first_seen_at || null,
+        lastSeenAt: row.last_seen_at || null,
+      }
+    })
+  } finally {
+    db.close()
+  }
 }
 
 export async function getServerSideProps() {
@@ -95,6 +102,25 @@ export async function getServerSideProps() {
       },
     }
   }
+}
+
+function WatchImage({ item, compact }) {
+  const [src, setSrc] = useState(item.imageUrl || item.fallbackImageUrl)
+
+  return (
+    <img
+      src={src}
+      alt={`${item.name} preview`}
+      loading="lazy"
+      referrerPolicy="no-referrer"
+      style={compact ? styles.thumbSmall : styles.thumb}
+      onError={() => {
+        if (src !== item.fallbackImageUrl) {
+          setSrc(item.fallbackImageUrl)
+        }
+      }}
+    />
+  )
 }
 
 export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readError }) {
@@ -140,13 +166,13 @@ export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readErr
               onClick={() => setIsCompact((prev) => !prev)}
               aria-pressed={isCompact}
             >
-              {isCompact ? 'Switch to cards' : 'Switch to compact list'}
+              {isCompact ? 'Switch to grid cards' : 'Switch to compact list'}
             </button>
           </header>
 
           {readError ? (
             <section style={styles.errorBox}>
-              Failed to read watcher DB. Check DB path and sqlite3 availability.
+              Failed to read watcher DB.
               <br />
               <code>{readError}</code>
             </section>
@@ -161,28 +187,25 @@ export default function HiddenWineWatchPage({ items, capturedAt, dbPath, readErr
           {!readError && items.length > 0 ? (
             <section style={isCompact ? styles.list : styles.grid}>
               {items.map((item) => (
-                <article key={item.id} style={isCompact ? styles.listRow : styles.card}>
-                  <img
-                    src={item.imageUrl}
-                    alt={`${item.name} preview`}
-                    style={isCompact ? styles.thumbSmall : styles.thumb}
-                  />
-                  <div style={styles.content}>
-                    <p style={styles.name}>{item.name}</p>
-                    <div style={styles.detailRow}>
-                      <span style={styles.platform}>{item.source}</span>
-                      <span style={styles.price}>{item.price}</span>
+                <a
+                  key={item.id}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={styles.cardLink}
+                >
+                  <article style={isCompact ? styles.listRow : styles.card}>
+                    <WatchImage item={item} compact={isCompact} />
+                    <div style={styles.content}>
+                      <p style={styles.name}>{item.name}</p>
+                      <div style={styles.detailRow}>
+                        <span style={styles.platform}>{item.source}</span>
+                        <span style={styles.price}>{item.price}</span>
+                      </div>
+                      <span style={styles.link}>Open seller page ↗</span>
                     </div>
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={styles.link}
-                    >
-                      Open seller page
-                    </a>
-                  </div>
-                </article>
+                  </article>
+                </a>
               ))}
             </section>
           ) : null}
@@ -277,11 +300,16 @@ const styles = {
     display: 'grid',
     gap: '8px',
   },
+  cardLink: {
+    color: 'inherit',
+    textDecoration: 'none',
+  },
   card: {
     border: '1px solid #2a3b52',
     borderRadius: '14px',
     background: 'rgba(12, 21, 37, 0.78)',
     overflow: 'hidden',
+    height: '100%',
   },
   listRow: {
     border: '1px solid #2a3b52',
@@ -296,12 +324,14 @@ const styles = {
     aspectRatio: '16 / 9',
     objectFit: 'cover',
     display: 'block',
+    background: '#0f172a',
   },
   thumbSmall: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
     display: 'block',
+    background: '#0f172a',
   },
   content: {
     padding: '12px',

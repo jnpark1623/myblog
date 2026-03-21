@@ -36,15 +36,7 @@ function getTimeValue(value) {
 }
 
 function resolveApiUrl(initialApiUrl) {
-  if (initialApiUrl) return initialApiUrl
-  if (typeof window === 'undefined') return null
-
-  const { protocol, hostname } = window.location
-  if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return `${protocol}//127.0.0.1:4387/api/wine-watch`
-  }
-
-  return null
+  return initialApiUrl || '/api/wine-watch'
 }
 
 function WatchImage({ item, compact }) {
@@ -75,7 +67,7 @@ function WatchImage({ item, compact }) {
 export async function getServerSideProps() {
   return {
     props: {
-      apiUrl: process.env.NEXT_PUBLIC_WINE_WATCH_API_URL || null,
+      apiUrl: '/api/wine-watch',
     },
   }
 }
@@ -93,9 +85,7 @@ export default function HiddenWineWatchPage({ apiUrl }) {
     setSourceLabel(targetUrl || 'No API URL configured')
 
     if (!targetUrl) {
-      setReadError(
-        'Set NEXT_PUBLIC_WINE_WATCH_API_URL to a reachable JSON endpoint, or open this page on the same machine as the wine-watch API.'
-      )
+      setReadError('Same-domain API route is unavailable.')
       setIsLoading(false)
       return
     }

@@ -1,0 +1,359 @@
+{
+  "updatedAt": "2026-03-23T09:52:29.681Z",
+  "generatedForWeek": "2026-03-23",
+  "weeklyBaseline": [
+    {
+      "jobId": 92,
+      "company": "카카오뱅크",
+      "position": "서비스 기획자 - 여신서비스",
+      "deadline": "due in 2d (2026-03-24 23:59:59)",
+      "status": "resume_needed",
+      "source": "KakaoBank Official Careers",
+      "score": 62,
+      "urgency": "urgent",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-92-kakaobank-lending-service-planning-resume.html",
+      "canonicalUrl": "https://kakaobank.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=238650",
+      "rank": 1,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "제품 전략/기획 중심 버전",
+        "due in 2d (2026-03-24 23:59:59)"
+      ]
+    },
+    {
+      "jobId": 77,
+      "company": "카카오뱅크",
+      "position": "서비스 기획자 - 퇴직연금",
+      "deadline": "due in 9d (2026-03-31 23:59:59)",
+      "status": "resume_needed",
+      "source": "KakaoBank Official Careers",
+      "score": 37,
+      "urgency": "normal",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-77-kakaobank-retirement-service-planning-resume.html",
+      "canonicalUrl": "https://kakaobank.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=247114",
+      "rank": 2,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "제품 전략/기획 중심 버전",
+        "due in 9d (2026-03-31 23:59:59)"
+      ]
+    },
+    {
+      "jobId": 326,
+      "company": "페이먼츠",
+      "position": "Technical Product Manager",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 53,
+      "urgency": "unknown",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-326-draft-technical-product-manager-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=5966464003",
+      "rank": 3,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "제품 전략/기획 중심 버전",
+        "deadline unknown"
+      ]
+    },
+    {
+      "jobId": 170,
+      "company": "뱅크",
+      "position": "Data Product Manager",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 47,
+      "urgency": "unknown",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-170-draft-data-product-manager-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=6675539003",
+      "rank": 4,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "제품 전략/기획 중심 버전",
+        "deadline unknown"
+      ]
+    },
+    {
+      "jobId": 270,
+      "company": "증권",
+      "position": "Product Owner (AI Data Platform)",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 40,
+      "urgency": "unknown",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-270-draft-product-owner-ai-data-platform-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=7400593003",
+      "rank": 5,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "금융/플랫폼 백엔드 중심 버전",
+        "deadline unknown"
+      ]
+    },
+    {
+      "jobId": 125,
+      "company": "뱅크",
+      "position": "Banking Product Owner",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 37,
+      "urgency": "unknown",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-125-draft-banking-product-owner-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=7604166003",
+      "rank": 6,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "제품 전략/기획 중심 버전",
+        "deadline unknown"
+      ]
+    },
+    {
+      "jobId": 399,
+      "company": "카카오페이증권(kakaopay증권)",
+      "position": "금융 대외연계시스템 백엔드 개발자(시니어)",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Wanted Backend / Developer Search",
+      "score": 44,
+      "urgency": "unknown",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-399-kakaopay-draft-resume.html",
+      "canonicalUrl": "https://www.wanted.co.kr/wd/345859",
+      "rank": 7,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "금융/플랫폼 백엔드 중심 버전",
+        "deadline unknown"
+      ]
+    },
+    {
+      "jobId": 78,
+      "company": "카카오뱅크",
+      "position": "블록체인 서비스 백엔드 개발자",
+      "deadline": "due in 9d (2026-03-31 23:59:59)",
+      "status": "resume_needed",
+      "source": "KakaoBank Official Careers",
+      "score": 37,
+      "urgency": "normal",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-78-kakaobank-blockchain-backend-resume.html",
+      "canonicalUrl": "https://kakaobank.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=247224",
+      "rank": 8,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "금융/플랫폼 백엔드 중심 버전",
+        "due in 9d (2026-03-31 23:59:59)"
+      ]
+    },
+    {
+      "jobId": 390,
+      "company": "뱅크엑스",
+      "position": "시니어 백엔드 개발자 (Backend Lead)  (7년 이상)",
+      "deadline": "due in 12d (2026-04-03)",
+      "status": "resume_needed",
+      "source": "Wanted Backend / Developer Search",
+      "score": 60,
+      "urgency": "normal",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-390-draft-backend-lead-7-resume.html",
+      "canonicalUrl": "https://www.wanted.co.kr/wd/346466",
+      "rank": 9,
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "금융/플랫폼 백엔드 중심 버전",
+        "due in 12d (2026-04-03)"
+      ]
+    },
+    {
+      "jobId": 507,
+      "company": "피에프씨테크놀로지스",
+      "position": "B2B AI Product Owner(PO, 프로덕트 오너)",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Wanted Product Owner Search",
+      "score": 61,
+      "urgency": "unknown",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-507-draft-b2b-ai-product-owner-po-resume.html",
+      "canonicalUrl": "https://www.wanted.co.kr/wd/338869",
+      "rank": 10,
+      "preferenceGroup": "3. 대기업/IT전문기업",
+      "whyIncluded": [
+        "3. 대기업/IT전문기업",
+        "제품 전략/기획 중심 버전",
+        "deadline unknown"
+      ]
+    }
+  ],
+  "additionalCandidates": [
+    {
+      "jobId": 437,
+      "company": "쿼타랩(쿼타북)",
+      "position": "증권 서비스 기획(PM)",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Wanted Service Planning Search",
+      "score": 51,
+      "urgency": "unknown",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-437-draft-pm-resume.html",
+      "canonicalUrl": "https://www.wanted.co.kr/wd/344909",
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "주간 baseline 외 추가 후보",
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "제품 전략/기획 중심 버전"
+      ]
+    },
+    {
+      "jobId": 245,
+      "company": "뱅크 · 플레이스 · 증권",
+      "position": "Node.js Developer",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 46,
+      "urgency": "unknown",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-245-draft-node-js-developer-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=4421106003",
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "주간 baseline 외 추가 후보",
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "금융/플랫폼 백엔드 중심 버전"
+      ]
+    },
+    {
+      "jobId": 265,
+      "company": "인슈어런스 · 뱅크 · 페이먼츠",
+      "position": "Product Manager",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 46,
+      "urgency": "unknown",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-265-draft-product-manager-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=7569679003",
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "주간 baseline 외 추가 후보",
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "제품 전략/기획 중심 버전"
+      ]
+    },
+    {
+      "jobId": 193,
+      "company": "토스 · 증권 · 플레이스",
+      "position": "Frontend Platform Engineer",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 40,
+      "urgency": "unknown",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-193-draft-frontend-platform-engineer-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=7545902003",
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "주간 baseline 외 추가 후보",
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "금융/플랫폼 백엔드 중심 버전"
+      ]
+    },
+    {
+      "jobId": 235,
+      "company": "뱅크",
+      "position": "ML Backend Engineer",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 37,
+      "urgency": "unknown",
+      "narrativeTitle": "금융/플랫폼 백엔드 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-235-draft-ml-backend-engineer-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=6600650003",
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "주간 baseline 외 추가 후보",
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "금융/플랫폼 백엔드 중심 버전"
+      ]
+    },
+    {
+      "jobId": 269,
+      "company": "토스 · 증권 · 플레이스",
+      "position": "Product Owner",
+      "deadline": "deadline unknown",
+      "status": "resume_needed",
+      "source": "Toss Careers",
+      "score": 37,
+      "urgency": "unknown",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-269-draft-product-owner-resume.html",
+      "canonicalUrl": "https://toss.im/career/job-detail?job_id=4071413003",
+      "preferenceGroup": "1. 금융권 대기업/은행/증권/그룹계열사",
+      "whyIncluded": [
+        "주간 baseline 외 추가 후보",
+        "1. 금융권 대기업/은행/증권/그룹계열사",
+        "제품 전략/기획 중심 버전"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "jobId": 459,
+      "company": "비댁스",
+      "position": "Technical Product Manager",
+      "deadline": "closed 1d ago (2026-03-22)",
+      "status": "resume_needed",
+      "source": "Wanted Product Manager Search",
+      "score": 51,
+      "urgency": "closed",
+      "narrativeTitle": "제품 전략/기획 중심 버전",
+      "resumeUrl": "/cv-noo10mi4km/resumes/job-459-draft-technical-product-manager-resume.html",
+      "canonicalUrl": "https://www.wanted.co.kr/wd/346996",
+      "exclusionReason": "closed"
+    }
+  ],
+  "reasoningSteps": [
+    "1. 대상 회사군을 사용자 선호도 기준으로 분류합니다.",
+    "2. 수집된 공고 중 활성 상태 공고만 남기고 마감/종료 공고를 제거합니다.",
+    "3. 이미 지원 완료된 공고를 제거해 중복 지원을 방지합니다.",
+    "4. 관심 포지션군(서비스기획, PO/PM, TPM, 금융/데이터/백엔드)과 연결되는 공고를 우선 남깁니다.",
+    "5. 마스터 이력서 기반 맞춤 이력서 초안이 있는 공고만 우선 검토 대상으로 사용합니다.",
+    "6. 월요일에는 큐레이션된 금주 baseline을 확정합니다.",
+    "7. 화~금에는 baseline은 유지하고 새로 끼어들 만한 공고만 추가 후보로 올립니다.",
+    "8. 각 후보에는 상세 resume 링크와 선호도/우선순위 근거를 연결합니다."
+  ],
+  "debugLog": [
+    "Loaded tailored resume manifest: 17 docs",
+    "Filtered active opportunities: 16 docs",
+    "Excluded applied/closed opportunities: 1 docs",
+    "Loaded curated Monday baseline config: 10 job ids",
+    "Matched baseline jobs against active docs: 10 jobs",
+    "Derived newly-eligible additional candidates: 6 jobs",
+    "Applied preference ordering: 금융권 대기업/은행/증권/그룹계열사 → IT 대기업/대형 스타트업 → 대기업/IT전문기업",
+    "Kept already-applied roles out of weekly baseline to prevent duplicate applications",
+    "Linked each candidate to the current tailored resume draft for manual review"
+  ]
+}

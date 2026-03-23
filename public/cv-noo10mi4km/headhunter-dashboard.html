@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Headhunter Dashboard</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#0b1020; color:#e5e7eb; }
+    .wrap { max-width:1100px; margin:0 auto; padding:28px 20px 60px; }
+    h1 { margin:8px 0 10px; font-size:2rem; }
+    h2 { margin:30px 0 12px; font-size:1.15rem; }
+    .eyebrow { color:#93c5fd; font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; }
+    .desc,.meta { color:#cbd5e1; line-height:1.6; }
+    .meta { color:#94a3b8; font-size:.95rem; }
+    .grid { display:grid; gap:14px; }
+    .card { border:1px solid #243041; border-radius:14px; background:#111827; padding:16px 18px; }
+    .topline { display:flex; justify-content:space-between; gap:12px; margin-bottom:8px; }
+    .rank,.score { color:#93c5fd; font-weight:700; }
+    .company { font-weight:700; }
+    .role { font-size:1.02rem; font-weight:600; margin-bottom:8px; }
+    .meta-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+    .chip { font-size:.84rem; padding:4px 8px; border-radius:999px; background:#172033; border:1px solid #243041; color:#cbd5e1; }
+    .chip.state { background:#132238; color:#bfdbfe; border-color:#23405f; }
+    .chip.urgent { background:#3a1620; color:#fecdd3; border-color:#6b2334; }
+    .why { margin:0 0 10px 18px; color:#cbd5e1; line-height:1.55; }
+    .links { display:flex; gap:12px; }
+    .links a { color:#93c5fd; text-decoration:none; }
+    .exclude { color:#fca5a5; margin-bottom:10px; }
+    .log-block { border:1px solid #243041; border-radius:14px; background:#111827; overflow:hidden; }
+    .log-line { padding:10px 14px; border-top:1px solid #1b2433; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.9rem; color:#cbd5e1; }
+    .log-line:first-child { border-top:none; }
+    .empty { color:#94a3b8; border:1px dashed #243041; border-radius:14px; padding:16px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="eyebrow">Private Headhunter Workspace</div>
+    <h1>헤드헌터 대시보드</h1>
+    <p class="desc">하나의 링크에서 금주 baseline, 신규 편입 후보, 제외 항목, reasoning steps, debug log를 함께 보는 운영용 대시보드입니다.</p>
+    <p class="meta">업데이트: 2026. 3. 23. PM 6:52:29 · 기준 주차: 2026-03-23</p>
+
+    <h2>금주 지원대상</h2>
+    <section class="grid">
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#1</div>
+            <div class="company">카카오뱅크</div>
+          </div>
+          <div class="score">score 62</div>
+        </div>
+        <div class="role">서비스 기획자 - 여신서비스</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip urgent">due in 2d (2026-03-24 23:59:59)</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>제품 전략/기획 중심 버전</li><li>due in 2d (2026-03-24 23:59:59)</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-92-kakaobank-lending-service-planning-resume.html">resume</a>
+          <a href="https://kakaobank.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&amp;jobnoticeSn=238650" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#2</div>
+            <div class="company">카카오뱅크</div>
+          </div>
+          <div class="score">score 37</div>
+        </div>
+        <div class="role">서비스 기획자 - 퇴직연금</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">due in 9d (2026-03-31 23:59:59)</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>제품 전략/기획 중심 버전</li><li>due in 9d (2026-03-31 23:59:59)</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-77-kakaobank-retirement-service-planning-resume.html">resume</a>
+          <a href="https://kakaobank.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&amp;jobnoticeSn=247114" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#3</div>
+            <div class="company">페이먼츠</div>
+          </div>
+          <div class="score">score 53</div>
+        </div>
+        <div class="role">Technical Product Manager</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>제품 전략/기획 중심 버전</li><li>deadline unknown</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-326-draft-technical-product-manager-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=5966464003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#4</div>
+            <div class="company">뱅크</div>
+          </div>
+          <div class="score">score 47</div>
+        </div>
+        <div class="role">Data Product Manager</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>제품 전략/기획 중심 버전</li><li>deadline unknown</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-170-draft-data-product-manager-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=6675539003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#5</div>
+            <div class="company">증권</div>
+          </div>
+          <div class="score">score 40</div>
+        </div>
+        <div class="role">Product Owner (AI Data Platform)</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>금융/플랫폼 백엔드 중심 버전</li><li>deadline unknown</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-270-draft-product-owner-ai-data-platform-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=7400593003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#6</div>
+            <div class="company">뱅크</div>
+          </div>
+          <div class="score">score 37</div>
+        </div>
+        <div class="role">Banking Product Owner</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>제품 전략/기획 중심 버전</li><li>deadline unknown</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-125-draft-banking-product-owner-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=7604166003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#7</div>
+            <div class="company">카카오페이증권(kakaopay증권)</div>
+          </div>
+          <div class="score">score 44</div>
+        </div>
+        <div class="role">금융 대외연계시스템 백엔드 개발자(시니어)</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>금융/플랫폼 백엔드 중심 버전</li><li>deadline unknown</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-399-kakaopay-draft-resume.html">resume</a>
+          <a href="https://www.wanted.co.kr/wd/345859" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#8</div>
+            <div class="company">카카오뱅크</div>
+          </div>
+          <div class="score">score 37</div>
+        </div>
+        <div class="role">블록체인 서비스 백엔드 개발자</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">due in 9d (2026-03-31 23:59:59)</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>금융/플랫폼 백엔드 중심 버전</li><li>due in 9d (2026-03-31 23:59:59)</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-78-kakaobank-blockchain-backend-resume.html">resume</a>
+          <a href="https://kakaobank.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&amp;jobnoticeSn=247224" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#9</div>
+            <div class="company">뱅크엑스</div>
+          </div>
+          <div class="score">score 60</div>
+        </div>
+        <div class="role">시니어 백엔드 개발자 (Backend Lead)  (7년 이상)</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">due in 12d (2026-04-03)</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>금융/플랫폼 백엔드 중심 버전</li><li>due in 12d (2026-04-03)</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-390-draft-backend-lead-7-resume.html">resume</a>
+          <a href="https://www.wanted.co.kr/wd/346466" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            <div class="rank">#10</div>
+            <div class="company">피에프씨테크놀로지스</div>
+          </div>
+          <div class="score">score 61</div>
+        </div>
+        <div class="role">B2B AI Product Owner(PO, 프로덕트 오너)</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">3. 대기업/IT전문기업</span>
+        </div>
+        <ul class="why"><li>3. 대기업/IT전문기업</li><li>제품 전략/기획 중심 버전</li><li>deadline unknown</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-507-draft-b2b-ai-product-owner-po-resume.html">resume</a>
+          <a href="https://www.wanted.co.kr/wd/338869" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    </section>
+
+    <h2>신규 지원대상 / 추가 검토 후보</h2>
+    <section class="grid">
+      <article class="card">
+        <div class="topline">
+          <div>
+            
+            <div class="company">쿼타랩(쿼타북)</div>
+          </div>
+          <div class="score">score 51</div>
+        </div>
+        <div class="role">증권 서비스 기획(PM)</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>주간 baseline 외 추가 후보</li><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>제품 전략/기획 중심 버전</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-437-draft-pm-resume.html">resume</a>
+          <a href="https://www.wanted.co.kr/wd/344909" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            
+            <div class="company">뱅크 · 플레이스 · 증권</div>
+          </div>
+          <div class="score">score 46</div>
+        </div>
+        <div class="role">Node.js Developer</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>주간 baseline 외 추가 후보</li><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>금융/플랫폼 백엔드 중심 버전</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-245-draft-node-js-developer-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=4421106003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            
+            <div class="company">인슈어런스 · 뱅크 · 페이먼츠</div>
+          </div>
+          <div class="score">score 46</div>
+        </div>
+        <div class="role">Product Manager</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>주간 baseline 외 추가 후보</li><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>제품 전략/기획 중심 버전</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-265-draft-product-manager-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=7569679003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            
+            <div class="company">토스 · 증권 · 플레이스</div>
+          </div>
+          <div class="score">score 40</div>
+        </div>
+        <div class="role">Frontend Platform Engineer</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>주간 baseline 외 추가 후보</li><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>금융/플랫폼 백엔드 중심 버전</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-193-draft-frontend-platform-engineer-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=7545902003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            
+            <div class="company">뱅크</div>
+          </div>
+          <div class="score">score 37</div>
+        </div>
+        <div class="role">ML Backend Engineer</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>주간 baseline 외 추가 후보</li><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>금융/플랫폼 백엔드 중심 버전</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-235-draft-ml-backend-engineer-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=6600650003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    
+      <article class="card">
+        <div class="topline">
+          <div>
+            
+            <div class="company">토스 · 증권 · 플레이스</div>
+          </div>
+          <div class="score">score 37</div>
+        </div>
+        <div class="role">Product Owner</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">deadline unknown</span>
+          <span class="chip">1. 금융권 대기업/은행/증권/그룹계열사</span>
+        </div>
+        <ul class="why"><li>주간 baseline 외 추가 후보</li><li>1. 금융권 대기업/은행/증권/그룹계열사</li><li>제품 전략/기획 중심 버전</li></ul>
+        
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-269-draft-product-owner-resume.html">resume</a>
+          <a href="https://toss.im/career/job-detail?job_id=4071413003" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    </section>
+
+    <h2>지원 제외 / 완료 / 종료</h2>
+    <section class="grid">
+      <article class="card">
+        <div class="topline">
+          <div>
+            
+            <div class="company">비댁스</div>
+          </div>
+          <div class="score">score 51</div>
+        </div>
+        <div class="role">Technical Product Manager</div>
+        <div class="meta-row">
+          <span class="chip state">resume_needed</span>
+          <span class="chip ">closed 1d ago (2026-03-22)</span>
+          <span class="chip">Wanted Product Manager Search</span>
+        </div>
+        
+        <div class="exclude">제외 사유: closed</div>
+        <div class="links">
+          <a href="/cv-noo10mi4km/resumes/job-459-draft-technical-product-manager-resume.html">resume</a>
+          <a href="https://www.wanted.co.kr/wd/346996" target="_blank" rel="noreferrer">JD</a>
+        </div>
+      </article>
+    </section>
+
+    <h2>지원대상회사 검출/선별 리즈닝</h2>
+    <div class="log-block"><div class="log-line">1. 대상 회사군을 사용자 선호도 기준으로 분류합니다.</div><div class="log-line">2. 수집된 공고 중 활성 상태 공고만 남기고 마감/종료 공고를 제거합니다.</div><div class="log-line">3. 이미 지원 완료된 공고를 제거해 중복 지원을 방지합니다.</div><div class="log-line">4. 관심 포지션군(서비스기획, PO/PM, TPM, 금융/데이터/백엔드)과 연결되는 공고를 우선 남깁니다.</div><div class="log-line">5. 마스터 이력서 기반 맞춤 이력서 초안이 있는 공고만 우선 검토 대상으로 사용합니다.</div><div class="log-line">6. 월요일에는 큐레이션된 금주 baseline을 확정합니다.</div><div class="log-line">7. 화~금에는 baseline은 유지하고 새로 끼어들 만한 공고만 추가 후보로 올립니다.</div><div class="log-line">8. 각 후보에는 상세 resume 링크와 선호도/우선순위 근거를 연결합니다.</div></div>
+
+    <h2>디버그 로그</h2>
+    <div class="log-block"><div class="log-line">Loaded tailored resume manifest: 17 docs</div><div class="log-line">Filtered active opportunities: 16 docs</div><div class="log-line">Excluded applied/closed opportunities: 1 docs</div><div class="log-line">Loaded curated Monday baseline config: 10 job ids</div><div class="log-line">Matched baseline jobs against active docs: 10 jobs</div><div class="log-line">Derived newly-eligible additional candidates: 6 jobs</div><div class="log-line">Applied preference ordering: 금융권 대기업/은행/증권/그룹계열사 → IT 대기업/대형 스타트업 → 대기업/IT전문기업</div><div class="log-line">Kept already-applied roles out of weekly baseline to prevent duplicate applications</div><div class="log-line">Linked each candidate to the current tailored resume draft for manual review</div></div>
+  </main>
+</body>
+</html>

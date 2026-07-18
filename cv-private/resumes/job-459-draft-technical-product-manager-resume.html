@@ -36,22 +36,29 @@
     <article class="job-block">
       <h4>DeepSearch</h4>
       <div class="role-line">Backend Engineer → Team Lead / PO</div>
-      <p>DeepSearch AI와 금융 데이터 엔진 Finorma 조직에서 리드와 PO 역할을 함께 수행하며, 금융 데이터 자산을 B2B 제품과 사업 확장으로 연결하는 실행을 맡았습니다. 금융기관·공공금융 조직 대상 데이터 스펙을 자주 검토하고, 여러 직군이 같은 우선순위와 딜리버리 구조로 움직이도록 조율하며 제품화 흐름을 리드했습니다. 그 기반으로 초기에는 Koscom·KRX 데이터, NICE기업정보 FTP 재무데이터, 해외 브로커/데이터 소스(Massive, Finnhub, Alpha Vantage, Alpaca 등) 연동과 안정적 재전달 체계를 직접 구축했고, TCP 기반 실시간 수신, API 기반 배치성 수신, 스크래핑 수집을 콜백·TCP·API·SFTP 형태로 재전달했습니다. 또한 레거시 실시간 시세 전달 구조의 병목을 개선해 약 15분 수준의 지연을 초저지연에 가까운 수준으로 낮췄습니다. 현재는 약 10~12인 규모의 풀스택 조직을 리딩하며, 해당 팀의 엔지니어링 리드 역할도 함께 겸하고 있습니다.</p>
-      <ul class="bullet-list"><li>DeepSearch에서 Koscom·KRX 데이터와 해외 브로커/데이터 소스(Massive, Finnhub, Alpha Vantage, Alpaca 등) 연동 및 재전달 체계를 직접 맡았습니다.</li><li>DeepSearch에서 레거시 실시간 시세 서버 지연을 약 15분 수준에서 초저지연에 가까운 수준으로 개선했습니다.</li><li>우선순위와 실행 구조를 직접 잡아 온 담당 팀 영역이 현재 DeepSearch 매출의 약 90%를 차지하는 수준으로 성장했습니다.</li></ul>
+      <p>DeepSearch AI와 금융 데이터 엔진 Finorma 조직에서 리드와 PO 역할을 함께 수행하며, 금융 데이터 자산을 B2B 제품과 사업 확장으로 연결하는 실행을 맡았습니다. 금융기관·공공금융 조직 대상 데이터 스펙을 자주 검토하고, 여러 직군이 같은 우선순위와 딜리버리 구조로 움직이도록 조율하며 제품화 흐름을 리드했습니다. 그 기반으로 초기에는 Koscom·KRX 데이터, NICE기업정보 FTP 재무데이터, 해외 브로커/데이터 소스(Massive, Finnhub, Alpha Vantage, Alpaca 등) 연동과 안정적 재전달 체계를 직접 구축했고, TCP 기반 실시간 수신, API 기반 배치성 수신, 스크래핑 수집을 콜백·TCP·API·SFTP 형태로 재전달했습니다. 또한 레거시 실시간 시세 전달 구조의 병목을 개선해 약 15분 수준의 지연을 초저지연에 가까운 수준으로 낮췄습니다. 이후에는 그동안 흩어져 관리되던 데이터 도메인과 엔지니어링 영역을 재정렬하고, 기존 레거시 파이프라인을 신규 데이터 파이프라인으로 마이그레이션해 안정적으로 서비스 중입니다. EKS 환경 위에서 Python과 Celery 기반으로 파이프라인을 운영하며, Koscom·해외 시세는 Socket-to-Kafka 방식으로, 뉴스·공시 등 비정형 실시간 데이터는 stateful sourcing 방식으로 수집하도록 시의적절한 신규 파이프라인을 구축·운영했습니다. 기존 API를 사용하던 클라이언트와의 호환을 유지하기 위해 신규 API로 이관하면서도 기존 API 패턴은 redirect 방식으로 계속 동작하도록 설계했고, 현재는 Dagster pipeline 위에 Medallion Architecture로 데이터 계층을 재구현해 운영하고 있습니다. 현재는 약 10~12인 규모의 풀스택 조직을 리딩하며, 해당 팀의 엔지니어링 리드 역할도 함께 겸하고 있습니다.</p>
+      <ul class="bullet-list"><li>DeepSearch에서 Koscom·KRX 데이터와 해외 브로커/데이터 소스(Massive, Finnhub, Alpha Vantage, Alpaca 등) 연동 및 재전달 체계를 직접 맡았습니다.</li><li>DeepSearch에서 레거시 실시간 시세 서버 지연을 약 15분 수준에서 초저지연에 가까운 수준으로 개선했습니다.</li><li>DeepSearch에서 흩어져 있던 데이터 도메인과 엔지니어링 영역을 재정렬하고, 레거시 데이터 파이프라인을 신규 파이프라인으로 마이그레이션해 안정적으로 서비스 중입니다.</li><li>우선순위와 실행 구조를 직접 잡아 온 담당 팀 영역이 현재 DeepSearch 매출의 약 90%를 차지하는 수준으로 성장했습니다.</li></ul>
     </article>
   
     <article class="job-block">
       <h4>Goodoc</h4>
-      <div class="role-line">Backend Engineer / Growth Organization · 2022/06</div>
-      <p>2022년 6월 굿닥에 백엔드 엔지니어로 합류했습니다. 클라우드 기반의 라이브 서비스 환경에서 대규모 버전 전환 과제를 맡았고, 약 600만 회원 규모의 병원 예약·접수 서비스와 B2B2C 접수 서버를 담당한 뒤 Goodoc Labs 성장 조직으로 역할을 확장했습니다. 입사 직후 반복되던 접수 서버 장애를 백그라운드와 기존 인수인계가 거의 없는 상태에서 직접 추적해 DB CPU 병목과 비효율 쿼리를 원인으로 확인했고, 트래픽 패턴을 고려한 인덱스 적용으로 안정화했습니다.</p>
-      <ul class="bullet-list"><li>Goodoc에서 v3→v4 마이그레이션을 주도하고, 약 600만 회원 규모 병원 예약·접수 서비스를 위한 B2B2C 접수 서버를 구축했습니다.</li><li>굿닥에서 매주 반복되던 접수 서버 장애를 직접 추적해 DB CPU 병목과 비효율 쿼리를 원인으로 확인하고, 트래픽 패턴을 고려한 인덱스 적용으로 안정화했습니다.</li><li>레거시 인증 EC2 장애 시 AMI 복제와 패키지 버전 수정으로 서비스를 복구했습니다.</li></ul>
+      <div class="role-line">O2O Squad Backend Engineer · 2022/06</div>
+      <p>2022년 6월 굿닥 O2O 스쿼드에 Backend Engineer로 합류해 Node.js, NestJS, TypeORM 기반으로 서비스 백엔드를 개발했습니다. 앱 서비스 API는 GraphQL로 제공했고, 실시간 접수 처리를 위한 Socket 기반 O2O 접수 서버를 신규로 구축해 약 600만 회원 규모의 병원 예약·접수 서비스와 B2B2C 접수 흐름을 지원했습니다. 클라우드 기반의 라이브 서비스 환경에서 대규모 버전 전환 과제를 맡아 기존 레거시 환경에서 신규 아키텍처로 무중단 마이그레이션을 수행했고, EKS 환경에서 서비스를 운영했습니다. 입사 직후 반복되던 접수 서버 장애를 백그라운드와 기존 인수인계가 거의 없는 상태에서 직접 추적해 DB CPU 병목과 비효율 쿼리를 원인으로 확인했고, 트래픽 패턴을 고려한 인덱스 적용으로 안정화했습니다.</p>
+      <ul class="bullet-list"><li>Goodoc에서 Node.js/NestJS/TypeORM 기반 서비스로 v3→v4 마이그레이션을 무중단으로 주도하고, 약 600만 회원 규모 병원 예약·접수 서비스를 위한 B2B2C 접수 서버를 구축했습니다.</li><li>Goodoc에서 실시간 접수 처리를 위한 Socket 기반 O2O 접수 서버를 신규로 구축하고, GraphQL API로 앱 서비스를 제공하며 EKS 환경에서 안정적으로 운영했습니다.</li><li>굿닥에서 매주 반복되던 접수 서버 장애를 직접 추적해 DB CPU 병목과 비효율 쿼리를 원인으로 확인하고, 트래픽 패턴을 고려한 인덱스 적용으로 안정화했습니다.</li><li>레거시 인증 EC2 장애 시 AMI 복제와 패키지 버전 수정으로 서비스를 복구했습니다.</li></ul>
+    </article>
+  
+    <article class="job-block">
+      <h4>Goodoc Labs</h4>
+      <div class="role-line">PO 겸 Engineer (최근 4개월)</div>
+      <p>핵심 백엔드 실행을 맡은 이후 마지막 4개월간 Goodoc Labs 성장 조직으로 이동해 PO 겸 Engineer로 역할을 확장했습니다. 제품 방향 설정과 우선순위 조율을 백엔드 실행과 함께 가져가며 성장 조직의 제품·기술 의사결정에 참여했습니다.</p>
+      <ul class="bullet-list"><li>Goodoc에서 O2O 스쿼드 Backend Engineer로 핵심 백엔드·플랫폼 역할을 수행한 이후, 마지막 4개월간 Goodoc Labs 성장 조직에서 PO 겸 Engineer로 역할을 확장했습니다.</li></ul>
     </article>
   
     <article class="job-block">
       <h4>Pentasecurity Systems</h4>
-      <div class="role-line">Software Engineer · 2015/10 — 2022/05</div>
-      <p>펜타시큐리티시스템에서 데이터 암호화 플랫폼 운영·관리 솔루션을 개발했습니다. 장기간 보안 제품 환경에서 일하며 신중한 의사결정, 부서 간 협업, 신뢰 기반의 실행 방식을 체득했습니다.</p>
-      
+      <div class="role-line">DX Team Lead · 2015/10 — 2022/05</div>
+      <p>펜타시큐리티시스템에서 데이터 암호화 플랫폼 운영·관리 솔루션을 개발했고, 이후 4인 조직을 이끄는 DX Team Lead로서 팀의 방향과 실행을 함께 책임졌습니다. 장기간 보안 제품 환경에서 일하며 신중한 의사결정, 부서 간 협업, 신뢰 기반의 실행 방식을 체득했습니다.</p>
+      <ul class="bullet-list"><li>펜타시큐리티시스템에서 4인 조직을 이끄는 DX Team Lead로서 데이터 암호화 플랫폼 운영·관리 솔루션의 방향과 실행을 함께 책임졌습니다.</li></ul>
     </article>
   
     <article class="job-block">
@@ -84,7 +91,7 @@
         <li><span class="label">지원 포지션</span><br/>비댁스 / Technical Product Manager</li>
         <li><span class="label">상태</span><br/>resume_needed</li>
         <li><span class="label">점수</span><br/>51 (role 32 / finance 9)</li>
-        <li><span class="label">마감/우선순위</span><br/>closed 117d ago (2026-03-22) · closed / archive</li>
+        <li><span class="label">마감/우선순위</span><br/>closed 119d ago (2026-03-22) · closed / archive</li>
         <li><span class="label">JD fit</span><br/>jd_text_missing (0/0 supported)</li>
         <li><span class="label">공고 링크</span><br/><a href="https://www.wanted.co.kr/wd/346996">https://www.wanted.co.kr/wd/346996</a></li>
         <li><span class="label">JD fit 리포트</span><br/><a href="../../reports/jd-fit/job-459-draft-technical-product-manager-jd-fit.md">markdown</a> · <a href="../../reports/jd-fit/job-459-draft-technical-product-manager-jd-fit.json">json</a></li>

@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: '/static/images/sun.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'jn2@mnpark.info',
+  email: 'jnpark1623@gmail.com',
   github: 'https://github.com',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://www.facebook.com/JaeNams',

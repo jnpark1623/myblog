@@ -132,7 +132,7 @@ HTML_TEXT = '''<!doctype html>
     <header class="header">
       <h1>박재남</h1>
       <p class="role">우리은행 AI서비스기획 (AI데이터사업부) 지원</p>
-      <p class="meta">이메일 jn2@mnpark.info · 지역 Seoul, KR · 웹사이트 https://mnpark.info · LinkedIn linkedin.com/in/jnpark1623</p>
+      <p class="meta">이메일 jnpark1623@gmail.com · 지역 Seoul, KR · 웹사이트 https://mnpark.info · LinkedIn linkedin.com/in/jnpark1623</p>
     </header>
 
     <section class="section">
@@ -245,7 +245,7 @@ def build_resume_pdf(target_names):
     story += [p('박재남', TITLE)]
     story += [p('우리은행 AI서비스기획 (AI데이터사업부) 지원', SUBTITLE)]
     story += [Spacer(1, 2.5 * mm)]
-    contact = Table([[Paragraph('이메일 jn2@mnpark.info · 지역 Seoul, KR · 웹사이트 https://mnpark.info · LinkedIn linkedin.com/in/jnpark1623', META)]], colWidths=[180 * mm])
+    contact = Table([[Paragraph('이메일 jnpark1623@gmail.com · 지역 Seoul, KR · 웹사이트 https://mnpark.info · LinkedIn linkedin.com/in/jnpark1623', META)]], colWidths=[180 * mm])
     contact.setStyle(TableStyle([('ALIGN', (0, 0), (-1, -1), 'CENTER')]))
     story += [contact, Spacer(1, 5 * mm)]
 

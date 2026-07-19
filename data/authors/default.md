@@ -3,7 +3,7 @@ name: 박재남 (92.12)
 avatar: /static/images/avatar.jpg
 occupation: S/W Engineer
 company: 굿닥
-email: jn2@mnpark.info
+email: jnpark1623@gmail.com
 linkedin: https://www.linkedin.com
 facebook: https://www.facebook.com/JaeNams
 canonicalUrl: https://tailwind-nextjs-starter-blog.vercel.app/blog/new-features-in-v1/

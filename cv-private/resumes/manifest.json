@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T23:44:05.806Z",
+  "generatedAt": "2026-07-19T01:31:57.802Z",
   "documents": [
     {
       "type": "master",
@@ -7,7 +7,7 @@
       "slug": "master-base-resume",
       "title": "기본 이력서",
       "narrativeTitle": "기본 제출용 베이스 이력서",
-      "emphasis": "금융 데이터, 백엔드, AI 제품화, 제품/조직 리딩",
+      "emphasis": "Backend, 금융 데이터, AI 제품화, 제품 오너십/PO, 조직 리딩/DX Team Lead, 헬스케어",
       "fileName": "master-base-resume.html",
       "relativePath": "resumes/master-base-resume.html",
       "canonicalUrl": null,
@@ -29,7 +29,7 @@
       "slug": "master-backend-resume",
       "title": "기본 이력서 — 백엔드 엔지니어",
       "narrativeTitle": "백엔드 엔지니어 중심 버전",
-      "emphasis": "백엔드 안정성, Node.js/NestJS/GraphQL, 데이터 파이프라인 마이그레이션, EKS, 대외 데이터 연동, 대규모 트래픽 운영, 장애 대응, 헬스케어, 금융 데이터",
+      "emphasis": "Backend, Node.js, NestJS, TypeORM, GraphQL, Socket, EKS, Python, Celery, Kafka, Dagster, Medallion Architecture, data pipeline migration, API migration/redirect compatibility, 대외 데이터 연동, 대규모 트래픽 운영, 장애 대응, 헬스케어, 금융 데이터",
       "fileName": "master-backend-resume.html",
       "relativePath": "resumes/master-backend-resume.html",
       "canonicalUrl": null,
@@ -51,7 +51,7 @@
       "slug": "master-po-pm-resume",
       "title": "기본 이력서 — PO/PM",
       "narrativeTitle": "PO/PM 중심 버전",
-      "emphasis": "제품 오너십, 금융 데이터 도메인, AI 제품화, 협업 리딩, 사업 성과(ARR), 헬스케어, 금융 데이터",
+      "emphasis": "제품 오너십/PO, 조직 리딩/DX Team Lead, 금융 데이터, AI 제품화, 협업 리딩, 사업 성과(ARR), 헬스케어",
       "fileName": "master-po-pm-resume.html",
       "relativePath": "resumes/master-po-pm-resume.html",
       "canonicalUrl": null,
@@ -368,7 +368,7 @@
       "applicationState": "resume_needed",
       "postedAt": "2026-03-09 00:00:00",
       "closingAt": "2026-03-31 23:59:59",
-      "deadlineLabel": "closed 109d ago (2026-03-31 23:59:59)",
+      "deadlineLabel": "closed 110d ago (2026-03-31 23:59:59)",
       "urgency": "closed",
       "nextActionPriority": "archive",
       "jdFit": {
@@ -399,7 +399,7 @@
       "applicationState": "resume_needed",
       "postedAt": "2026-03-10 00:00:00",
       "closingAt": "2026-03-31 23:59:59",
-      "deadlineLabel": "closed 109d ago (2026-03-31 23:59:59)",
+      "deadlineLabel": "closed 110d ago (2026-03-31 23:59:59)",
       "urgency": "closed",
       "nextActionPriority": "archive",
       "jdFit": {

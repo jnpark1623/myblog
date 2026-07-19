@@ -6,7 +6,10 @@ const sourceRoot = path.join(projectRoot, 'cv-private')
 const publicRoot = path.join(projectRoot, 'public', 'cv-noo10mi4km')
 const stylePath = path.join(publicRoot, 'assets', 'resume-viewer.css')
 
-const sections = ['resumes', 'tailored-resumes']
+// Master resumes are served only via the hub-independent /r/<token> route and
+// exported to PDF directly from cv-private, so they are intentionally NOT
+// published under the hub path here.
+const sections = ['tailored-resumes']
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true })

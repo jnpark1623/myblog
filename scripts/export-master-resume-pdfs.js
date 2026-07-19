@@ -17,7 +17,9 @@ const ROOT = path.join(__dirname, '..')
 const RESUMES_DIR = path.join(ROOT, 'cv-private', 'resumes')
 const CSS_PATH = path.join(ROOT, 'public', 'cv-noo10mi4km', 'assets', 'resume-viewer.css')
 const PDF_DIR = path.join(ROOT, 'public', 'r')
-const TOKENS = JSON.parse(fs.readFileSync(path.join(ROOT, 'cv-private', 'share-tokens.json'), 'utf8'))
+const TOKENS = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'cv-private', 'share-tokens.json'), 'utf8')
+)
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 const SLUGS = ['master-base-resume', 'master-backend-resume', 'master-po-pm-resume']
@@ -45,13 +47,17 @@ for (const slug of SLUGS) {
   fs.writeFileSync(tmpFile, makeStandalone(fs.readFileSync(src, 'utf8'), css))
 
   const out = path.join(PDF_DIR, `${token}.pdf`)
-  execFileSync(CHROME, [
-    '--headless=new',
-    '--disable-gpu',
-    '--no-pdf-header-footer',
-    `--print-to-pdf=${out}`,
-    `file://${tmpFile}`,
-  ], { stdio: ['ignore', 'ignore', 'ignore'] })
+  execFileSync(
+    CHROME,
+    [
+      '--headless=new',
+      '--disable-gpu',
+      '--no-pdf-header-footer',
+      `--print-to-pdf=${out}`,
+      `file://${tmpFile}`,
+    ],
+    { stdio: ['ignore', 'ignore', 'ignore'] }
+  )
   console.log(`[export-pdf] ${slug} -> /r/${token}.pdf`)
 }
 

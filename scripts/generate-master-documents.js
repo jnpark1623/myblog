@@ -42,7 +42,7 @@ function assertProfile() {
     anchors.add(experience.anchor)
 
     for (const caseItem of experience.cases) {
-      if (!caseItem.lead || !caseItem.body.length || !caseItem.result) {
+      if (!caseItem.problem || !caseItem.body.length || !caseItem.result) {
         throw new Error(`incomplete case in ${experience.company}: ${caseItem.title}`)
       }
     }
@@ -233,11 +233,15 @@ function careerCase(caseItem) {
 
   return `            <article class="case-card">
               <h4>${escapeHtml(caseItem.title)}</h4>
-              <p class="case-lead">${escapeHtml(caseItem.lead)}</p>
+              <p class="case-problem"><span class="case-label">문제</span>${escapeHtml(
+                caseItem.problem
+              )}</p>
               <div class="case-body">
 ${body}
               </div>
-              <p class="case-result">${escapeHtml(caseItem.result)}</p>${tags}
+              <p class="case-result"><span class="case-label">결과</span>${escapeHtml(
+                caseItem.result
+              )}</p>${tags}
             </article>`
 }
 

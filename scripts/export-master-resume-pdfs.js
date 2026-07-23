@@ -22,7 +22,12 @@ const TOKENS = JSON.parse(
 )
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
-const SLUGS = ['master-base-resume', 'master-backend-resume', 'master-po-pm-resume']
+const SLUGS = [
+  'master-base-resume',
+  'master-career-description',
+  'master-backend-resume',
+  'master-po-pm-resume',
+]
 
 function makeStandalone(html, css) {
   // Replace the external stylesheet link with an inline <style> so the temp file

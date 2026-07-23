@@ -18,6 +18,7 @@
           <h1>박재남</h1>
           <div class="intro">
             <p>담당 업무 중 기술적·조직적 난이도가 높았던 사례를 중심으로 기술한 문서로, 전체 업무를 망라하지 않습니다.</p>
+            <p>성과는 사업 성과와 엔지니어링 성과로 구분해 기술했습니다. 두 축을 나눈 기준은 판단의 출발점입니다. 사업 성과는 고객의 문제를 정의하고 판매 단위를 다시 나누는 데에서, 엔지니어링 성과는 데이터 파이프라인과 서비스의 신뢰성을 확보하는 데에서 출발했습니다. 두 축이 만나는 지점은 재정의한 판매 단위를 실제 제품으로 만들기 위해 엔지니어링 리소스를 어디에 투입할지 결정하는 과정이었습니다.</p>
             <p>최근 경력은 사례 단위로, 초기 경력은 담당 범위와 역할 중심으로 정리했습니다.</p>
           </div>
         </div>
@@ -36,11 +37,68 @@
           <header class="company-header">
             <h3>DeepSearch</h3>
             <div class="role-line">Backend Software Engineer (2023/12–현재) · Team Lead - Finance AI (2025/05–현재)</div>
-            <p>DeepSearch AI와 금융 데이터 엔진 Finorma에서 백엔드 엔지니어, PO, 팀 리드를 겸하고 있습니다. 외부 금융 데이터 수집·정형화 계층부터 이를 활용한 AI 제품, 조직 우선순위 관리까지가 담당 범위입니다.</p>
+            <p>DeepSearch AI와 금융 데이터 엔진 Finorma에서 백엔드 엔지니어, PO, 팀 리드를 겸하고 있습니다. 영업·퀀트·엔지니어링·디자인·AI 서비스 기획으로 구성된 약 10~12인 규모 풀스택 조직을 리딩하며 엔지니어링 리드를 겸하고 있고, 외부 금융 데이터 수집·정형화 계층부터 이를 활용한 AI 제품과 매출 구조까지가 담당 범위입니다.</p>
           </header>
-          <div class="case-list">
+          <section class="case-group">
+            <h4 class="case-group-title">사업 성과</h4>
+            <div class="case-list">
             <article class="case-card">
-              <h4>외부 금융 데이터 연동 및 재전달 체계 구축</h4>
+              <h5>세그먼트 기반 판매 단위 재정의와 매출 구조 재편</h5>
+              <p class="case-problem"><span class="case-label">문제</span>데이터 공급과 요청 기반 수집·제공이 구분 없는 단일 매출로 묶여 있어, 고객군마다 다른 요구가 제품 구성과 판매 단위에 반영되지 않았습니다.</p>
+              <div class="case-body">
+                <p>세일즈 과정의 일부를 직접 리딩하며 잠재 고객의 도입 병목 지점과 미발굴 매출 기회를 파악했습니다.</p>
+                <p>파악한 병목을 기준으로 고객 세그먼트를 구분하고, 세그먼트별 요구사항에 맞춰 판매 단위를 다시 정의했습니다. 잠재 고객의 문제를 먼저 정의한 뒤, 그 문제를 해결할 수 있는 단위로 판매 제품을 분리하는 방식입니다.</p>
+                <p>재정의한 판매 단위에 필요한 기능은 신규 개발 과제로 정의하고 엔지니어링 리소스를 배분했습니다. 아래 데이터 공급·B2B 솔루션·지수 운영 세 축이 이 과정에서 정리된 매출 구조입니다.</p>
+              </div>
+              <p class="case-result"><span class="case-label">결과</span>구분 없이 묶여 있던 매출을 세 개의 사업 축으로 재편했고, 신규 ARR 약 7배 성장에 기여했습니다. 담당 팀 영역은 현재 DeepSearch 매출의 약 90%를 차지합니다.</p>
+            </article>
+            <article class="case-card">
+              <h5>데이터 공급 사업 — AI Ready Data 포지셔닝과 판매 범위 확장</h5>
+              <p class="case-problem"><span class="case-label">문제</span>안정적인 데이터 공급 자체는 기존 매출 구조로 유지되고 있었으나, 고객이 금융 데이터를 실제로 활용하기까지 드는 시간적 비용이 커서 도입 속도가 매출 확장의 병목이었습니다. 내부 규제상 기존 전달 방식을 쓸 수 없는 잠재 고객도 있었습니다.</p>
+              <div class="case-body">
+                <p>경쟁사 대비 빠르게 활용할 수 있는 데이터를 강점으로 잡고 AI Ready Data 개념을 선제적으로 도입했습니다. 고객이 원하는 결과물을 가장 빠르게 구축할 수 있는 형태로 포지셔닝하고, 데이터 재가공·인덱싱·고관련도 검색 등의 기능을 별도 제품군으로 분리해 판매 단위를 만들었습니다.</p>
+                <p>데이터 전달 방식을 다변화해, 내부 규제 때문에 기존 방식으로는 데이터를 즉시 사용할 수 없던 잠재 고객을 신규 고객으로 전환했습니다.</p>
+                <p>AI Agent 도입 수요가 시장에 빠르게 확산되면서 비정형 데이터 수집 범위를 소셜·유튜브 등 신뢰도 관리가 필요한 채널까지 넓히고, LLM이 활용할 수 있는 소스와 형태로 재가공했습니다.</p>
+              </div>
+              <p class="case-result"><span class="case-label">결과</span>신규 제품군 분리, 전달 방식 다변화, 수집 범위 확장이 각각 신규 매출 증대로 이어졌습니다.</p>
+              <div class="case-tags"><span class="tag">AI Ready Data</span><span class="tag">인덱싱</span><span class="tag">검색</span><span class="tag">비정형 데이터</span></div>
+            </article>
+            <article class="case-card">
+              <h5>DeepSearch AI 기업형 B2B 솔루션 신규 런칭</h5>
+              <p class="case-problem"><span class="case-label">문제</span>축적·가공한 데이터를 직접 가져가 활용하거나 재가공할 역량이 없는 조직은 데이터 공급만으로는 고객이 될 수 없었습니다. 과거 이 영역의 솔루션은 목적에 따른 분류·재가공이 선행되어야 해 니치 마켓만 타겟할 수 있었고, 그만큼 시장 규모가 작았습니다.</p>
+              <div class="case-body">
+                <p>Agent가 폭넓은 범위에서 추론·분석을 수행할 수 있게 되면서 목적별 사전 분류·가공에 대한 의존이 줄었고, 이를 근거로 넓은 시장을 타겟하는 기업형 솔루션이 성립한다고 판단했습니다. 축적·가공한 데이터를 기반으로 신규 솔루션을 런칭했습니다.</p>
+                <p>사용자 측 핵심 문제는 고비용 금융 전문가의 대체로 정의했습니다. 롱테일 시장의 고객은 금융 전문가에게 높은 비용을 지불하기 어렵고 의사결정을 늦출 수도 없기 때문에, 이 구간을 솔루션이 대신할 수 있다고 봤습니다.</p>
+              </div>
+              <p class="case-result"><span class="case-label">결과</span>데이터를 직접 다루지 못하는 조직을 대상으로 하는 신규 매출원을 확보했습니다.</p>
+              <div class="case-tags"><span class="tag">LLM</span><span class="tag">agentic loop</span><span class="tag">B2B SaaS</span></div>
+            </article>
+            <article class="case-card">
+              <h5>지수 운영 사업 포지셔닝 전환</h5>
+              <p class="case-problem"><span class="case-label">문제</span>지수 운영(ETF)은 기존에도 수행하던 사업이지만, 의뢰가 지수 개발로 이어지는 산업 구조상 우리에게만 의뢰할 수 있는 지점이 없으면 경쟁이 성립하지 않았습니다. 경쟁사는 24시간 내 지수 개발이 가능한 상태였습니다.</p>
+              <div class="case-body">
+                <p>개발 속도로 경쟁하는 대신, 비정형 데이터 분석 역량을 강점으로 두고 경쟁사가 수행하지 않는 딥 리서치 영역의 지수 개발로 포지셔닝을 변경하는 데 기여했습니다.</p>
+              </div>
+              <p class="case-result"><span class="case-label">결과</span>속도 중심의 경쟁 구도에서 벗어나, 딥 리서치 기반 지수 개발이라는 차별화된 의뢰 지점을 확보했습니다.</p>
+              <div class="case-tags"><span class="tag">비정형 데이터 분석</span></div>
+            </article>
+            <article class="case-card">
+              <h5>조직 내 비효율의 AX 전환</h5>
+              <p class="case-problem"><span class="case-label">문제</span>영업, 퀀트, 엔지니어링, 디자인, AI 서비스 기획이 하나의 조직에 속해 있어 직군별 목표와 실행 우선순위를 정렬할 필요가 있었고, 반복 업무가 핵심 업무 시간을 잠식하고 있었습니다.</p>
+              <div class="case-body">
+                <p>약 10~12인 규모 풀스택 조직의 팀 리드와 PO를 겸하며 목표, 우선순위, 딜리버리 구조를 정의하고 엔지니어링 기술 방향을 함께 관리했습니다.</p>
+                <p>조직 내 반복 업무의 비효율은 AX(AI Transformation)로 전환해 구성원이 핵심 업무에 집중할 수 있도록 했습니다.</p>
+              </div>
+              <p class="case-result"><span class="case-label">결과</span>ROI 개선과 매출 성장으로 이어졌습니다.</p>
+              <div class="case-tags"><span class="tag">AX</span></div>
+            </article>
+            </div>
+          </section>
+          <section class="case-group">
+            <h4 class="case-group-title">엔지니어링 성과</h4>
+            <div class="case-list">
+            <article class="case-card">
+              <h5>외부 금융 데이터 연동 및 재전달 체계 구축</h5>
               <p class="case-problem"><span class="case-label">문제</span>수집 대상별 수신 프로토콜과 고객사 요구 전달 방식이 각각 달라, 소스가 추가될 때마다 전달 계층까지 함께 복잡해지는 구조였습니다.</p>
               <div class="case-body">
                 <p>Koscom·KRX 시세는 TCP 실시간 수신, NICE기업정보 재무데이터는 FTP 배치 수신, 해외 브로커·데이터 소스(Massive, Finnhub, Alpha Vantage, Alpaca 등)는 API 수신으로 처리했고, 일부 데이터는 스크래핑으로 수집했습니다.</p>
@@ -50,7 +108,7 @@
               <div class="case-tags"><span class="tag">Koscom·KRX</span><span class="tag">NICE FTP</span><span class="tag">TCP</span><span class="tag">API</span><span class="tag">SFTP</span><span class="tag">Python</span></div>
             </article>
             <article class="case-card">
-              <h4>실시간 시세 지연 개선 및 ETF 데이터 장애 복구</h4>
+              <h5>실시간 시세 지연 개선 및 ETF 데이터 장애 복구</h5>
               <p class="case-problem"><span class="case-label">문제</span>레거시 실시간 시세 전달 구조에 약 15분의 지연이 있었고, ETF 거래량이 int 범위를 초과해 데이터 누락 장애가 발생했습니다.</p>
               <div class="case-body">
                 <p>시세 전달 경로의 병목 구간을 분석해 개선하고 지연을 초저지연에 가까운 수준으로 낮췄습니다.</p>
@@ -61,7 +119,7 @@
               <div class="case-tags"><span class="tag">Kafka</span><span class="tag">schema migration</span><span class="tag">table swap</span><span class="tag">monitoring</span></div>
             </article>
             <article class="case-card">
-              <h4>데이터 도메인 재정렬 및 파이프라인 마이그레이션</h4>
+              <h5>데이터 도메인 재정렬 및 파이프라인 마이그레이션</h5>
               <p class="case-problem"><span class="case-label">문제</span>데이터 도메인과 엔지니어링 담당 영역이 분산되어 있어 레거시 파이프라인의 개선 범위와 책임이 명확하지 않았습니다.</p>
               <div class="case-body">
                 <p>데이터 도메인 경계를 재정의하고 레거시 파이프라인을 신규 파이프라인으로 마이그레이션했습니다. 파이프라인은 EKS 환경에서 Python·Celery 기반으로 운영합니다.</p>
@@ -71,7 +129,7 @@
               <div class="case-tags"><span class="tag">EKS</span><span class="tag">Python</span><span class="tag">Celery</span><span class="tag">Kafka</span><span class="tag">stateful sourcing</span></div>
             </article>
             <article class="case-card">
-              <h4>API 호환 유지 전환 및 Dagster 기반 Medallion 데이터 계층 구현</h4>
+              <h5>API 호환 유지 전환 및 Dagster 기반 Medallion 데이터 계층 구현</h5>
               <p class="case-problem"><span class="case-label">문제</span>신규 API와 아키텍처로 이관하는 동안 기존 API를 사용하는 클라이언트의 동작을 유지해야 했습니다.</p>
               <div class="case-body">
                 <p>기존 API 패턴이 redirect 방식으로 계속 동작하도록 설계한 뒤 신규 API로 이관해, 클라이언트 측 변경 없이 전환했습니다.</p>
@@ -81,7 +139,7 @@
               <div class="case-tags"><span class="tag">Dagster</span><span class="tag">Medallion Architecture</span><span class="tag">API redirect</span></div>
             </article>
             <article class="case-card">
-              <h4>은행권 협업 및 금융 데이터 AI 제품화</h4>
+              <h5>은행권 협업 및 금융 데이터 AI 제품화</h5>
               <p class="case-problem"><span class="case-label">문제</span>금융기관의 데이터 활용 요구를 제품 기획과 AI 서비스로 연결할 필요가 있었습니다.</p>
               <div class="case-body">
                 <p>KakaoBank AI 투자 챗봇 협업에 참여했고, Shinhan Bank에 DeepSearch 데이터를 공급했습니다. K Bank 투자 서비스 개편과 Hana Bank OneQ Pro MTS에서는 데이터 활용 기획 협업을 지원했습니다. 직접 구현 범위와 협업·데이터 공급 범위는 구분해 기술했습니다.</p>
@@ -91,16 +149,8 @@
               <p class="case-result"><span class="case-label">결과</span>금융 데이터 기반을 은행권 협업과 DeepSearch AI·Finorma의 AI 제품 실행으로 연결했습니다.</p>
               <div class="case-tags"><span class="tag">LLM</span><span class="tag">agentic loop</span><span class="tag">DAG</span><span class="tag">AI Ready 전처리</span></div>
             </article>
-            <article class="case-card">
-              <h4>제품·조직 리딩 및 사업 성과</h4>
-              <p class="case-problem"><span class="case-label">문제</span>영업, 퀀트, 엔지니어링, 디자인, AI 서비스 기획이 하나의 조직에 속해 있어 직군별 목표와 실행 우선순위를 정렬할 필요가 있었습니다.</p>
-              <div class="case-body">
-                <p>약 10~12인 규모 풀스택 조직의 팀 리드와 PO를 겸하며 목표, 우선순위, 딜리버리 구조를 정의하고 엔지니어링 기술 방향을 함께 관리했습니다.</p>
-                <p>조직 내 반복 업무의 비효율은 AX(AI Transformation)로 전환해 구성원이 핵심 업무에 집중할 수 있도록 했습니다.</p>
-              </div>
-              <p class="case-result"><span class="case-label">결과</span>신규 ARR 약 7배 성장에 기여했으며, 담당 팀 영역은 현재 DeepSearch 매출의 약 90%를 차지합니다.</p>
-            </article>
-          </div>
+            </div>
+          </section>
         </section>
         <section class="career-company" id="miso">
           <header class="company-header">
@@ -115,9 +165,10 @@
             <div class="role-line">Backend Engineer (O2O Squad) → PO 겸 Engineer (Goodoc Labs) · 2022/05 — 2023/11</div>
             <p>O2O 스쿼드 Backend Engineer로 약 600만 회원 규모 병원 예약·접수 서비스를 개발·운영했고, 이후 Goodoc Labs에서 PO 겸 Engineer로 제품 방향과 기술 실행을 담당했습니다.</p>
           </header>
-          <div class="case-list">
+          <section class="case-group">
+            <div class="case-list">
             <article class="case-card">
-              <h4>실시간 O2O 접수 서버 구축 및 운영</h4>
+              <h5>실시간 O2O 접수 서버 구축 및 운영</h5>
               <p class="case-problem"><span class="case-label">문제</span>병원 예약·접수 서비스에서 실시간 상태 변경을 처리할 B2B2C 접수 서버가 필요했습니다.</p>
               <div class="case-body">
                 <p>Node.js·NestJS·TypeORM으로 서비스 백엔드를 개발하고 앱 서비스 API는 GraphQL로 제공했습니다. 실시간 접수 처리를 위한 Socket 기반 O2O 접수 서버를 신규 구축해 EKS 환경에서 운영했습니다.</p>
@@ -127,7 +178,7 @@
               <div class="case-tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">TypeORM</span><span class="tag">GraphQL</span><span class="tag">Socket</span><span class="tag">EKS</span></div>
             </article>
             <article class="case-card">
-              <h4>v3 → v4 무중단 마이그레이션</h4>
+              <h5>v3 → v4 무중단 마이그레이션</h5>
               <p class="case-problem"><span class="case-label">문제</span>클라우드 기반 라이브 서비스의 레거시 환경을 신규 아키텍처와 메이저 버전으로 전환해야 했습니다.</p>
               <div class="case-body">
                 <p>대규모 버전 전환 과제를 담당해 기존 레거시 환경에서 신규 아키텍처로 무중단 마이그레이션을 수행했습니다.</p>
@@ -136,7 +187,7 @@
               <div class="case-tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">zero-downtime migration</span></div>
             </article>
             <article class="case-card">
-              <h4>접수 서버 반복 장애 안정화 및 레거시 인증 서버 복구</h4>
+              <h5>접수 서버 반복 장애 안정화 및 레거시 인증 서버 복구</h5>
               <p class="case-problem"><span class="case-label">문제</span>접수 서버 장애가 매주 반복됐으나 메트릭과 인수인계 정보가 부족했고, 접근 정보가 남아 있지 않은 레거시 인증 EC2 장애도 발생했습니다.</p>
               <div class="case-body">
                 <p>장애를 직접 추적해 DB CPU 병목과 비효율 쿼리를 원인으로 특정하고, 트래픽 패턴을 분석해 부하가 낮은 시간대에 인덱스를 적용했습니다.</p>
@@ -146,14 +197,15 @@
               <div class="case-tags"><span class="tag">DB tuning</span><span class="tag">index</span><span class="tag">EC2</span><span class="tag">AMI</span></div>
             </article>
             <article class="case-card">
-              <h4>Goodoc Labs PO 겸 Engineer 역할 수행</h4>
+              <h5>Goodoc Labs PO 겸 Engineer 역할 수행</h5>
               <p class="case-problem"><span class="case-label">문제</span>성장 조직에서 제품 방향 결정과 기술 실행을 함께 담당할 역할이 필요했습니다.</p>
               <div class="case-body">
                 <p>2023년 8월부터 11월까지 Goodoc Labs에서 PO 겸 Engineer로 제품 방향 설정과 우선순위 조율을 백엔드 실행과 병행했습니다.</p>
               </div>
               <p class="case-result"><span class="case-label">결과</span>제품 의사결정과 엔지니어링 실행을 함께 담당하는 범위로 역할을 확장했습니다.</p>
             </article>
-          </div>
+            </div>
+          </section>
         </section>
         <section class="career-company" id="pentasecurity">
           <header class="company-header">

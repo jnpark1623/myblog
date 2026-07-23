@@ -24,6 +24,20 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;')
 }
 
+// A company either splits its cases into labelled groups (사업 성과 /
+// 엔지니어링 성과) or has a single unlabelled set. Normalise both to groups.
+function caseGroupsFor(experience) {
+  if (experience.caseGroups) {
+    return experience.caseGroups
+  }
+  const cases = experience.cases || []
+  return cases.length ? [{ label: null, cases }] : []
+}
+
+function caseCountFor(experience) {
+  return caseGroupsFor(experience).reduce((total, group) => total + group.cases.length, 0)
+}
+
 function assertProfile() {
   for (const document of Object.values(profile.documents)) {
     if (tokens[document.slug] !== document.token) {
@@ -41,9 +55,11 @@ function assertProfile() {
     }
     anchors.add(experience.anchor)
 
-    for (const caseItem of experience.cases) {
-      if (!caseItem.problem || !caseItem.body.length || !caseItem.result) {
-        throw new Error(`incomplete case in ${experience.company}: ${caseItem.title}`)
+    for (const group of caseGroupsFor(experience)) {
+      for (const caseItem of group.cases) {
+        if (!caseItem.problem || !caseItem.body.length || !caseItem.result) {
+          throw new Error(`incomplete case in ${experience.company}: ${caseItem.title}`)
+        }
       }
     }
   }
@@ -144,7 +160,7 @@ function roleLine(experience) {
 
 function resumeExperience(experience) {
   const career = profile.documents.careerDescription
-  const more = experience.cases.length
+  const more = caseCountFor(experience)
     ? `\n            <p class="job-more"><a href="${docPath(career)}#${escapeHtml(
         experience.anchor
       )}">경력기술서에서 자세히 보기 →</a></p>`
@@ -232,7 +248,7 @@ function careerCase(caseItem) {
     : ''
 
   return `            <article class="case-card">
-              <h4>${escapeHtml(caseItem.title)}</h4>
+              <h5>${escapeHtml(caseItem.title)}</h5>
               <p class="case-problem"><span class="case-label">문제</span>${escapeHtml(
                 caseItem.problem
               )}</p>
@@ -245,12 +261,21 @@ ${body}
             </article>`
 }
 
-function careerCompany(experience) {
-  const cases = experience.cases.length
-    ? `\n          <div class="case-list">\n${experience.cases
-        .map(careerCase)
-        .join('\n')}\n          </div>`
+function careerCaseGroup(group) {
+  const heading = group.label
+    ? `\n            <h4 class="case-group-title">${escapeHtml(group.label)}</h4>`
     : ''
+
+  return `          <section class="case-group">${heading}
+            <div class="case-list">
+${group.cases.map(careerCase).join('\n')}
+            </div>
+          </section>`
+}
+
+function careerCompany(experience) {
+  const groups = caseGroupsFor(experience)
+  const cases = groups.length ? `\n${groups.map(careerCaseGroup).join('\n')}` : ''
 
   return `        <section class="career-company" id="${escapeHtml(experience.anchor)}">
           <header class="company-header">

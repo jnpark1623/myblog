@@ -70,9 +70,12 @@ a:hover { text-decoration: underline; }
 .company-header .role-line { margin-bottom: 12px; color: var(--muted); font-size: 0.9rem; font-weight: 500; }
 .company-header p { margin: 0; line-height: 1.75; color: var(--body-ink); }
 .company-header p + p { margin-top: 11px; }
+.case-group { margin-bottom: 26px; }
+.case-group:last-child { margin-bottom: 0; }
+.case-group-title { margin: 0 0 14px; padding: 8px 15px; border-radius: 9px; background: #edf1fa; color: var(--accent-ink); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.01em; }
 .case-list { display: grid; gap: 16px; }
 .case-card { break-inside: avoid; position: relative; border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; background: #fbfcff; }
-.case-card h4 { margin: 0 0 12px; padding-bottom: 11px; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 1.04rem; letter-spacing: -0.01em; }
+.case-card h5 { margin: 0 0 12px; padding-bottom: 11px; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 1.04rem; font-weight: 700; letter-spacing: -0.01em; }
 .case-label { display: inline-block; margin-right: 9px; padding: 1px 7px; border-radius: 4px; background: #e8edf7; color: #4a5b7d; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; vertical-align: 0.08em; }
 .case-problem { margin: 0 0 13px; color: var(--body-ink); line-height: 1.75; }
 .case-body p { margin: 0; line-height: 1.78; color: var(--body-ink); }
@@ -121,10 +124,12 @@ a:hover { text-decoration: underline; }
   .side-column { background: #fbfcfe; }
   .career-body { padding: 26px 32px 32px; }
   .career-company { break-inside: auto; }
-  .company-header { break-inside: avoid; break-after: avoid; }
+  .company-header { break-inside: avoid; }
   .section h3, .section .section-lead { break-after: avoid; }
+  .case-list { display: block; }
+  .case-list > .case-card { margin-bottom: 16px; }
   .case-card { box-shadow: none; break-inside: auto; }
-  .case-card h4, .case-problem { break-after: avoid; }
+  .case-card h5, .case-problem, .case-group-title { break-after: avoid; }
   .job-block { break-inside: avoid; }
   .doc-crosslink { display: block; padding: 16px 32px 20px; }
 }

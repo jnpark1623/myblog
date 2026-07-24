@@ -111,8 +111,8 @@
               <h5>실시간 시세 파이프라인의 tick-to-aggregate 지연 병목 해소</h5>
               <p class="case-problem"><span class="case-label">문제</span>실시간 시세 파이프라인에 상시 지연이 있던 것은 아니지만, 흔히 말하는 분봉 데이터를 신규 적재하는 과정에서 tick 데이터를 aggregate하는 단계의 처리량이 거래량을 따라가지 못했습니다. 거래량이 최근처럼 많거나 시장이 늦게 마감되는 경우 최대 15분까지 지연이 발생했습니다.</p>
               <div class="case-body">
-                <p>Koscom TCP socket → Kafka → aggregation → DB 적재까지 하나의 서버에서 처리되는 구조에서, 지연의 원인은 aggregation 단계에 있었습니다.</p>
-                <p>해당 서버 전체가 아니라 consumer 부분만 떼어내, 메모리 병목과 트랜잭션 단위를 세분화하여 병목을 해소했습니다. Kafka 버전이 매우 낮고 업그레이드가 어려운 상황이라 기존 모놀리스 서버에서는 consume 속도 자체가 느린 것이 원인이었습니다.</p>
+                <p>Koscom TCP socket → Kafka → aggregation → DB 적재까지 하나의 서버에서 처리되는 구조에서, aggregation 단계가 Kafka 메시지를 consume하는 속도 자체가 느린 것이 지연의 원인이었습니다. Kafka 버전이 매우 낮고 업그레이드가 어려운 상황이라 기존 모놀리스 서버에서는 consume 처리량을 끌어올리기 어려웠습니다.</p>
+                <p>서버 전체가 아니라 consumer 부분만 떼어내, 메모리 병목과 트랜잭션 단위를 세분화하는 방식으로 consume 처리량을 높여 병목을 해소했습니다.</p>
                 <p>기술적 난이도보다는, 지연이 상시 발생하지 않아 원인이 드러나지 않던 상태에서 병목 지점을 특정하고 개선한 과정이 더 기억에 남는 사례입니다.</p>
               </div>
               <p class="case-result"><span class="case-label">결과</span>거래량이 몰리거나 장 마감이 늦어도 최대 15분까지 벌어지던 지연을 초저지연에 가까운 수준으로 낮췄습니다.</p>

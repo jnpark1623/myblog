@@ -239,8 +239,43 @@ ${crosslinkFooter(profile.documents.careerDescription, '경력기술서')}
 ${documentEnd()}`
 }
 
+function caseTable(table) {
+  const headRow = table.headers
+    .map((h, i) => `<th${i === 0 ? '' : ' class="num"'}>${escapeHtml(h)}</th>`)
+    .join('')
+  const bodyRows = table.rows
+    .map(
+      (row) =>
+        `<tr>${row
+          .map(
+            (cell, i) =>
+              `<t${i === 0 ? 'h scope="row"' : 'd class="num"'}>${escapeHtml(cell)}</t${
+                i === 0 ? 'h' : 'd'
+              }>`
+          )
+          .join('')}</tr>`
+    )
+    .join('\n                  ')
+  const caption = table.caption
+    ? `\n                  <caption>${escapeHtml(table.caption)}</caption>`
+    : ''
+  const note = table.note
+    ? `\n                <p class="case-table-note">${escapeHtml(table.note)}</p>`
+    : ''
+
+  return `\n              <div class="case-table-wrap">
+                <table class="case-table">${caption}
+                  <thead><tr>${headRow}</tr></thead>
+                  <tbody>
+                  ${bodyRows}
+                  </tbody>
+                </table>${note}
+              </div>`
+}
+
 function careerCase(caseItem) {
   const body = caseItem.body.map((text) => `                <p>${escapeHtml(text)}</p>`).join('\n')
+  const table = caseItem.table ? caseTable(caseItem.table) : ''
   const tags = caseItem.tech.length
     ? `\n              <div class="case-tags">${caseItem.tech
         .map((item) => `<span class="tag">${escapeHtml(item)}</span>`)
@@ -254,7 +289,7 @@ function careerCase(caseItem) {
               )}</p>
               <div class="case-body">
 ${body}
-              </div>
+              </div>${table}
               <p class="case-result"><span class="case-label">결과</span>${escapeHtml(
                 caseItem.result
               )}</p>${tags}

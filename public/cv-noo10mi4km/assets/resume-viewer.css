@@ -80,6 +80,16 @@ a:hover { text-decoration: underline; }
 .case-problem { margin: 0 0 13px; color: var(--body-ink); line-height: 1.75; }
 .case-body p { margin: 0; line-height: 1.78; color: var(--body-ink); }
 .case-body p + p { margin-top: 11px; }
+.case-table-wrap { margin: 15px 0 2px; overflow-x: auto; }
+.case-table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+.case-table caption { caption-side: top; text-align: left; margin-bottom: 8px; color: var(--muted); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; }
+.case-table th, .case-table td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.case-table thead th { border-bottom: 2px solid #d9e3f0; color: var(--muted); font-size: 0.82rem; font-weight: 700; }
+.case-table tbody th { color: var(--ink); font-weight: 700; }
+.case-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.case-table tbody td.num { color: var(--accent-ink); font-weight: 700; }
+.case-table tbody tr:last-child th, .case-table tbody tr:last-child td { border-bottom: 0; }
+.case-table-note { margin: 10px 0 0; color: var(--muted); font-size: 0.86rem; line-height: 1.6; }
 .case-result { margin: 14px 0 0; padding: 12px 15px; border-radius: 10px; background: var(--accent-soft); color: #24345c; line-height: 1.7; font-size: 0.95rem; }
 .case-result .case-label { background: #dae3f8; color: var(--accent-ink); }
 .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
@@ -130,6 +140,7 @@ a:hover { text-decoration: underline; }
   .case-list > .case-card { margin-bottom: 16px; }
   .case-card { box-shadow: none; break-inside: auto; }
   .case-card h5, .case-problem, .case-group-title { break-after: avoid; }
+  .case-table-wrap { break-inside: avoid; }
   .job-block { break-inside: avoid; }
   .doc-crosslink { display: block; padding: 16px 32px 20px; }
 }

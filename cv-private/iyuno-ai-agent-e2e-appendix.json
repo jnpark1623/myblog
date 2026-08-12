@@ -3,6 +3,7 @@
     "slug": "iyuno-ai-agent-e2e-appendix",
     "title": "박재남 — AI Agent Engineer",
     "navLabel": "AI Agent Engineer",
+    "headline": "AI Agent Engineer · Backend Engineer · Product Lead",
     "token": "72776159cce6a7ac2f93a249"
   },
   "intro": [
@@ -52,6 +53,41 @@
       "details": [
         "금융 데이터 기반 AI 분류와 생성형 콘텐츠를 구현하고 API·데이터 파이프라인을 통해 B2B 제품 기능으로 제공했습니다.",
         "약 10~12인 규모 풀스택 조직에서 AI Agent의 데이터 기반, 백엔드 구현, 딜리버리와 운영을 리딩했습니다."
+      ]
+    }
+  ],
+  "experienceHighlights": [
+    {
+      "company": "DeepSearch",
+      "summary": [
+        "금융 도메인 AI Agent 제품에서 LangChain·LangSmith 기반 DAG와 반복형 Agentic Flow를 적용하고, 실행 추적·서빙 아키텍처·AI Ops까지 담당했습니다.",
+        "정형·비정형 데이터 수집부터 태깅·토픽 추출·인덱싱·고관련도 검색까지 AI Ready Data 파이프라인을 구축·운영했습니다.",
+        "약 10~12인 규모 풀스택 조직의 리드와 PO를 겸하며 AI Agent의 데이터 기반, 백엔드 구현, 딜리버리와 운영을 이끌고 있습니다."
+      ]
+    },
+    {
+      "company": "Miso, Inc.",
+      "summary": [
+        "Engineering Manager로 신규 사업 런칭 과제와 Product·Engineering 조직 간 기술 우선순위 조율을 담당했습니다."
+      ]
+    },
+    {
+      "company": "Goodoc",
+      "summary": [
+        "Node.js·NestJS·GraphQL·Socket 기반 병원 예약·접수 서비스를 개발하고 EKS 환경의 신규 아키텍처로 무중단 마이그레이션했습니다.",
+        "Goodoc Labs에서 PO 겸 Engineer로 제품 방향·우선순위와 백엔드 실행을 함께 담당했습니다."
+      ]
+    },
+    {
+      "company": "Pentasecurity Systems",
+      "summary": [
+        "데이터 암호화 플랫폼 운영·관리 솔루션을 개발하고, 4인 규모 DX 조직의 Team Lead로 제품 방향과 실행을 이끌었습니다."
+      ]
+    },
+    {
+      "company": "Media Solutions",
+      "summary": [
+        "디지털 사이니지와 키오스크용 미디어 콘텐츠를 개발하며 서비스형 소프트웨어 개발과 현장 운영 경험을 쌓았습니다."
       ]
     }
   ],

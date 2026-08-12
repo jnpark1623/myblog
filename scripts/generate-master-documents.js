@@ -90,6 +90,23 @@ function assertProfile() {
       throw new Error(`IYUNO appendix highlight ${index + 1} is incomplete or out of order`)
     }
   })
+  if (!appendixDocument.headline) {
+    throw new Error('AI Agent resume headline is missing')
+  }
+  const experienceCompanies = profile.experiences.map((experience) => experience.company)
+  if (
+    !Array.isArray(iyunoAppendix.experienceHighlights) ||
+    iyunoAppendix.experienceHighlights.length !== experienceCompanies.length ||
+    iyunoAppendix.experienceHighlights.some(
+      (item, index) =>
+        item.company !== experienceCompanies[index] ||
+        !Array.isArray(item.summary) ||
+        !item.summary.length ||
+        item.summary.some((summary) => !summary)
+    )
+  ) {
+    throw new Error('AI Agent resume experience chronology is incomplete or out of order')
+  }
   if (
     !Array.isArray(iyunoAppendix.engineeringPrinciples) ||
     !iyunoAppendix.engineeringPrinciples.length ||
@@ -208,6 +225,7 @@ function standaloneDocumentHead(document, intro) {
       <header class="resume-header">
         <div>
           <h1>${escapeHtml(profile.basics.fullName)}</h1>
+          <div class="role-line">${escapeHtml(document.headline)}</div>
           <div class="intro">
             ${paragraphs(intro)}
           </div>
@@ -434,6 +452,29 @@ ${details}
             </article>`
     })
     .join('\n')
+  const experiences = appendix.experienceHighlights
+    .map((item, index) => {
+      const source = profile.experiences[index]
+      const summaries = item.summary
+        .map((summary) => `              <li>${escapeHtml(summary)}</li>`)
+        .join('\n')
+      return `          <article class="job-block">
+            <h4>${escapeHtml(source.company)}</h4>
+            <div class="role-line">${roleLine(source)}</div>
+            <ul class="bullet-list">
+${summaries}
+            </ul>
+          </article>`
+    })
+    .join('\n')
+  const education = profile.education
+    .map(
+      (item) =>
+        `              <li><strong>${escapeHtml(item.school)}</strong><br/>${escapeHtml(
+          item.major
+        )}</li>`
+    )
+    .join('\n')
   const principles = appendix.engineeringPrinciples
     .map((item) => `              <li>${escapeHtml(item)}</li>`)
     .join('\n')
@@ -456,6 +497,10 @@ ${coreCompetencies}
 ${highlights}
             </div>
           </section>
+          <section class="section">
+            <h3>경력</h3>
+${experiences}
+          </section>
         </div>
         <aside class="side-column">
           <section class="section">
@@ -469,6 +514,12 @@ ${principles}
             <div class="pill-row">
 ${keywords}
             </div>
+          </section>
+          <section class="section">
+            <h3>학력</h3>
+            <ul class="meta-list">
+${education}
+            </ul>
           </section>
         </aside>
       </section>

@@ -63,25 +63,28 @@ function assertProfile() {
   if (!Array.isArray(iyunoAppendix.intro) || !iyunoAppendix.intro.length) {
     throw new Error('IYUNO appendix intro is missing')
   }
-  if (!Array.isArray(iyunoAppendix.e2eStages) || iyunoAppendix.e2eStages.length !== 6) {
-    throw new Error('IYUNO appendix must contain exactly six E2E stages')
+  if (
+    !Array.isArray(iyunoAppendix.technicalHighlights) ||
+    iyunoAppendix.technicalHighlights.length !== 5
+  ) {
+    throw new Error('IYUNO appendix must contain exactly five technical highlights')
   }
-  const stagePrefixes = [
-    '1. 추론',
-    '2. 검색',
-    '3. 도구 실행',
-    '4. 상태 관리',
-    '5. 평가·개선',
-    '6. E2E 제품화·운영',
+  const requiredTitles = [
+    'LangChain·LangSmith 기반 DAG 스택',
+    'Looping 형태의 Agentic Flow',
+    'Agent를 뒷받침하는 데이터 파이프라인',
+    '태깅·토픽 추출·인덱싱을 통한 검색 정확도 개선',
+    '제품 서빙과 운영 개선',
   ]
-  iyunoAppendix.e2eStages.forEach((stage, index) => {
+  iyunoAppendix.technicalHighlights.forEach((highlight, index) => {
     if (
-      !stage.stage.startsWith(stagePrefixes[index]) ||
-      !stage.evidenceLabel ||
-      !stage.evidence ||
-      !stage.iyunoApplication
+      highlight.title !== requiredTitles[index] ||
+      !highlight.summary ||
+      !Array.isArray(highlight.details) ||
+      !highlight.details.length ||
+      highlight.details.some((detail) => !detail)
     ) {
-      throw new Error(`IYUNO appendix stage ${index + 1} is incomplete or out of order`)
+      throw new Error(`IYUNO appendix highlight ${index + 1} is incomplete or out of order`)
     }
   })
   if (
@@ -388,18 +391,19 @@ function renderIyunoAppendix() {
   const fitSummary = appendix.fitSummary
     .map((item) => `              <li>${escapeHtml(item)}</li>`)
     .join('\n')
-  const stages = appendix.e2eStages
-    .map(
-      (item) => `            <article class="case-card">
-              <h5>${escapeHtml(item.stage)}</h5>
-              <p class="case-problem"><span class="case-label">${escapeHtml(
-                item.evidenceLabel
-              )}</span>${escapeHtml(item.evidence)}</p>
-              <p class="case-result"><span class="case-label">IYUNO 적용</span>${escapeHtml(
-                item.iyunoApplication
-              )}</p>
+  const highlights = appendix.technicalHighlights
+    .map((item) => {
+      const details = item.details
+        .map((detail) => `                <li>${escapeHtml(detail)}</li>`)
+        .join('\n')
+      return `            <article class="case-card">
+              <h5>${escapeHtml(item.title)}</h5>
+              <p>${escapeHtml(item.summary)}</p>
+              <ul class="bullet-list">
+${details}
+              </ul>
             </article>`
-    )
+    })
     .join('\n')
   const principles = appendix.operatingPrinciples
     .map((item) => `              <li>${escapeHtml(item)}</li>`)
@@ -418,9 +422,9 @@ ${fitSummary}
             </ul>
           </section>
           <section class="section">
-            <h3>AI Agent E2E 실행 경험과 적용 관점</h3>
+            <h3>AI Agent 기술 구현 경험</h3>
             <div class="case-list">
-${stages}
+${highlights}
             </div>
           </section>
         </div>

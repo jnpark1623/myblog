@@ -14,7 +14,7 @@
           <h1>박재남</h1>
           <div class="role-line">AI Agent Engineer · Backend Engineer · Product Lead</div>
           <div class="intro">
-            <p>LangChain·LangSmith 기반 DAG와 반복형 Agentic Flow를 제품에 적용하고, 이를 뒷받침하는 데이터 파이프라인과 검색 정확도 개선까지 연결해 왔습니다.</p>
+            <p>LangChain·LangSmith 기반 DAG와 LLM 추론 기반 Agentic Loop를 제품에 적용하고, 이를 뒷받침하는 데이터 파이프라인과 검색 정확도 개선까지 연결해 왔습니다.</p>
           </div>
         </div>
         <aside class="contact-card">
@@ -32,7 +32,7 @@
           <section class="section">
             <h3>핵심 역량</h3>
             <ul class="bullet-list">
-              <li>LangChain·LangSmith를 활용한 DAG 스택과 반복형 Agentic Flow를 금융 도메인 AI Agent 제품에 적용했습니다.</li>
+              <li>LangChain·LangSmith를 활용한 DAG 스택과 LLM 추론 기반 Agentic Loop를 금융 도메인 AI Agent 제품에 적용했습니다.</li>
               <li>정형·비정형 데이터를 수집·가공·적재하는 파이프라인을 구축하고, 토픽 추출·태깅·인덱싱으로 검색 가능한 AI Ready Data를 만들었습니다.</li>
               <li>Agent 구현을 데모로 끝내지 않고 서빙 아키텍처, AI Ops, 데이터 품질과 B2B 제품 운영까지 연결했습니다.</li>
             </ul>
@@ -49,11 +49,11 @@
               </ul>
             </article>
             <article class="case-card">
-              <h5>반복형 Agentic Flow</h5>
-              <p>한 번의 생성으로 끝나지 않고 중간 결과와 조건에 따라 다음 실행을 이어가는 반복형 Agentic Flow를 제품화했습니다.</p>
+              <h5>LLM 추론 기반 Agentic Loop</h5>
+              <p>목적별 toolset과 실행 가이드를 정의하고, 도구 선택·실행 순서·다음 행동은 LLM이 추론하도록 설계했습니다.</p>
               <ul class="bullet-list">
-                <li>고정된 DAG만으로 해결하기 어려운 반복 판단이 필요한 문제에 agentic loop를 선택했습니다.</li>
-                <li>native LLM 호출·DAG·agentic loop를 문제의 복잡도와 통제 수준에 따라 구분해 적용했습니다.</li>
+                <li>LLM의 추론 결과에 따라 tool을 실행하고 그 결과를 다시 관찰 컨텍스트로 전달해, 목표 달성 또는 종료 판단까지 추론·도구 실행·관찰 단계를 반복합니다.</li>
+                <li>실행 경로를 사전에 정의하는 DAG와 달리, Agentic Loop에서는 목적과 가드레일 안에서 다음 step과 tool 선택을 LLM 추론에 맡겼습니다.</li>
               </ul>
             </article>
             <article class="case-card">
@@ -88,7 +88,7 @@
             <h4>DeepSearch</h4>
             <div class="role-line">Backend Software Engineer (2023/12–현재) · Team Lead - Finance AI (2025/05–현재)</div>
             <ul class="bullet-list">
-              <li>금융 도메인 AI Agent 제품에서 LangChain·LangSmith 기반 DAG와 반복형 Agentic Flow를 적용하고, 실행 추적·서빙 아키텍처·AI Ops까지 담당했습니다.</li>
+              <li>금융 도메인 AI Agent 제품에서 LangChain·LangSmith 기반 DAG와 LLM 추론 기반 Agentic Loop를 적용하고, 실행 추적·서빙 아키텍처·AI Ops까지 담당했습니다.</li>
               <li>정형·비정형 데이터 수집부터 태깅·토픽 추출·인덱싱·고관련도 검색까지 AI Ready Data 파이프라인을 구축·운영했습니다.</li>
               <li>약 10~12인 규모 풀스택 조직의 리드와 PO를 겸하며 AI Agent의 데이터 기반, 백엔드 구현, 딜리버리와 운영을 이끌고 있습니다.</li>
             </ul>
@@ -129,7 +129,7 @@
             <h3>엔지니어링 원칙</h3>
             <ul class="bullet-list">
               <li>모델보다 데이터: Agent 품질을 좌우하는 데이터의 출처·형식·최신성과 검색 가능성을 먼저 설계합니다.</li>
-              <li>문제에 맞는 흐름: native 호출, DAG, agentic loop 중 필요한 복잡도와 통제 수준을 선택합니다.</li>
+              <li>실행 경로 설계: 순서와 의존성을 사전에 정의할 때는 DAG를, 목적별 toolset 안에서 다음 행동을 LLM이 결정해야 할 때는 Agentic Loop를 선택합니다.</li>
               <li>검색 전처리: 태깅·토픽 추출·인덱싱으로 검색 단위와 관련도를 정교화합니다.</li>
               <li>데모보다 운영: LangSmith 추적, 데이터 품질 관측과 AI Ops를 통해 실제 제품으로 운영합니다.</li>
             </ul>

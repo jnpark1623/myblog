@@ -74,7 +74,7 @@ function assertProfile() {
   }
   const requiredTitles = [
     'LangChain·LangSmith 기반 DAG 스택',
-    '반복형 Agentic Flow',
+    'LLM 추론 기반 Agentic Loop',
     'Agent를 뒷받침하는 데이터 파이프라인',
     '태깅·토픽 추출·인덱싱을 통한 검색 정확도 개선',
     '제품 서빙과 운영 개선',

@@ -22,12 +22,21 @@ const TOKENS = JSON.parse(
 )
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
-const SLUGS = [
+const DEFAULT_SLUGS = [
   'master-base-resume',
   'master-career-description',
   'master-backend-resume',
   'master-po-pm-resume',
+  'iyuno-ai-agent-e2e-appendix',
 ]
+const requestedSlugs = process.argv.slice(2)
+const slugs = requestedSlugs.length ? requestedSlugs : DEFAULT_SLUGS
+
+for (const slug of slugs) {
+  if (!DEFAULT_SLUGS.includes(slug)) {
+    throw new Error(`unknown resume slug: ${slug}`)
+  }
+}
 
 function makeStandalone(html, css) {
   // Replace the external stylesheet link with an inline <style> so the temp file
@@ -42,7 +51,7 @@ fs.mkdirSync(PDF_DIR, { recursive: true })
 const css = fs.readFileSync(CSS_PATH, 'utf8')
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-pdf-'))
 
-for (const slug of SLUGS) {
+for (const slug of slugs) {
   const token = TOKENS[slug]
   if (!token) throw new Error(`missing token for ${slug} in share-tokens.json`)
   const src = path.join(RESUMES_DIR, `${slug}.html`)

@@ -9,10 +9,12 @@ const path = require('path')
 
 const ROOT = path.join(__dirname, '..')
 const PROFILE_PATH = path.join(ROOT, 'cv-private', 'resume-profile.json')
+const IYUNO_APPENDIX_PATH = path.join(ROOT, 'cv-private', 'iyuno-ai-agent-e2e-appendix.json')
 const TOKENS_PATH = path.join(ROOT, 'cv-private', 'share-tokens.json')
 const OUTPUT_DIR = path.join(ROOT, 'cv-private', 'resumes')
 
 const profile = JSON.parse(fs.readFileSync(PROFILE_PATH, 'utf8'))
+const iyunoAppendix = JSON.parse(fs.readFileSync(IYUNO_APPENDIX_PATH, 'utf8'))
 const tokens = JSON.parse(fs.readFileSync(TOKENS_PATH, 'utf8'))
 
 function escapeHtml(value) {
@@ -43,6 +45,53 @@ function assertProfile() {
     if (tokens[document.slug] !== document.token) {
       throw new Error(`token mismatch for ${document.slug}`)
     }
+  }
+
+  const appendixDocument = iyunoAppendix.document
+  if (
+    !appendixDocument ||
+    !appendixDocument.slug ||
+    !appendixDocument.title ||
+    !appendixDocument.navLabel ||
+    !appendixDocument.token
+  ) {
+    throw new Error('IYUNO appendix document metadata is incomplete')
+  }
+  if (tokens[appendixDocument.slug] !== appendixDocument.token) {
+    throw new Error(`token mismatch for ${appendixDocument.slug}`)
+  }
+  if (!Array.isArray(iyunoAppendix.intro) || !iyunoAppendix.intro.length) {
+    throw new Error('IYUNO appendix intro is missing')
+  }
+  if (!Array.isArray(iyunoAppendix.e2eStages) || iyunoAppendix.e2eStages.length !== 6) {
+    throw new Error('IYUNO appendix must contain exactly six E2E stages')
+  }
+  const stagePrefixes = [
+    '1. 추론',
+    '2. 검색',
+    '3. 도구 실행',
+    '4. 상태 관리',
+    '5. 평가·개선',
+    '6. E2E 제품화·운영',
+  ]
+  iyunoAppendix.e2eStages.forEach((stage, index) => {
+    if (
+      !stage.stage.startsWith(stagePrefixes[index]) ||
+      !stage.evidenceLabel ||
+      !stage.evidence ||
+      !stage.iyunoApplication
+    ) {
+      throw new Error(`IYUNO appendix stage ${index + 1} is incomplete or out of order`)
+    }
+  })
+  if (
+    !Array.isArray(iyunoAppendix.operatingPrinciples) ||
+    !iyunoAppendix.operatingPrinciples.length ||
+    !Array.isArray(iyunoAppendix.keywords) ||
+    !iyunoAppendix.keywords.length ||
+    !iyunoAppendix.boundaryNote
+  ) {
+    throw new Error('IYUNO appendix supporting content is incomplete')
   }
 
   const anchors = new Set()
@@ -333,12 +382,78 @@ ${crosslinkFooter(profile.documents.resume, '이력서')}
 ${documentEnd()}`
 }
 
+function renderIyunoAppendix() {
+  const appendix = iyunoAppendix
+  const document = appendix.document
+  const fitSummary = appendix.fitSummary
+    .map((item) => `              <li>${escapeHtml(item)}</li>`)
+    .join('\n')
+  const stages = appendix.e2eStages
+    .map(
+      (item) => `            <article class="case-card">
+              <h5>${escapeHtml(item.stage)}</h5>
+              <p class="case-problem"><span class="case-label">${escapeHtml(
+                item.evidenceLabel
+              )}</span>${escapeHtml(item.evidence)}</p>
+              <p class="case-result"><span class="case-label">IYUNO 적용</span>${escapeHtml(
+                item.iyunoApplication
+              )}</p>
+            </article>`
+    )
+    .join('\n')
+  const principles = appendix.operatingPrinciples
+    .map((item) => `              <li>${escapeHtml(item)}</li>`)
+    .join('\n')
+  const keywords = appendix.keywords
+    .map((keyword) => `              <span class="pill">${escapeHtml(keyword)}</span>`)
+    .join('\n')
+
+  return `${documentHead(document, 'iyuno', appendix.intro)}
+      <section class="resume-body">
+        <div class="main-column">
+          <section class="section">
+            <h3>포지션 적합성 요약</h3>
+            <ul class="bullet-list">
+${fitSummary}
+            </ul>
+          </section>
+          <section class="section">
+            <h3>AI Agent E2E 실행 경험과 적용 관점</h3>
+            <div class="case-list">
+${stages}
+            </div>
+          </section>
+        </div>
+        <aside class="side-column">
+          <section class="section">
+            <h3>운영 원칙</h3>
+            <ul class="bullet-list">
+${principles}
+            </ul>
+          </section>
+          <section class="section">
+            <h3>핵심 키워드</h3>
+            <div class="pill-row">
+${keywords}
+            </div>
+          </section>
+          <section class="section panel">
+            <h3>경험의 경계</h3>
+            <p>${escapeHtml(appendix.boundaryNote)}</p>
+          </section>
+        </aside>
+      </section>
+${crosslinkFooter(profile.documents.resume, '기본 이력서')}
+${documentEnd()}`
+}
+
 assertProfile()
 fs.mkdirSync(OUTPUT_DIR, { recursive: true })
 
 const outputs = [
   [profile.documents.resume.slug, renderResume()],
   [profile.documents.careerDescription.slug, renderCareerDescription()],
+  [iyunoAppendix.document.slug, renderIyunoAppendix()],
 ]
 
 for (const [slug, html] of outputs) {

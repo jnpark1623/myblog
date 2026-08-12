@@ -63,6 +63,9 @@ function assertProfile() {
   if (!Array.isArray(iyunoAppendix.intro) || !iyunoAppendix.intro.length) {
     throw new Error('IYUNO appendix intro is missing')
   }
+  if (!Array.isArray(iyunoAppendix.coreCompetencies) || !iyunoAppendix.coreCompetencies.length) {
+    throw new Error('IYUNO resume core competencies are missing')
+  }
   if (
     !Array.isArray(iyunoAppendix.technicalHighlights) ||
     iyunoAppendix.technicalHighlights.length !== 5
@@ -71,7 +74,7 @@ function assertProfile() {
   }
   const requiredTitles = [
     'LangChain·LangSmith 기반 DAG 스택',
-    'Looping 형태의 Agentic Flow',
+    '반복형 Agentic Flow',
     'Agent를 뒷받침하는 데이터 파이프라인',
     '태깅·토픽 추출·인덱싱을 통한 검색 정확도 개선',
     '제품 서빙과 운영 개선',
@@ -88,11 +91,10 @@ function assertProfile() {
     }
   })
   if (
-    !Array.isArray(iyunoAppendix.operatingPrinciples) ||
-    !iyunoAppendix.operatingPrinciples.length ||
+    !Array.isArray(iyunoAppendix.engineeringPrinciples) ||
+    !iyunoAppendix.engineeringPrinciples.length ||
     !Array.isArray(iyunoAppendix.keywords) ||
-    !iyunoAppendix.keywords.length ||
-    !iyunoAppendix.boundaryNote
+    !iyunoAppendix.keywords.length
   ) {
     throw new Error('IYUNO appendix supporting content is incomplete')
   }
@@ -176,6 +178,33 @@ function documentHead(document, active, intro) {
   <main class="wrapper">
     <article class="page">
 ${documentNav(active)}
+      <header class="resume-header">
+        <div>
+          <h1>${escapeHtml(profile.basics.fullName)}</h1>
+          <div class="intro">
+            ${paragraphs(intro)}
+          </div>
+        </div>
+        <aside class="contact-card">
+          <ul class="contact-list">
+${contactList()}
+          </ul>
+        </aside>
+      </header>`
+}
+
+function standaloneDocumentHead(document, intro) {
+  return `<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${escapeHtml(document.title)}</title>
+  <link rel="stylesheet" href="../assets/resume-viewer.css" />
+</head>
+<body>
+  <main class="wrapper">
+    <article class="page">
       <header class="resume-header">
         <div>
           <h1>${escapeHtml(profile.basics.fullName)}</h1>
@@ -388,7 +417,7 @@ ${documentEnd()}`
 function renderIyunoAppendix() {
   const appendix = iyunoAppendix
   const document = appendix.document
-  const fitSummary = appendix.fitSummary
+  const coreCompetencies = appendix.coreCompetencies
     .map((item) => `              <li>${escapeHtml(item)}</li>`)
     .join('\n')
   const highlights = appendix.technicalHighlights
@@ -405,20 +434,20 @@ ${details}
             </article>`
     })
     .join('\n')
-  const principles = appendix.operatingPrinciples
+  const principles = appendix.engineeringPrinciples
     .map((item) => `              <li>${escapeHtml(item)}</li>`)
     .join('\n')
   const keywords = appendix.keywords
     .map((keyword) => `              <span class="pill">${escapeHtml(keyword)}</span>`)
     .join('\n')
 
-  return `${documentHead(document, 'iyuno', appendix.intro)}
+  return `${standaloneDocumentHead(document, appendix.intro)}
       <section class="resume-body">
         <div class="main-column">
           <section class="section">
-            <h3>포지션 적합성 요약</h3>
+            <h3>핵심 역량</h3>
             <ul class="bullet-list">
-${fitSummary}
+${coreCompetencies}
             </ul>
           </section>
           <section class="section">
@@ -430,24 +459,19 @@ ${highlights}
         </div>
         <aside class="side-column">
           <section class="section">
-            <h3>운영 원칙</h3>
+            <h3>엔지니어링 원칙</h3>
             <ul class="bullet-list">
 ${principles}
             </ul>
           </section>
           <section class="section">
-            <h3>핵심 키워드</h3>
+            <h3>핵심 기술</h3>
             <div class="pill-row">
 ${keywords}
             </div>
           </section>
-          <section class="section panel">
-            <h3>경험의 경계</h3>
-            <p>${escapeHtml(appendix.boundaryNote)}</p>
-          </section>
         </aside>
       </section>
-${crosslinkFooter(profile.documents.resume, '기본 이력서')}
 ${documentEnd()}`
 }
 

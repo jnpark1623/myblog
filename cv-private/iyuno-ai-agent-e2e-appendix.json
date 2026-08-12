@@ -1,14 +1,14 @@
 {
   "document": {
     "slug": "iyuno-ai-agent-e2e-appendix",
-    "title": "IYUNO 지원 부록 — AI Agent 기술 구현 경험",
-    "navLabel": "IYUNO · AI Agent 기술 구현",
+    "title": "박재남 — AI Agent Engineer",
+    "navLabel": "AI Agent Engineer",
     "token": "72776159cce6a7ac2f93a249"
   },
   "intro": [
-    "LangChain·LangSmith 기반 DAG와 반복형 Agentic Flow를 제품에 적용하고, 이를 뒷받침하는 데이터 파이프라인과 검색 정확도 개선까지 연결해 온 경험을 정리한 지원 부록입니다."
+    "LangChain·LangSmith 기반 DAG와 반복형 Agentic Flow를 제품에 적용하고, 이를 뒷받침하는 데이터 파이프라인과 검색 정확도 개선까지 연결해 왔습니다."
   ],
-  "fitSummary": [
+  "coreCompetencies": [
     "LangChain·LangSmith를 활용한 DAG 스택과 반복형 Agentic Flow를 금융 도메인 AI Agent 제품에 적용했습니다.",
     "정형·비정형 데이터를 수집·가공·적재하는 파이프라인을 구축하고, 토픽 추출·태깅·인덱싱으로 검색 가능한 AI Ready Data를 만들었습니다.",
     "Agent 구현을 데모로 끝내지 않고 서빙 아키텍처, AI Ops, 데이터 품질과 B2B 제품 운영까지 연결했습니다."
@@ -23,8 +23,8 @@
       ]
     },
     {
-      "title": "Looping 형태의 Agentic Flow",
-      "summary": "한 번의 생성으로 끝나지 않고 중간 결과와 조건에 따라 다음 실행을 이어가는 반복형 agentic flow를 제품화했습니다.",
+      "title": "반복형 Agentic Flow",
+      "summary": "한 번의 생성으로 끝나지 않고 중간 결과와 조건에 따라 다음 실행을 이어가는 반복형 Agentic Flow를 제품화했습니다.",
       "details": [
         "고정된 DAG만으로 해결하기 어려운 반복 판단이 필요한 문제에 agentic loop를 선택했습니다.",
         "native LLM 호출·DAG·agentic loop를 문제의 복잡도와 통제 수준에 따라 구분해 적용했습니다."
@@ -55,7 +55,7 @@
       ]
     }
   ],
-  "operatingPrinciples": [
+  "engineeringPrinciples": [
     "모델보다 데이터: Agent 품질을 좌우하는 데이터의 출처·형식·최신성과 검색 가능성을 먼저 설계합니다.",
     "문제에 맞는 흐름: native 호출, DAG, agentic loop 중 필요한 복잡도와 통제 수준을 선택합니다.",
     "검색 전처리: 태깅·토픽 추출·인덱싱으로 검색 단위와 관련도를 정교화합니다.",
@@ -81,6 +81,5 @@
     "Dagster",
     "EKS",
     "Data Quality"
-  ],
-  "boundaryNote": "Cloe 또는 미디어 로컬라이제이션 시스템을 직접 개발했다는 의미가 아닙니다. 금융 도메인에서 수행한 AI Agent·데이터 파이프라인·검색 품질 개선 경험을 IYUNO 지원 관점에서 정리한 문서입니다."
+  ]
 }

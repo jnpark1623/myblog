@@ -107,12 +107,7 @@ function assertProfile() {
   ) {
     throw new Error('AI Agent resume experience chronology is incomplete or out of order')
   }
-  if (
-    !Array.isArray(iyunoAppendix.engineeringPrinciples) ||
-    !iyunoAppendix.engineeringPrinciples.length ||
-    !Array.isArray(iyunoAppendix.keywords) ||
-    !iyunoAppendix.keywords.length
-  ) {
+  if (!Array.isArray(iyunoAppendix.keywords) || !iyunoAppendix.keywords.length) {
     throw new Error('IYUNO appendix supporting content is incomplete')
   }
 
@@ -475,9 +470,6 @@ ${summaries}
         )}</li>`
     )
     .join('\n')
-  const principles = appendix.engineeringPrinciples
-    .map((item) => `              <li>${escapeHtml(item)}</li>`)
-    .join('\n')
   const keywords = appendix.keywords
     .map((keyword) => `              <span class="pill">${escapeHtml(keyword)}</span>`)
     .join('\n')
@@ -503,12 +495,6 @@ ${experiences}
           </section>
         </div>
         <aside class="side-column">
-          <section class="section">
-            <h3>엔지니어링 원칙</h3>
-            <ul class="bullet-list">
-${principles}
-            </ul>
-          </section>
           <section class="section">
             <h3>핵심 기술</h3>
             <div class="pill-row">

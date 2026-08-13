@@ -530,13 +530,73 @@ ${companies}
 ${documentEnd()}`
 }
 
+function assertTailoredOutput(html) {
+  const requiredBaseContent = [
+    ...profile.resume.intro,
+    profile.resume.strengthsLead,
+    ...profile.resume.strengths,
+    ...profile.careerDescription.intro,
+    ...profile.education.flatMap((item) => [item.school, item.major]),
+    ...profile.awards.flatMap((award) => [award.year, award.name, award.org]),
+    ...profile.experiences.flatMap((experience) => [
+      experience.company,
+      experience.role,
+      experience.period,
+      ...experience.resumeSummary,
+      ...experience.overview,
+      ...caseGroupsFor(experience).flatMap((group) => [
+        ...(group.label ? [group.label] : []),
+        ...group.cases.flatMap((caseItem) => [
+          caseItem.title,
+          caseItem.problem,
+          ...caseItem.body,
+          caseItem.result,
+          ...caseItem.tech,
+        ]),
+      ]),
+    ]),
+  ]
+  const requiredTailoredContent = [
+    ...iyunoAppendix.resumeIntroAdditions,
+    ...iyunoAppendix.deepSearchResumeAdditions,
+    ...iyunoAppendix.deepSearchOverviewAdditions,
+    iyunoAppendix.aiAgentCaseGroup.label,
+    ...iyunoAppendix.aiAgentCaseGroup.cases.flatMap((caseItem) => [
+      caseItem.title,
+      caseItem.problem,
+      ...caseItem.body,
+      caseItem.result,
+      ...caseItem.tech,
+    ]),
+    ...iyunoAppendix.keywordAdditions,
+  ]
+  for (const text of [...requiredBaseContent, ...requiredTailoredContent]) {
+    if (!html.includes(escapeHtml(text))) {
+      throw new Error(`tailored resume omitted required content: ${text}`)
+    }
+  }
+
+  const expectedCases =
+    profile.experiences.reduce((total, experience) => total + caseCountFor(experience), 0) +
+    iyunoAppendix.aiAgentCaseGroup.cases.length
+  const renderedCases = (html.match(/class="case-card"/g) || []).length
+  if (renderedCases !== expectedCases) {
+    throw new Error(
+      `tailored resume case count mismatch: expected ${expectedCases}, got ${renderedCases}`
+    )
+  }
+}
+
 assertProfile()
 fs.mkdirSync(OUTPUT_DIR, { recursive: true })
+
+const tailoredHtml = renderIyunoAppendix()
+assertTailoredOutput(tailoredHtml)
 
 const outputs = [
   [profile.documents.resume.slug, renderResume()],
   [profile.documents.careerDescription.slug, renderCareerDescription()],
-  [iyunoAppendix.document.slug, renderIyunoAppendix()],
+  [iyunoAppendix.document.slug, tailoredHtml],
 ]
 
 for (const [slug, html] of outputs) {

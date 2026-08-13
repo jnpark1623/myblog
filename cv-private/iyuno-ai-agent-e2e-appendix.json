@@ -1,10 +1,19 @@
 {
-  "document": {
-    "slug": "iyuno-ai-agent-e2e-appendix",
-    "title": "박재남 — AI Agent Engineer",
-    "navLabel": "AI Agent Engineer",
-    "headline": "AI Agent Engineer · Backend Engineer · Product Lead",
-    "token": "72776159cce6a7ac2f93a249"
+  "documents": {
+    "resume": {
+      "slug": "iyuno-ai-agent-e2e-appendix",
+      "title": "박재남 — AI Agent Engineer",
+      "navLabel": "AI Agent Engineer",
+      "headline": "AI Agent Engineer · Backend Engineer · Product Lead",
+      "token": "72776159cce6a7ac2f93a249"
+    },
+    "careerDescription": {
+      "slug": "iyuno-ai-agent-career-description",
+      "title": "박재남 — 경력기술서",
+      "navLabel": "경력기술서",
+      "headline": "AI Agent Engineer · Backend Engineer · Product Lead",
+      "token": "cbe391f62da6270f79adbb97"
+    }
   },
   "resumeIntroAdditions": [
     "LangChain·LangSmith 기반 DAG와 LLM 추론 기반 Agentic Loop를 금융 도메인 제품에 적용하고, 이를 뒷받침하는 데이터 파이프라인과 검색 정확도 개선까지 연결해 왔습니다."

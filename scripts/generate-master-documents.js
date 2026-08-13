@@ -47,19 +47,23 @@ function assertProfile() {
     }
   }
 
-  const tailoredDocument = iyunoAppendix.document
-  if (
-    !tailoredDocument ||
-    !tailoredDocument.slug ||
-    !tailoredDocument.title ||
-    !tailoredDocument.navLabel ||
-    !tailoredDocument.headline ||
-    !tailoredDocument.token
-  ) {
-    throw new Error('AI Agent tailored resume metadata is incomplete')
+  const tailoredDocuments = iyunoAppendix.documents
+  if (!tailoredDocuments || !tailoredDocuments.resume || !tailoredDocuments.careerDescription) {
+    throw new Error('AI Agent tailored document metadata is missing')
   }
-  if (tokens[tailoredDocument.slug] !== tailoredDocument.token) {
-    throw new Error(`token mismatch for ${tailoredDocument.slug}`)
+  for (const tailoredDocument of Object.values(tailoredDocuments)) {
+    if (
+      !tailoredDocument.slug ||
+      !tailoredDocument.title ||
+      !tailoredDocument.navLabel ||
+      !tailoredDocument.headline ||
+      !tailoredDocument.token
+    ) {
+      throw new Error('AI Agent tailored document metadata is incomplete')
+    }
+    if (tokens[tailoredDocument.slug] !== tailoredDocument.token) {
+      throw new Error(`token mismatch for ${tailoredDocument.slug}`)
+    }
   }
   for (const key of [
     'resumeIntroAdditions',
@@ -411,7 +415,8 @@ ${documentEnd()}`
 
 function buildTailoredProfile() {
   const tailored = JSON.parse(JSON.stringify(profile))
-  tailored.documents.resume = iyunoAppendix.document
+  tailored.documents.resume = iyunoAppendix.documents.resume
+  tailored.documents.careerDescription = iyunoAppendix.documents.careerDescription
   tailored.resume.intro = [...tailored.resume.intro, ...iyunoAppendix.resumeIntroAdditions]
   tailored.resume.keywords = [
     ...new Set([...iyunoAppendix.keywordAdditions, ...tailored.resume.keywords]),
@@ -454,8 +459,7 @@ function tailoredCareerCompany(experience) {
         </section>`
 }
 
-function renderIyunoAppendix() {
-  const tailored = buildTailoredProfile()
+function renderTailoredResume(tailored) {
   const document = tailored.documents.resume
   const strengths = tailored.resume.strengths
     .map((item) => `              <li>${escapeHtml(item)}</li>`)
@@ -480,7 +484,6 @@ function renderIyunoAppendix() {
         )} <span class="label">${escapeHtml(award.year)}</span></li>`
     )
     .join('\n')
-  const companies = tailored.experiences.map(tailoredCareerCompany).join('\n')
 
   return `${standaloneDocumentHead(document, tailored.resume.intro)}
       <section class="resume-body">
@@ -518,24 +521,24 @@ ${awards}
           </section>
         </aside>
       </section>
+${documentEnd()}`
+}
+
+function renderTailoredCareerDescription(tailored) {
+  const document = tailored.documents.careerDescription
+  const companies = tailored.experiences.map(tailoredCareerCompany).join('\n')
+  return `${standaloneDocumentHead(document, tailored.careerDescription.intro)}
       <div class="career-body">
-        <section class="career-company">
-          <header class="company-header">
-            <h2>경력기술서</h2>
-            ${paragraphs(tailored.careerDescription.intro)}
-          </header>
-        </section>
 ${companies}
       </div>
 ${documentEnd()}`
 }
 
-function assertTailoredOutput(html) {
-  const requiredBaseContent = [
+function assertTailoredResume(html) {
+  const required = [
     ...profile.resume.intro,
     profile.resume.strengthsLead,
     ...profile.resume.strengths,
-    ...profile.careerDescription.intro,
     ...profile.education.flatMap((item) => [item.school, item.major]),
     ...profile.awards.flatMap((award) => [award.year, award.name, award.org]),
     ...profile.experiences.flatMap((experience) => [
@@ -543,6 +546,28 @@ function assertTailoredOutput(html) {
       experience.role,
       experience.period,
       ...experience.resumeSummary,
+    ]),
+    ...iyunoAppendix.resumeIntroAdditions,
+    ...iyunoAppendix.deepSearchResumeAdditions,
+    ...iyunoAppendix.keywordAdditions,
+  ]
+  for (const text of required) {
+    if (!html.includes(escapeHtml(text))) {
+      throw new Error(`tailored resume omitted required content: ${text}`)
+    }
+  }
+  if (html.includes('<h2>경력기술서</h2>') || html.includes('class="case-card"')) {
+    throw new Error('tailored resume must not contain career-description content')
+  }
+}
+
+function assertTailoredCareerDescription(html) {
+  const required = [
+    ...profile.careerDescription.intro,
+    ...profile.experiences.flatMap((experience) => [
+      experience.company,
+      experience.role,
+      experience.period,
       ...experience.overview,
       ...caseGroupsFor(experience).flatMap((group) => [
         ...(group.label ? [group.label] : []),
@@ -555,10 +580,6 @@ function assertTailoredOutput(html) {
         ]),
       ]),
     ]),
-  ]
-  const requiredTailoredContent = [
-    ...iyunoAppendix.resumeIntroAdditions,
-    ...iyunoAppendix.deepSearchResumeAdditions,
     ...iyunoAppendix.deepSearchOverviewAdditions,
     iyunoAppendix.aiAgentCaseGroup.label,
     ...iyunoAppendix.aiAgentCaseGroup.cases.flatMap((caseItem) => [
@@ -568,35 +589,40 @@ function assertTailoredOutput(html) {
       caseItem.result,
       ...caseItem.tech,
     ]),
-    ...iyunoAppendix.keywordAdditions,
   ]
-  for (const text of [...requiredBaseContent, ...requiredTailoredContent]) {
+  for (const text of required) {
     if (!html.includes(escapeHtml(text))) {
-      throw new Error(`tailored resume omitted required content: ${text}`)
+      throw new Error(`tailored career description omitted required content: ${text}`)
     }
   }
-
   const expectedCases =
     profile.experiences.reduce((total, experience) => total + caseCountFor(experience), 0) +
     iyunoAppendix.aiAgentCaseGroup.cases.length
   const renderedCases = (html.match(/class="case-card"/g) || []).length
   if (renderedCases !== expectedCases) {
     throw new Error(
-      `tailored resume case count mismatch: expected ${expectedCases}, got ${renderedCases}`
+      `tailored career case count mismatch: expected ${expectedCases}, got ${renderedCases}`
     )
+  }
+  if (html.includes('<h3>강점</h3>') || html.includes('<h3>수상경력</h3>')) {
+    throw new Error('tailored career description must not contain resume sections')
   }
 }
 
 assertProfile()
 fs.mkdirSync(OUTPUT_DIR, { recursive: true })
 
-const tailoredHtml = renderIyunoAppendix()
-assertTailoredOutput(tailoredHtml)
+const tailoredProfile = buildTailoredProfile()
+const tailoredResumeHtml = renderTailoredResume(tailoredProfile)
+const tailoredCareerHtml = renderTailoredCareerDescription(tailoredProfile)
+assertTailoredResume(tailoredResumeHtml)
+assertTailoredCareerDescription(tailoredCareerHtml)
 
 const outputs = [
   [profile.documents.resume.slug, renderResume()],
   [profile.documents.careerDescription.slug, renderCareerDescription()],
-  [iyunoAppendix.document.slug, tailoredHtml],
+  [iyunoAppendix.documents.resume.slug, tailoredResumeHtml],
+  [iyunoAppendix.documents.careerDescription.slug, tailoredCareerHtml],
 ]
 
 for (const [slug, html] of outputs) {

@@ -28,6 +28,7 @@ const DEFAULT_SLUGS = [
   'master-backend-resume',
   'master-po-pm-resume',
   'iyuno-ai-agent-e2e-appendix',
+  'iyuno-ai-agent-career-description',
 ]
 const requestedSlugs = process.argv.slice(2)
 const slugs = requestedSlugs.length ? requestedSlugs : DEFAULT_SLUGS

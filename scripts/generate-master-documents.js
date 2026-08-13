@@ -47,68 +47,50 @@ function assertProfile() {
     }
   }
 
-  const appendixDocument = iyunoAppendix.document
+  const tailoredDocument = iyunoAppendix.document
   if (
-    !appendixDocument ||
-    !appendixDocument.slug ||
-    !appendixDocument.title ||
-    !appendixDocument.navLabel ||
-    !appendixDocument.token
+    !tailoredDocument ||
+    !tailoredDocument.slug ||
+    !tailoredDocument.title ||
+    !tailoredDocument.navLabel ||
+    !tailoredDocument.headline ||
+    !tailoredDocument.token
   ) {
-    throw new Error('IYUNO appendix document metadata is incomplete')
+    throw new Error('AI Agent tailored resume metadata is incomplete')
   }
-  if (tokens[appendixDocument.slug] !== appendixDocument.token) {
-    throw new Error(`token mismatch for ${appendixDocument.slug}`)
+  if (tokens[tailoredDocument.slug] !== tailoredDocument.token) {
+    throw new Error(`token mismatch for ${tailoredDocument.slug}`)
   }
-  if (!Array.isArray(iyunoAppendix.intro) || !iyunoAppendix.intro.length) {
-    throw new Error('IYUNO appendix intro is missing')
-  }
-  if (!Array.isArray(iyunoAppendix.coreCompetencies) || !iyunoAppendix.coreCompetencies.length) {
-    throw new Error('IYUNO resume core competencies are missing')
-  }
-  if (
-    !Array.isArray(iyunoAppendix.technicalHighlights) ||
-    iyunoAppendix.technicalHighlights.length !== 5
-  ) {
-    throw new Error('IYUNO appendix must contain exactly five technical highlights')
-  }
-  const requiredTitles = [
-    'LangChain·LangSmith 기반 DAG 스택',
-    'LLM 추론 기반 Agentic Loop',
-    'Agent를 뒷받침하는 데이터 파이프라인',
-    '태깅·토픽 추출·인덱싱을 통한 검색 정확도 개선',
-    '제품 서빙과 운영 개선',
-  ]
-  iyunoAppendix.technicalHighlights.forEach((highlight, index) => {
-    if (
-      highlight.title !== requiredTitles[index] ||
-      !highlight.summary ||
-      !Array.isArray(highlight.details) ||
-      !highlight.details.length ||
-      highlight.details.some((detail) => !detail)
-    ) {
-      throw new Error(`IYUNO appendix highlight ${index + 1} is incomplete or out of order`)
+  for (const key of [
+    'resumeIntroAdditions',
+    'deepSearchResumeAdditions',
+    'deepSearchOverviewAdditions',
+    'keywordAdditions',
+  ]) {
+    if (!Array.isArray(iyunoAppendix[key]) || !iyunoAppendix[key].length) {
+      throw new Error(`AI Agent tailored resume ${key} is missing`)
     }
-  })
-  if (!appendixDocument.headline) {
-    throw new Error('AI Agent resume headline is missing')
   }
-  const experienceCompanies = profile.experiences.map((experience) => experience.company)
+  const caseGroup = iyunoAppendix.aiAgentCaseGroup
   if (
-    !Array.isArray(iyunoAppendix.experienceHighlights) ||
-    iyunoAppendix.experienceHighlights.length !== experienceCompanies.length ||
-    iyunoAppendix.experienceHighlights.some(
-      (item, index) =>
-        item.company !== experienceCompanies[index] ||
-        !Array.isArray(item.summary) ||
-        !item.summary.length ||
-        item.summary.some((summary) => !summary)
-    )
+    !caseGroup ||
+    caseGroup.label !== 'AI Agent 제품화' ||
+    !Array.isArray(caseGroup.cases) ||
+    caseGroup.cases.length !== 4
   ) {
-    throw new Error('AI Agent resume experience chronology is incomplete or out of order')
+    throw new Error('AI Agent tailored career case group is incomplete')
   }
-  if (!Array.isArray(iyunoAppendix.keywords) || !iyunoAppendix.keywords.length) {
-    throw new Error('IYUNO appendix supporting content is incomplete')
+  for (const caseItem of caseGroup.cases) {
+    if (
+      !caseItem.title ||
+      !caseItem.problem ||
+      !Array.isArray(caseItem.body) ||
+      !caseItem.body.length ||
+      !caseItem.result ||
+      !Array.isArray(caseItem.tech)
+    ) {
+      throw new Error(`incomplete tailored AI Agent case: ${caseItem.title || 'untitled'}`)
+    }
   }
 
   const anchors = new Set()
@@ -427,42 +409,62 @@ ${crosslinkFooter(profile.documents.resume, '이력서')}
 ${documentEnd()}`
 }
 
+function buildTailoredProfile() {
+  const tailored = JSON.parse(JSON.stringify(profile))
+  tailored.documents.resume = iyunoAppendix.document
+  tailored.resume.intro = [...tailored.resume.intro, ...iyunoAppendix.resumeIntroAdditions]
+  tailored.resume.keywords = [
+    ...new Set([...iyunoAppendix.keywordAdditions, ...tailored.resume.keywords]),
+  ]
+
+  const deepSearch = tailored.experiences.find((experience) => experience.company === 'DeepSearch')
+  if (!deepSearch) {
+    throw new Error('DeepSearch experience is missing')
+  }
+  deepSearch.resumeSummary = [
+    ...deepSearch.resumeSummary,
+    ...iyunoAppendix.deepSearchResumeAdditions,
+  ]
+  deepSearch.overview = [...deepSearch.overview, ...iyunoAppendix.deepSearchOverviewAdditions]
+  deepSearch.caseGroups = [
+    deepSearch.caseGroups[0],
+    iyunoAppendix.aiAgentCaseGroup,
+    ...deepSearch.caseGroups.slice(1),
+  ]
+  return tailored
+}
+
+function tailoredResumeExperience(experience) {
+  return `          <article class="job-block">
+            <h4>${escapeHtml(experience.company)}</h4>
+            <div class="role-line">${roleLine(experience)}</div>
+            ${paragraphs(experience.resumeSummary)}
+          </article>`
+}
+
+function tailoredCareerCompany(experience) {
+  const groups = caseGroupsFor(experience)
+  const cases = groups.length ? `\n${groups.map(careerCaseGroup).join('\n')}` : ''
+  return `        <section class="career-company" id="tailored-${escapeHtml(experience.anchor)}">
+          <header class="company-header">
+            <h3>${escapeHtml(experience.company)}</h3>
+            <div class="role-line">${roleLine(experience)}</div>
+            ${paragraphs(experience.overview)}
+          </header>${cases}
+        </section>`
+}
+
 function renderIyunoAppendix() {
-  const appendix = iyunoAppendix
-  const document = appendix.document
-  const coreCompetencies = appendix.coreCompetencies
+  const tailored = buildTailoredProfile()
+  const document = tailored.documents.resume
+  const strengths = tailored.resume.strengths
     .map((item) => `              <li>${escapeHtml(item)}</li>`)
     .join('\n')
-  const highlights = appendix.technicalHighlights
-    .map((item) => {
-      const details = item.details
-        .map((detail) => `                <li>${escapeHtml(detail)}</li>`)
-        .join('\n')
-      return `            <article class="case-card">
-              <h5>${escapeHtml(item.title)}</h5>
-              <p>${escapeHtml(item.summary)}</p>
-              <ul class="bullet-list">
-${details}
-              </ul>
-            </article>`
-    })
+  const experiences = tailored.experiences.map(tailoredResumeExperience).join('\n')
+  const keywords = tailored.resume.keywords
+    .map((keyword) => `              <span class="pill">${escapeHtml(keyword)}</span>`)
     .join('\n')
-  const experiences = appendix.experienceHighlights
-    .map((item, index) => {
-      const source = profile.experiences[index]
-      const summaries = item.summary
-        .map((summary) => `              <li>${escapeHtml(summary)}</li>`)
-        .join('\n')
-      return `          <article class="job-block">
-            <h4>${escapeHtml(source.company)}</h4>
-            <div class="role-line">${roleLine(source)}</div>
-            <ul class="bullet-list">
-${summaries}
-            </ul>
-          </article>`
-    })
-    .join('\n')
-  const education = profile.education
+  const education = tailored.education
     .map(
       (item) =>
         `              <li><strong>${escapeHtml(item.school)}</strong><br/>${escapeHtml(
@@ -470,24 +472,25 @@ ${summaries}
         )}</li>`
     )
     .join('\n')
-  const keywords = appendix.keywords
-    .map((keyword) => `              <span class="pill">${escapeHtml(keyword)}</span>`)
+  const awards = tailored.awards
+    .map(
+      (award) =>
+        `              <li><strong>${escapeHtml(award.name)}</strong><br/>${escapeHtml(
+          award.org
+        )} <span class="label">${escapeHtml(award.year)}</span></li>`
+    )
     .join('\n')
+  const companies = tailored.experiences.map(tailoredCareerCompany).join('\n')
 
-  return `${standaloneDocumentHead(document, appendix.intro)}
+  return `${standaloneDocumentHead(document, tailored.resume.intro)}
       <section class="resume-body">
         <div class="main-column">
           <section class="section">
-            <h3>핵심 역량</h3>
+            <h3>강점</h3>
+            <p class="section-lead">${escapeHtml(tailored.resume.strengthsLead)}</p>
             <ul class="bullet-list">
-${coreCompetencies}
+${strengths}
             </ul>
-          </section>
-          <section class="section">
-            <h3>AI Agent 기술 구현 경험</h3>
-            <div class="case-list">
-${highlights}
-            </div>
           </section>
           <section class="section">
             <h3>경력</h3>
@@ -496,7 +499,7 @@ ${experiences}
         </div>
         <aside class="side-column">
           <section class="section">
-            <h3>핵심 기술</h3>
+            <h3>핵심 키워드</h3>
             <div class="pill-row">
 ${keywords}
             </div>
@@ -507,8 +510,23 @@ ${keywords}
 ${education}
             </ul>
           </section>
+          <section class="section">
+            <h3>수상경력</h3>
+            <ul class="meta-list">
+${awards}
+            </ul>
+          </section>
         </aside>
       </section>
+      <div class="career-body">
+        <section class="career-company">
+          <header class="company-header">
+            <h2>경력기술서</h2>
+            ${paragraphs(tailored.careerDescription.intro)}
+          </header>
+        </section>
+${companies}
+      </div>
 ${documentEnd()}`
 }
 
